@@ -6,7 +6,14 @@ project(SPHERE)
 #find_package(OpenGL)
 #find_package(GLUT)
 
-set(SOURCE main.c)
+set(SOURCE_TESTBED
+    main.c
+    )
+set(SOURCE_ENGINE
+    engine.h engine.c
+    xyz.h xyz.c
+    icosahedron.h icosahedron.c
+    )
 
 #message( STATUS "==>> ${OPENGL_INCLUDE_DIR}" )
 #message( STATUS "${GLUT_LIBRARY}" )
@@ -37,9 +44,9 @@ ENDIF (APPLE)
 #    message(STATUS "==========================>> ${SOURCE}")
 #endforeach()
 
+add_library( engine STATIC ${SOURCE_ENGINE} )
+add_executable( sphere_testbed ${SOURCE_TESTBED} )
 
-add_executable( sphere ${SOURCE} )
-
-target_link_libraries(sphere ${EXTRA_LIBS})
+target_link_libraries( sphere_testbed ${EXTRA_LIBS} engine )
 
 

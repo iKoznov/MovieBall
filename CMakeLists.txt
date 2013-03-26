@@ -12,11 +12,6 @@ project(SPHERE)
 set(SOURCE_TESTBED
     main.c
     )
-set(SOURCE_ENGINE
-    engine.h engine.c
-    xyz.h xyz.c
-    icosahedron.h icosahedron.c
-    )
 
 #message( STATUS "==>> ${OPENGL_INCLUDE_DIR}" )
 #message( STATUS "${GLUT_LIBRARY}" )
@@ -63,7 +58,9 @@ ENDIF(WIN32)
 #  VERBATIM
 #)
 
-add_library( engine STATIC ${SOURCE_ENGINE} )
+add_subdirectory( engine )
+include_directories( engine )
+
 add_executable( sphere_testbed ${SOURCE_TESTBED} )
 
 target_link_libraries( sphere_testbed ${EXTRA_LIBS} engine )

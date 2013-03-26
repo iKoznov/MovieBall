@@ -75,7 +75,7 @@ void reshape(int width, int height)
     glMatrixMode(GL_MODELVIEW);
     
     glLoadIdentity();
-    glTranslatef(0, -0.3, -3);
+    glTranslatef(0, 0, -3);
 }
 
 void display()

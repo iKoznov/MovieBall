@@ -6,6 +6,9 @@ project(SPHERE)
 #find_package(OpenGL)
 #find_package(GLUT)
 
+#SET( CMAKE_C_COMPILER "c99wrap.exe ""cl""" )
+#SET( CMAKE_CXX_COMPILER cl )
+
 set(SOURCE_TESTBED
     main.c
     )
@@ -32,6 +35,14 @@ IF(APPLE)
    SET(EXTRA_LIBS ${COCOA_LIBRARY} ${GLUT_LIBRARY} ${OpenGL_LIBRARY})
 ENDIF (APPLE)
 
+IF(WIN32)
+	INCLUDE_DIRECTORIES ( . )
+	#SET( EXTRA_LIBS glut32 )
+	link_directories("${PROJECT_SOURCE_DIR}/GLUT")
+	#SET( CMAKE_C_COMPILER c99conv.exe )
+	#SET( CMAKE_CXX_COMPILER c99conv.exe )
+ENDIF(WIN32)
+
 
 #include_directories(/usr/X11R6/include/)
 #link_directories(/usr/X11R6/lib)
@@ -44,9 +55,24 @@ ENDIF (APPLE)
 #    message(STATUS "==========================>> ${SOURCE}")
 #endforeach()
 
+#add_custom_command(
+#  OUTPUT icosahedron.cpp
+#  COMMAND c99conv.exe icosahedron.c icosahedron.c
+#  MAIN_DEPENDENCY icosahedron.c
+#  COMMENT "Preprocessing myfile.sql.in"
+#  VERBATIM
+#)
+
 add_library( engine STATIC ${SOURCE_ENGINE} )
 add_executable( sphere_testbed ${SOURCE_TESTBED} )
 
 target_link_libraries( sphere_testbed ${EXTRA_LIBS} engine )
+#target_link_libraries( sphere_testbed ${EXTRA_LIBS} )
 
-
+IF(WIN32)
+	add_custom_command(TARGET sphere_testbed
+	POST_BUILD        # Adds a post-build event to MyTest
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
+        "${PROJECT_SOURCE_DIR}/GLUT/glut32.dll"      # <--this is in-file
+        $<TARGET_FILE_DIR:sphere_testbed>)                 # <--this is out-file path
+ENDIF(WIN32)

@@ -1,8 +1,8 @@
-#include <stdio.h>
+//#include <stdio.h>
 #include <locale.h>
-#include <GLUT/glut.h>
 #include "engine.h"
-#include "icosahedron.h"
+#include <GLUT/glut.h>
+//#include "icosahedron.h"
 #include "xyz.h"
 
 //#include <GL/glew.h>
@@ -22,9 +22,9 @@ int main(int argc, char **argv)
 {
 	puts("<<< SPHERE PROJECT >>>");
     
-    char *locale = setlocale(LC_ALL, "Russian");
-    printf("LOCALE : %s\n", locale);
-    
+    //char *locale = setlocale(LC_ALL, "Russian");
+    //printf("LOCALE : %s\n", locale);
+	
     glutInit(&argc, argv);
     glutInitWindowSize(800, 600);
     glutInitWindowPosition(0,0);
@@ -47,11 +47,13 @@ int main(int argc, char **argv)
 
 void reshape(int width, int height)
 {
+    GLfloat ratio = (GLfloat)width/(GLfloat)height;
+	GLfloat projection[16];
+	
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     
     glLoadIdentity();
-    GLfloat ratio = (GLfloat)width/(GLfloat)height;
     glFrustum(-ratio, ratio, -1.0f, 1.0f, 1, 100);
     
 //    gluOrtho2D(-1, 1, -1, 1);
@@ -64,7 +66,6 @@ void reshape(int width, int height)
 //    };
 //    glMultMatrixf(s);
     
-    GLfloat projection[16];
     glGetFloatv(GL_PROJECTION_MATRIX, projection);
     _printMatrixf(projection);
     
@@ -94,7 +95,7 @@ void display()
     glRotatef(_b*180.0f/M_PI, 1, 0, 0);
     glRotatef(_a, 0, 1, 0);
     xyz();
-    icosahedron(1);
+    //icosahedron(1);
     glutWireCube(2);
     glPopMatrix();
     
@@ -104,10 +105,9 @@ void display()
 
 void timer(int value)
 {
+	int time = glutGet(GLUT_ELAPSED_TIME);
 //    puts("timer");
     _a += _va * _msecs / 1000.0f;
-    
-    int time = glutGet(GLUT_ELAPSED_TIME);
     _b =  sinf((GLfloat)time/1000.0f) / 2.0f;
     
     display();

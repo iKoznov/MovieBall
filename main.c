@@ -2,7 +2,7 @@
 #include <locale.h>
 #include "engine.h"
 #include <GLUT/glut.h>
-//#include "icosahedron.h"
+#include "icosahedron.h"
 #include "xyz.h"
 
 //#include <GL/glew.h>
@@ -47,6 +47,8 @@ int main(int argc, char **argv)
 
 void reshape(int width, int height)
 {
+//    puts(__PRETTY_FUNCTION__);
+    
     GLfloat ratio = (GLfloat)width/(GLfloat)height;
 	GLfloat projection[16];
 	
@@ -78,6 +80,8 @@ void reshape(int width, int height)
 
 void display()
 {
+//    puts(__PRETTY_FUNCTION__);
+    
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     
@@ -95,7 +99,7 @@ void display()
     glRotatef(_b*180.0f/M_PI, 1, 0, 0);
     glRotatef(_a, 0, 1, 0);
     xyz();
-    //icosahedron(1);
+    icosahedron(1);
     glutWireCube(2);
     glPopMatrix();
     

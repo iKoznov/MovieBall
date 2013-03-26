@@ -4,10 +4,10 @@
 
 typedef struct {
     GLfloat x, y, z;
-} Vertex;
+} Point;
 
 static GLint _N = 10;
-static Vertex *_vertices = NULL;
+static Point *_vertices = NULL;
 static bool _didInitialize = false;
 
 void icosahedron_initialize()
@@ -27,14 +27,13 @@ void icosahedron_initialize()
     printf("\ta = %f\n", a);
     printf("\th = %f\n", h);
     
-    _vertices = malloc(_N*sizeof(Vertex));
+    _vertices = calloc( _N, sizeof(Point) );
     
     for (i = 0; i < 5; i++) {
         GLfloat b = i*2.0f*M_PI/5;
         _vertices[i].x = cosf(b);
         _vertices[i].y = h;
         _vertices[i].z = sinf(b);
-        printf("%f[%f; %f; %f]\n", b, _vertices[i].x, _vertices[i].y, _vertices[i].z);
     }
     
     for (i = 0; i < 5; i++) {
@@ -42,7 +41,6 @@ void icosahedron_initialize()
         _vertices[i+5].x = cosf(b);
         _vertices[i+5].y = -h;
         _vertices[i+5].z = sinf(b);
-        printf("%f[%f; %f; %f]\n", b, _vertices[i].x, _vertices[i].y, _vertices[i].z);
     }
 }
 
@@ -65,7 +63,8 @@ void icosahedron(GLfloat R)
     glEnableClientState(GL_VERTEX_ARRAY);
     
     glPointSize(5);
-    glVertexPointer(sizeof(Vertex)/sizeof(GLfloat), GL_FLOAT, sizeof(Vertex), _vertices);
+    glVertexPointer(sizeof(Point)/sizeof(GLfloat), GL_FLOAT, sizeof(Point), _vertices);
+//    printf("%s %d\n", __PRETTY_FUNCTION__, _N);
     glDrawArrays(GL_POINTS, 0, _N);
     
 //    glVertexPointer(sizeof(Vertex)/sizeof(GLfloat), GL_FLOAT, sizeof(Vertex), _vertices);

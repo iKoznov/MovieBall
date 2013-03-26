@@ -10,16 +10,16 @@ typedef struct {
     GLfloat R, G, B;
 } Color;
 
-typedef union {
-    struct {
-        Point point;
-        Color color;
-    };
-    struct {
-        GLfloat x, y, z;
-        GLfloat R, G, B;
-    };
-} Vertex;
+//typedef union {
+//    struct {
+//        Point point;
+//        Color color;
+//    };
+//    struct {
+//        GLfloat x, y, z;
+//        GLfloat R, G, B;
+//    };
+//} Vertex;
 
 Point PointMake( GLfloat x, GLfloat y, GLfloat z ) {
 	Point point;
@@ -37,21 +37,22 @@ Color ColorMake( GLfloat R, GLfloat G, GLfloat B ) {
 	return color;
 }
 
-Vertex VertexMake( Point p, Color c ) {
-	Vertex vertex;
-	vertex.point = p;
-	vertex.color = c;
-	return vertex;
-}
+//Vertex VertexMake( Point p, Color c ) {
+//	Vertex vertex;
+//	vertex.point = p;
+//	vertex.color = c;
+//	return vertex;
+//}
 
-static const GLint _N = 6;
-static Vertex *_vertices = NULL;
-static bool _didInitialize = false;
+static const GLint _N_xyz = 6;
+static Point *_points_xyz = NULL;
+static Color *_colors_xyz = NULL;
+static bool _didInitialize_xyz = false;
 
 void xyz_initialize()
 {
-    if (_didInitialize) return;
-    _didInitialize = true;
+    if (_didInitialize_xyz) return;
+    _didInitialize_xyz = true;
 	
     //Vertex vertices[_N] = {
     //    /* X */
@@ -67,25 +68,43 @@ void xyz_initialize()
     
     //printf("%ld\n", sizeof(vertices) / sizeof(GLfloat));
     
-    _vertices = malloc(sizeof(_N*sizeof(Vertex)));
-	_vertices[0] = VertexMake( PointMake( -1, 0, 0 ), ColorMake( 1, 0, 0 ) );
-	_vertices[1] = VertexMake( PointMake( 1, 0, 0 ), ColorMake( 1, 0, 0 ) );
-	_vertices[2] = VertexMake( PointMake( -1, 0, 0 ), ColorMake( 0, 1, 0 ) );
-	_vertices[3] = VertexMake( PointMake( 1, 0, 0 ), ColorMake( 0, 1, 0 ) );
-	_vertices[4] = VertexMake( PointMake( -1, 0, 0 ), ColorMake( 0, 0, 1 ) );
-	_vertices[5] = VertexMake( PointMake( 1, 0, 0 ), ColorMake( 0, 0, 1 ) );
+    _points_xyz = calloc( _N_xyz, sizeof(Point) );
+	_points_xyz[0] = PointMake( -1, 0, 0 );
+	_points_xyz[1] = PointMake( 1, 0, 0 );
+	_points_xyz[2] = PointMake( 0, -1, 0 );
+	_points_xyz[3] = PointMake( 0, 1, 0 );
+	_points_xyz[4] = PointMake( 0, 0, -1 );
+	_points_xyz[5] = PointMake( 0, 0, 1 );
+    
+    _colors_xyz = calloc( _N_xyz, sizeof(Color) );
+	_colors_xyz[0] = ColorMake( 1, 0, 0 );
+	_colors_xyz[1] = ColorMake( 1, 0, 0 );
+	_colors_xyz[2] = ColorMake( 0, 1, 0 );
+	_colors_xyz[3] = ColorMake( 0, 1, 0 );
+	_colors_xyz[4] = ColorMake( 0, 0, 1 );
+	_colors_xyz[5] = ColorMake( 0, 0, 1 );
 	
-    //memcpy(_vertices, vertices, sizeof(vertices));
+//    Point points[_N_xyz] = {
+//        { -1, 0, 0 },
+//        { 1, 0, 0 },
+//        { 0, -1, 0 },
+//        { 0, 1, 0 },
+//        { 0, 0, -1 },
+//        { 0, 0, 1 }
+//    };
+//    _points_xyz = calloc( _N_xyz, sizeof(Point) );
+//    memcpy(_points_xyz, points, sizeof(points));
 }
 
 void xyz_dealloc()
 {
-    if (!_didInitialize) return;
-    _didInitialize = false;
+    if (!_didInitialize_xyz) return;
+    _didInitialize_xyz = false;
     
     printf("%s\n", __PRETTY_FUNCTION__);
     
-    free(_vertices);
+    free(_points_xyz);
+    free(_colors_xyz);
 }
 
 void xyz()
@@ -97,9 +116,10 @@ void xyz()
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
     
-    glVertexPointer( sizeof(Point)/sizeof(GLfloat), GL_FLOAT, sizeof(Vertex), ((GLbyte *)_vertices) + offsetof(Vertex, point) );
-    glColorPointer( sizeof(Color)/sizeof(GLfloat), GL_FLOAT, sizeof(Vertex), ((GLbyte *)_vertices) + offsetof(Vertex, color) );
-    glDrawArrays(GL_LINES, 0, _N);
+    glVertexPointer( sizeof(Point)/sizeof(GLfloat), GL_FLOAT, sizeof(Point), _points_xyz );
+    glColorPointer( sizeof(Color)/sizeof(GLfloat), GL_FLOAT, sizeof(Color), _colors_xyz );
+//    printf("%s %d\n", __PRETTY_FUNCTION__, _N_xyz);
+    glDrawArrays(GL_LINES, 0, _N_xyz);
     
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);

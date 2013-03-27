@@ -31,6 +31,21 @@
 #define M_PI 3.14
 #endif
 
+typedef union {
+    struct { GLfloat v[3]; };
+    struct { GLfloat x, y, z; };
+    struct { GLfloat R, G, B; };
+} vec3f;
+
+typedef union {
+    struct { GLfloat v[4]; };
+    struct { GLfloat x, y, z, k; };
+    struct { GLfloat R, G, B, A; };
+} vec4f;
+
+vec3f vec3fMake( GLfloat, GLfloat, GLfloat );
+vec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
+
 extern void _printMatrixf (GLfloat *m);
 
 #endif

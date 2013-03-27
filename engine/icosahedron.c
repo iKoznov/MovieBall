@@ -2,12 +2,12 @@
 
 #include "icosahedron.h"
 
-typedef struct {
-    GLfloat x, y, z;
-} Point;
+//typedef struct {
+//    GLfloat x, y, z;
+//} Point;
 
 static GLint _N = 10;
-static Point *_vertices = NULL;
+static vec3f *_vertices = NULL;
 static bool _didInitialize = false;
 
 void icosahedron_initialize()
@@ -27,7 +27,7 @@ void icosahedron_initialize()
     printf("\ta = %f\n", a);
     printf("\th = %f\n", h);
     
-    _vertices = calloc( _N, sizeof(Point) );
+    _vertices = calloc( _N, sizeof(vec3f) );
     
     for (i = 0; i < 5; i++) {
         GLfloat b = i*2.0f*M_PI/5;
@@ -63,7 +63,7 @@ void icosahedron(GLfloat R)
     glEnableClientState(GL_VERTEX_ARRAY);
     
     glPointSize(5);
-    glVertexPointer(sizeof(Point)/sizeof(GLfloat), GL_FLOAT, sizeof(Point), _vertices);
+    glVertexPointer( 3, GL_FLOAT, sizeof(vec3f), _vertices );
 //    printf("%s %d\n", __PRETTY_FUNCTION__, _N);
     glDrawArrays(GL_POINTS, 0, _N);
     

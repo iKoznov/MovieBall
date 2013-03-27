@@ -8,6 +8,6 @@
 void icosahedron_initialize();
 void icosahedron_dealloc();
 
-void icosahedron(GLfloat R);
+void icosahedron();
 
 #endif

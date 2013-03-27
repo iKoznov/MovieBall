@@ -98,9 +98,9 @@ void display()
 //    printf("a = %f; b = %f\n", _a, _b);
     glRotatef(_b*180.0f/M_PI, 1, 0, 0);
     glRotatef(_a, 0, 1, 0);
-    xyz();
-    icosahedron(1);
-    glutWireCube(2);
+//    xyz();
+    icosahedron();
+//    glutWireCube(2);
     glPopMatrix();
     
     glFlush();

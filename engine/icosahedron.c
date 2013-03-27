@@ -45,11 +45,11 @@ void icosahedron_initialize()
     
     for (j = 1; j < _n + 1; j++)
     {
-        lat = hLat + (_n-j) * (M_PI/2 - hLat) / _n;
+        lat = hLat + (_n-j) * ((GLfloat)M_PI/2.0f - hLat) / _n;
         sLon = 0.0f;
         for (i = 0; i < 5*(j); p++, i++)
         {
-            lon = sLon + i*2.0f*M_PI/(5*(j));
+            lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
             (*p).x = R * cosf(lat) * cosf(lon);
             (*p).y = R * sinf(lat);
             (*p).z = R * cosf(lat) * sinf(lon);
@@ -59,11 +59,11 @@ void icosahedron_initialize()
     for (j = 1; j < _n; j++)
     {
         lat = hLat * (1.0f - j*2.0f/_n);
-        sLon = (GLfloat)j/(GLfloat)_n * M_PI/5.0f;
+        sLon = (GLfloat)j/(GLfloat)_n * (GLfloat)M_PI/5.0f;
         printf("sLon : %f\n", sLon);
         for (i = 0; i < 5*_n; p++, i++)
         {
-            GLfloat lon = sLon + i*2.0f*M_PI/(5*_n);
+            GLfloat lon = sLon + i*2.0f*(GLfloat)M_PI/(5*_n);
             (*p).x = R * cosf(lat) * cosf(lon);
             (*p).y = R * sinf(lat);
             (*p).z = R * cosf(lat) * sinf(lon);
@@ -72,11 +72,11 @@ void icosahedron_initialize()
     
     for (j = 1; j < _n + 1; j++)
     {
-        lat = -hLat - (_n-j) * (M_PI/2 - hLat) / _n;
-        sLon = M_PI/5.0f;
+        lat = -hLat - (_n-j) * ((GLfloat)M_PI/2.0f - hLat) / _n;
+        sLon = (GLfloat)M_PI/5.0f;
         for (i = 0; i < 5*(j); p++, i++)
         {
-            lon = sLon + i*2.0f*M_PI/(5*(j));
+            lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
             (*p).x = R * cosf(lat) * cosf(lon);
             (*p).y = R * sinf(lat);
             (*p).z = R * cosf(lat) * sinf(lon);

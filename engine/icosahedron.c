@@ -22,7 +22,7 @@ void icosahedron_initialize()
     _didInitialize = true;
     
     R = 1.8f;
-    _n = 20;
+    _n = 2;
     _N = 2 + 10 * _n*_n;
     a = 4.0f * R / sqrtf(10.0f + 2.0f*sqrtf(5.0f));
     h = a * sqrtf( (5.0f - sqrtf(5.0f)) / 10.0f );

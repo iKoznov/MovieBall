@@ -3,7 +3,7 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include "TargetConditionals.h"
+#include <TargetConditionals.h>
 
 #if defined WIN32 | WIN64
 #include <Windows.h>
@@ -22,7 +22,7 @@
 #if defined WIN32 | WIN64
 #include <gl/gl.h>
 #elif __APPLE__
-    #ifdef TARGET_OS_IPHONE
+    #if defined TARGET_OS_IPHONE
     #include <OpenGLES/ES1/gl.h>
     #include <OpenGLES/ES1/glext.h>
     #elif TARGET_IPHONE_SIMULATOR
@@ -60,6 +60,6 @@ typedef union {
 vec3f vec3fMake( GLfloat, GLfloat, GLfloat );
 vec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
 
-extern void _printMatrixf (GLfloat *m);
+void _printMatrixf (GLfloat *m);
 
 #endif

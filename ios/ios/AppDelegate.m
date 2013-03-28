@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SphereViewController.h"
 
 @implementation AppDelegate
 
@@ -17,9 +18,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-#if TARGET_OS_IPHONE | TARGET_IPHONE_SIMULATOR
-    NSLog(@"IOS SDK");
-#endif
+    self.window.rootViewController = [[SphereViewController alloc] init];
     
     return YES;
 }

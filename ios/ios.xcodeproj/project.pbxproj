@@ -16,6 +16,11 @@
 		461C10A717046F4B00B66571 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 461C10A617046F4B00B66571 /* Default.png */; };
 		461C10A917046F4B00B66571 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 461C10A817046F4B00B66571 /* Default@2x.png */; };
 		461C10AB17046F4B00B66571 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 461C10AA17046F4B00B66571 /* Default-568h@2x.png */; };
+		CEF7226617049BEE0010983D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7226517049BEE0010983D /* QuartzCore.framework */; };
+		CEF7226817049BFD0010983D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7226717049BFD0010983D /* OpenGLES.framework */; };
+		CEF7226A17049C0C0010983D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7226917049C0C0010983D /* GLKit.framework */; };
+		CEF7226D17049EAC0010983D /* SphereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7226C17049EAC0010983D /* SphereViewController.m */; };
+		CEF7226F1704A1180010983D /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7226E1704A1180010983D /* libengine.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,12 @@
 		461C10A617046F4B00B66571 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		461C10A817046F4B00B66571 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		461C10AA17046F4B00B66571 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CEF7226517049BEE0010983D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CEF7226717049BFD0010983D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CEF7226917049C0C0010983D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		CEF7226B17049EAC0010983D /* SphereViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereViewController.h; sourceTree = "<group>"; };
+		CEF7226C17049EAC0010983D /* SphereViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereViewController.m; sourceTree = "<group>"; };
+		CEF7226E1704A1180010983D /* libengine.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libengine.a; path = "../tmp/engine/Debug-iphoneos/libengine.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +50,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF7226F1704A1180010983D /* libengine.a in Frameworks */,
+				CEF7226A17049C0C0010983D /* GLKit.framework in Frameworks */,
+				CEF7226817049BFD0010983D /* OpenGLES.framework in Frameworks */,
+				CEF7226617049BEE0010983D /* QuartzCore.framework in Frameworks */,
 				461C109517046F4B00B66571 /* UIKit.framework in Frameworks */,
 				461C109717046F4B00B66571 /* Foundation.framework in Frameworks */,
 				461C109917046F4B00B66571 /* CoreGraphics.framework in Frameworks */,
@@ -68,6 +83,10 @@
 		461C109317046F4B00B66571 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7226E1704A1180010983D /* libengine.a */,
+				CEF7226917049C0C0010983D /* GLKit.framework */,
+				CEF7226717049BFD0010983D /* OpenGLES.framework */,
+				CEF7226517049BEE0010983D /* QuartzCore.framework */,
 				461C109417046F4B00B66571 /* UIKit.framework */,
 				461C109617046F4B00B66571 /* Foundation.framework */,
 				461C109817046F4B00B66571 /* CoreGraphics.framework */,
@@ -78,6 +97,8 @@
 		461C109A17046F4B00B66571 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7226B17049EAC0010983D /* SphereViewController.h */,
+				CEF7226C17049EAC0010983D /* SphereViewController.m */,
 				461C10A317046F4B00B66571 /* AppDelegate.h */,
 				461C10A417046F4B00B66571 /* AppDelegate.m */,
 				461C109B17046F4B00B66571 /* Supporting Files */,
@@ -166,6 +187,7 @@
 			files = (
 				461C10A117046F4B00B66571 /* main.m in Sources */,
 				461C10A517046F4B00B66571 /* AppDelegate.m in Sources */,
+				CEF7226D17049EAC0010983D /* SphereViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +270,7 @@
 				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";
 				INFOPLIST_FILE = "ios/ios-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../engine";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -259,6 +282,7 @@
 				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";
 				INFOPLIST_FILE = "ios/ios-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../engine";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -282,6 +306,7 @@
 				461C10B017046F4B00B66571 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

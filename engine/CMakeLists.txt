@@ -10,6 +10,7 @@ project(ENGINE)
 #SET( CMAKE_CXX_COMPILER cl )
 
 set(SOURCE_ENGINE
+    TargetConditionals.h
     engine.h engine.c
     xyz.h xyz.c
     icosahedron.h icosahedron.c

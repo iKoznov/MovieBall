@@ -16,6 +16,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+#if TARGET_OS_IPHONE | TARGET_IPHONE_SIMULATOR
+    NSLog(@"IOS SDK");
+#endif
+    
     return YES;
 }
 

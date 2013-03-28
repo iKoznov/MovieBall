@@ -1,2 +1,2 @@
-cmake -DCMAKE_TOOLCHAIN_FILE=../../../toolchain/iOS.cmake -DCMAKE_IOS_SDK_ROOT=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -GXcode ..
+cmake -DCMAKE_TOOLCHAIN_FILE=../../../toolchain/iOS.cmake -DCMAKE_IOS_SDK_ROOT=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -DIOS_PLATFORM=SIMULATOR -GXcode ..
 xcodebuild -target install -configuration Debug

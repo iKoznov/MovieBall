@@ -3,6 +3,8 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
+#include "TargetConditionals.h"
+
 #if defined WIN32 | WIN64
 #include <Windows.h>
 #include <WinDef.h>
@@ -19,8 +21,16 @@
 
 #if defined WIN32 | WIN64
 #include <gl/gl.h>
-#else
-#include <OpenGL/gl.h>
+#elif __APPLE__
+    #ifdef TARGET_OS_IPHONE
+    #include <OpenGLES/ES1/gl.h>
+    #include <OpenGLES/ES1/glext.h>
+    #elif TARGET_IPHONE_SIMULATOR
+    #include <OpenGLES/ES1/gl.h>
+    #include <OpenGLES/ES1/glext.h>
+    #elif TARGET_OS_MAC
+    #include <OpenGL/gl.h>
+    #endif
 #endif
 
 #include <stdlib.h>

@@ -34,7 +34,7 @@
 #pragma mark -
 #pragma mark Layer setup
 + (Class)layerClass { return [CAEAGLLayer class]; }
-- (void)setupLayer { _eaglLayer = (CAEAGLLayer*) self.layer; _eaglLayer.opaque = YES; }
+- (void)setupLayer { _eaglLayer = (CAEAGLLayer *)self.layer; _eaglLayer.opaque = YES; _eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; }
 - (void)setupDisplayLink {
     CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
@@ -53,7 +53,7 @@
 - (void)setupDepthBuffer {
     glGenRenderbuffers(1, &_depthRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width*self.layer.contentsScale, self.frame.size.height*self.layer.contentsScale);
 }
 - (void)setupRenderBuffer {
     glGenRenderbuffers(1, &_colorRenderBuffer);
@@ -125,6 +125,11 @@
     
     _projectionUniform = glGetUniformLocation(programHandle, "Projection");
     _modelViewUniform = glGetUniformLocation(programHandle, "Modelview");
+    
+//    _texCoordSlot = glGetAttribLocation(programHandle, "TexCoordIn");
+//    glEnableVertexAttribArray(_texCoordSlot);
+//    _textureUniform = glGetUniformLocation(programHandle, "Texture");
+    
 }
 
 #pragma mark -
@@ -231,8 +236,6 @@ void icosahedron_initialize()
 //    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
 }
 
-#pragma mark -
-#pragma mark Render
 - (void)render:(CADisplayLink*)displayLink {
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -245,18 +248,18 @@ void icosahedron_initialize()
     
     CC3GLMatrix *modelView = [CC3GLMatrix matrix];
     [modelView populateFromTranslation:CC3VectorMake(sin(CACurrentMediaTime()), 0, -7)];
-    _currentRotation += displayLink.duration * 90;
+    _currentRotation += displayLink.duration * 10;
     [modelView rotateBy:CC3VectorMake(_currentRotation, _currentRotation, 0)];
     glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
     
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    glViewport(0, 0, self.frame.size.width*self.layer.contentsScale, self.frame.size.height*self.layer.contentsScale);
+    
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
     
-    glDrawArrays(GL_POINTS, 0, _N);
-//    glDrawElements(GL_POINTS, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
+    glDrawArrays(GL_TRIANGLES, 0, _N);
+    //    glDrawElements(GL_POINTS, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
     
-    [_context presentRenderbuffer:GL_RENDERBUFFER];
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 

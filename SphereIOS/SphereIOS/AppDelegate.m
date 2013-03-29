@@ -13,14 +13,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    self.window = [[UIWindow alloc] initWithFrame:screenBounds];
     
-    SphereView *sphereView = [[SphereView alloc] initWithFrame:self.window.bounds];
-    [self.window addSubview:sphereView];
-    
+    self.glView = [[SphereView alloc] initWithFrame:screenBounds];
+    [self.window addSubview:_glView];
     [self.window makeKeyAndVisible];
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    
+//    SphereView *sphereView = [[SphereView alloc] initWithFrame:self.window.bounds];
+//    [self.window addSubview:sphereView];
+//    
+//    [self.window makeKeyAndVisible];
     
     return YES;
 }

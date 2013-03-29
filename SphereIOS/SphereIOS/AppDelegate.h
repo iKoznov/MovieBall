@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SphereView.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    SphereView* _glView;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) SphereView *glView;
 
 @end

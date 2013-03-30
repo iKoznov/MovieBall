@@ -27,6 +27,7 @@
 		46BD4836170585660088A2AB /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BD4831170585660088A2AB /* CC3Math.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CEC244551705CD2D00106A0B /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244531705CD2D00106A0B /* item_powerup_fish.png */; };
 		CEC244561705CD2D00106A0B /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244541705CD2D00106A0B /* tile_floor.png */; };
+		CEC2445A1707537900106A0B /* american-beauty0021.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEC244591707537900106A0B /* american-beauty0021.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		46BD4832170585660088A2AB /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
 		CEC244531705CD2D00106A0B /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
 		CEC244541705CD2D00106A0B /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
+		CEC244591707537900106A0B /* american-beauty0021.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "american-beauty0021.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				468ED0E91704D6BC00763C7B /* SphereView.m */,
 				46BD48241704E57C0088A2AB /* SimpleVertex.glsl */,
 				46BD48261704E8CA0088A2AB /* SimpleFragment.glsl */,
+				CEC244591707537900106A0B /* american-beauty0021.jpg */,
 				468ED0CE1704D5AD00763C7B /* Supporting Files */,
 			);
 			path = SphereIOS;
@@ -223,6 +226,7 @@
 				46BD48271704E8CA0088A2AB /* SimpleFragment.glsl in Resources */,
 				CEC244551705CD2D00106A0B /* item_powerup_fish.png in Resources */,
 				CEC244561705CD2D00106A0B /* tile_floor.png in Resources */,
+				CEC2445A1707537900106A0B /* american-beauty0021.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

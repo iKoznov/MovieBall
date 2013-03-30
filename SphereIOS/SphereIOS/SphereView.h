@@ -30,7 +30,10 @@
     
     /* Scene params */
     float _currentRotation;
+    CGFloat _lon;
+    CGFloat _lat;
     
+    /* textures */
     GLuint _floorTexture;
     GLuint _fishTexture;
     GLuint _texCoordSlot;

@@ -30,6 +30,9 @@
     [self setupVBOs];
     [self setupDisplayLink];
     [self setupGestures];
+    
+    _floorTexture = setupTexture(@"tile_floor.png");
+    _fishTexture = setupTexture(@"item_powerup_fish.png");
 }
 
 #pragma mark -
@@ -274,6 +277,10 @@ typedef struct {
     GLuint texture;
 } Side;
 
+
+
+GLuint _vertexBuffer;
+GLuint _indexBuffer;
 Side *_sides;
 GLuint _numberOfSides;
 void icosahedron_indexes()
@@ -289,56 +296,124 @@ void icosahedron_indexes()
         p->indexes = malloc(sizeof(s));
         memcpy(p->indexes, s, sizeof(s));
         p->numberOfVertices = sizeof(s)/sizeof(s[0]);
+        for (GLuint i = 0; i < p->numberOfVertices; i++)
+        {
+            _vertices[p->indexes[i]].R = 1;
+            _vertices[p->indexes[i]].G = 1;
+            _vertices[p->indexes[i]].B = 1;
+            _vertices[p->indexes[i]].A = 1;
+            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
+            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
+            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
+            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
+        }
         
         glGenBuffers(1, &(p->indexBuffer));
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
         
-        p->texture = setupTexture(@"tile_floor.png");
+        p->texture = setupTexture(@"american-beauty0021.png");
         
         p++;
     }
     
-}
-
-Vertex *_vertices2;
-void poster_initialize()
-{
-    _vertices2 = calloc(4, sizeof(Vertex));
-    _vertices2[0].x = 1;
-    _vertices2[0].y = 1;
-    _vertices2[0].z = 0;
-    _vertices2[1].x = 1;
-    _vertices2[1].y = -1;
-    _vertices2[1].z = 0;
-    _vertices2[2].x = -1;
-    _vertices2[2].y = -1;
-    _vertices2[2].z = 0;
-    _vertices2[3].x = -1;
-    _vertices2[3].y = 1;
-    _vertices2[3].z = 0;
-}
-
-- (void)setupVBOs {
-    
-    icosahedron_indexes();
-    poster_initialize();
-    
     glGenBuffers(1, &_vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, _N * sizeof(Vertex), _vertices, GL_STATIC_DRAW);
+    
+}
+
+typedef struct {
+    float Position[3];
+    float Color[4];
+    float TexCoord[2]; // New
+} Vertex3;
+
+#define TEX_COORD_MAX   1
+
+const Vertex3 Vertices[] = {
+    // Front
+    {{1, -1, 0}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
+    {{1, 1, 0}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
+    {{-1, 1, 0}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
+    {{-1, -1, 0}, {0, 0, 0, 1}, {0, 0}},
+    // Back
+    {{1, 1, -2}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
+    {{-1, -1, -2}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
+    {{1, -1, -2}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
+    {{-1, 1, -2}, {0, 0, 0, 1}, {0, 0}},
+    // Left
+    {{-1, -1, 0}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
+    {{-1, 1, 0}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
+    {{-1, 1, -2}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
+    {{-1, -1, -2}, {0, 0, 0, 1}, {0, 0}},
+    // Right
+    {{1, -1, -2}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
+    {{1, 1, -2}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
+    {{1, 1, 0}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
+    {{1, -1, 0}, {0, 0, 0, 1}, {0, 0}},
+    // Top
+    {{1, 1, 0}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
+    {{1, 1, -2}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
+    {{-1, 1, -2}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
+    {{-1, 1, 0}, {0, 0, 0, 1}, {0, 0}},
+    // Bottom
+    {{1, -1, -2}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
+    {{1, -1, 0}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
+    {{-1, -1, 0}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
+    {{-1, -1, -2}, {0, 0, 0, 1}, {0, 0}}
+};
+
+const GLubyte Indices[] = {
+    // Front
+    0, 1, 2,
+    2, 3, 0,
+    // Back
+    4, 5, 6,
+    6, 7, 4,
+    // Left
+    8, 9, 10,
+    10, 11, 8,
+    // Right
+    12, 13, 14,
+    14, 15, 12,
+    // Top
+    16, 17, 18,
+    18, 19, 16,
+    // Bottom
+    20, 21, 22,
+    22, 23, 20
+};
+
+GLuint _vertexBuffer3;
+GLuint _indexBuffer3;
+- (void)setupVBOs {
+    
+    icosahedron_indexes();
+    
+    glGenBuffers(1, &_vertexBuffer3);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer3);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    
+    glGenBuffers(1, &_indexBuffer3);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer3);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     
 //    GLuint indexBuffer;
 //    glGenBuffers(1, &indexBuffer);
 //    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 //    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     
-    glGenBuffers(1, &_vertexBuffer2);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
-    glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), _vertices2, GL_STATIC_DRAW);
+//    glGenBuffers(1, &_vertexBuffer2);
+//    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
+//    glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), _vertices2, GL_STATIC_DRAW);
 }
 
-- (void)render:(CADisplayLink*)displayLink {
+- (void)render:(CADisplayLink*)displayLink
+{
+//    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+//    glEnable(GL_BLEND);
+    
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
@@ -355,16 +430,44 @@ void poster_initialize()
     
     glViewport(0, 0, self.frame.size.width*self.layer.contentsScale, self.frame.size.height*self.layer.contentsScale);
     
+    
+//    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer3);
+//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer3);
+//    
+//    // 2
+//    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+//    glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
+//    
+//    glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 7));
+//    
+//    glActiveTexture(GL_TEXTURE0);
+//    glBindTexture(GL_TEXTURE_2D, _floorTexture);
+//    glUniform1i(_textureUniform, 0);
+//    
+//    // 3
+//    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
+//    
 //    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 //    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
 //    glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
 //    glDrawArrays(GL_TRIANGLES, 0, _N);
     
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    for (GLuint i=0; i<_numberOfSides; i++) {
+    for (GLuint i=0; i<_numberOfSides; i++)
+    {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _sides[i].indexBuffer);
         glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, Position));
         glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, Color));
+        glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, TexCoord));
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, _sides[i].texture);
+        glUniform1i(_textureUniform, 0);
+        
+//        glActiveTexture(GL_TEXTURE0);
+//        glBindTexture(GL_TEXTURE_2D, _floorTexture);
+//        glUniform1i(_textureUniform, 0);
+        
         glDrawElements(GL_TRIANGLE_FAN, _sides[i].numberOfVertices, GL_UNSIGNED_INT, 0);
     }
     

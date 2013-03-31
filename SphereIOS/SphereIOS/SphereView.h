@@ -38,8 +38,6 @@
     GLuint _fishTexture;
     GLuint _texCoordSlot;
     GLuint _textureUniform;
-    GLuint _vertexBuffer;
-    GLuint _indexBuffer;
     GLuint _vertexBuffer2;
     GLuint _indexBuffer2;
 }

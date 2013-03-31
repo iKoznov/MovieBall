@@ -25,9 +25,12 @@
 		46BD4834170585660088A2AB /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BD482C170585660088A2AB /* CC3GLMatrix.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		46BD4835170585660088A2AB /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 46BD482D170585660088A2AB /* CC3Kazmath.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		46BD4836170585660088A2AB /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BD4831170585660088A2AB /* CC3Math.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		46BD485C170809A50088A2AB /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485A170809A50088A2AB /* item_powerup_fish.png */; };
+		46BD485D170809A50088A2AB /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485B170809A50088A2AB /* tile_floor.png */; };
+		46BD4860170814230088A2AB /* american-beauty0021.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485E170814230088A2AB /* american-beauty0021.png */; };
+		46BD4861170814230088A2AB /* american-beauty0021.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485F170814230088A2AB /* american-beauty0021.jpg */; };
 		CEC244551705CD2D00106A0B /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244531705CD2D00106A0B /* item_powerup_fish.png */; };
 		CEC244561705CD2D00106A0B /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244541705CD2D00106A0B /* tile_floor.png */; };
-		CEC2445A1707537900106A0B /* american-beauty0021.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEC244591707537900106A0B /* american-beauty0021.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,9 +63,12 @@
 		46BD4830170585660088A2AB /* CC3Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Math.h; sourceTree = "<group>"; };
 		46BD4831170585660088A2AB /* CC3Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Math.m; sourceTree = "<group>"; };
 		46BD4832170585660088A2AB /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
+		46BD485A170809A50088A2AB /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
+		46BD485B170809A50088A2AB /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
+		46BD485E170814230088A2AB /* american-beauty0021.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "american-beauty0021.png"; sourceTree = "<group>"; };
+		46BD485F170814230088A2AB /* american-beauty0021.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "american-beauty0021.jpg"; sourceTree = "<group>"; };
 		CEC244531705CD2D00106A0B /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
 		CEC244541705CD2D00106A0B /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
-		CEC244591707537900106A0B /* american-beauty0021.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "american-beauty0021.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +127,10 @@
 				468ED0E91704D6BC00763C7B /* SphereView.m */,
 				46BD48241704E57C0088A2AB /* SimpleVertex.glsl */,
 				46BD48261704E8CA0088A2AB /* SimpleFragment.glsl */,
-				CEC244591707537900106A0B /* american-beauty0021.jpg */,
+				46BD485E170814230088A2AB /* american-beauty0021.png */,
+				46BD485F170814230088A2AB /* american-beauty0021.jpg */,
+				46BD485A170809A50088A2AB /* item_powerup_fish.png */,
+				46BD485B170809A50088A2AB /* tile_floor.png */,
 				468ED0CE1704D5AD00763C7B /* Supporting Files */,
 			);
 			path = SphereIOS;
@@ -226,7 +235,10 @@
 				46BD48271704E8CA0088A2AB /* SimpleFragment.glsl in Resources */,
 				CEC244551705CD2D00106A0B /* item_powerup_fish.png in Resources */,
 				CEC244561705CD2D00106A0B /* tile_floor.png in Resources */,
-				CEC2445A1707537900106A0B /* american-beauty0021.jpg in Resources */,
+				46BD485C170809A50088A2AB /* item_powerup_fish.png in Resources */,
+				46BD485D170809A50088A2AB /* tile_floor.png in Resources */,
+				46BD4860170814230088A2AB /* american-beauty0021.png in Resources */,
+				46BD4861170814230088A2AB /* american-beauty0021.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,14 +31,14 @@ void main(void) {
     vec3 nN = normalize(N);
     vec3 nX = normalize(X);
     
-    vec3 Tr = R * dot( nR, nN );
-    vec3 Tn = N * length( cross( nR, nN ) );
+    vec3 Tr = R * dot( nR, N / length(R) );
+//    vec3 Tn = N * length( cross( nR, nN ) );
     
-    vec3 T = Tn - Tr;
+    vec3 T = N - Tr;
     vec3 nT = normalize(T);
     
     TexCoordOut.y = 0.5 + dot( nT, normalize( X - R ) ) / 2.0;
-    TexCoordOut.x = -0.5 - dot( cross( nR, nN ), normalize( X - R ) ) / 2.0;
+    TexCoordOut.x = -0.5 - dot( cross( nR, nT ), normalize( X - R ) ) / 2.0;
 }
 
 

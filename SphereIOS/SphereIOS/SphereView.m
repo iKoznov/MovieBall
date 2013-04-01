@@ -175,6 +175,7 @@ GLuint setupTexture(NSString *fileName)
     
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST);
+    glHint(GL_GENERATE_MIPMAP_HINT, GL_NICEST);
     glGenerateMipmap(GL_TEXTURE_2D);
     
     free(spriteData);

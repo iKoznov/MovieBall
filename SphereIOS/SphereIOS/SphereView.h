@@ -27,6 +27,7 @@
     /* Shader Const */
     GLuint _projectionUniform;
     GLuint _modelViewUniform;
+    GLuint _SurfaceCenterUniform;
     
     /* Scene params */
     float _currentRotation;

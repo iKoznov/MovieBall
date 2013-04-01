@@ -142,6 +142,7 @@
     
     _projectionUniform = glGetUniformLocation(programHandle, "Projection");
     _modelViewUniform = glGetUniformLocation(programHandle, "Modelview");
+    _SurfaceCenterUniform = glGetUniformLocation(programHandle, "SurfaceCenter");
     
     _texCoordSlot = glGetAttribLocation(programHandle, "TexCoordIn");
     glEnableVertexAttribArray(_texCoordSlot);
@@ -172,8 +173,9 @@ GLuint setupTexture(NSString *fileName)
     glGenTextures(1, &texName);
     glBindTexture(GL_TEXTURE_2D, texName);
     
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST);
+    glGenerateMipmap(GL_TEXTURE_2D);
     
     free(spriteData);
     return texName;
@@ -193,6 +195,10 @@ typedef union {
         GLfloat tX, tY;
     };
 } Vertex;
+
+void _printMatrixf (GLfloat *m) {
+    printf("---------------------------\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n", m[0], m[4], m[8], m[12], m[1], m[5], m[9], m[13], m[2], m[6], m[10], m[14], m[3], m[7], m[11], m[15]);
+}
 
 GLuint _n, _N;
 Vertex *_vertices;
@@ -221,8 +227,8 @@ void icosahedron_initialize(GLuint n)
     _vertices = p = calloc( _N, sizeof(Vertex) );
     
     (*p).x = 0;
-    (*p).y = R;
-    (*p).z = 0;
+    (*p).z = R;
+    (*p).y = 0;
     p++;
     
     for (j = 1; j < _n + 1; j++)
@@ -233,8 +239,8 @@ void icosahedron_initialize(GLuint n)
         {
             lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
             (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
+            (*p).z = R * sinf(lat);
+            (*p).y = R * cosf(lat) * sinf(lon);
         }
     }
     
@@ -247,8 +253,8 @@ void icosahedron_initialize(GLuint n)
         {
             GLfloat lon = sLon + i*2.0f*(GLfloat)M_PI/(5*_n);
             (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
+            (*p).z = R * sinf(lat);
+            (*p).y = R * cosf(lat) * sinf(lon);
         }
     }
     
@@ -260,17 +266,18 @@ void icosahedron_initialize(GLuint n)
         {
             lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
             (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
+            (*p).z = R * sinf(lat);
+            (*p).y = R * cosf(lat) * sinf(lon);
         }
     }
     
     (*p).x = 0;
-    (*p).y = -R;
-    (*p).z = 0;
+    (*p).z = -R;
+    (*p).y = 0;
 }
 
 typedef struct {
+    GLfloat center[3];
     GLuint *indexes;
     GLuint numberOfVertices;
     GLuint indexBuffer;
@@ -298,10 +305,10 @@ void icosahedron_indexes()
         p->numberOfVertices = sizeof(s)/sizeof(s[0]);
         for (GLuint i = 0; i < p->numberOfVertices; i++)
         {
-            _vertices[p->indexes[i]].R = 1;
-            _vertices[p->indexes[i]].G = 1;
-            _vertices[p->indexes[i]].B = 1;
-            _vertices[p->indexes[i]].A = 1;
+            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
+            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
+            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
+            
             _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
             _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
             NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
@@ -313,6 +320,7 @@ void icosahedron_indexes()
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
         
         p->texture = setupTexture(@"american-beauty0021.png");
+        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
         
         p++;
     }
@@ -428,6 +436,8 @@ GLuint _indexBuffer3;
     [modelView rotateBy:CC3VectorMake(_lat, _lon, 0)];
     glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
     
+//    _printMatrixf(modelView.glMatrix);
+    
     glViewport(0, 0, self.frame.size.width*self.layer.contentsScale, self.frame.size.height*self.layer.contentsScale);
     
     
@@ -455,6 +465,8 @@ GLuint _indexBuffer3;
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
     for (GLuint i=0; i<_numberOfSides; i++)
     {
+        glUniform3f(_SurfaceCenterUniform, _sides[i].center[0], _sides[i].center[1], _sides[i].center[2]);
+        
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _sides[i].indexBuffer);
         glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, Position));
         glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, Color));

@@ -21,9 +21,11 @@ void main(void) {
 
     vec3 O = ( Modelview * vec4(0,0,0,1) ).xyz;
 
-    vec3 R = vec3( Modelview * vec4(SurfaceCenter,1) );// - O;
-    vec3 N = vec3( 0, 1, 0 );
-    vec3 X = vec3( Modelview * vec4(Position,1) );// - O;
+//    vec3 R = SurfaceCenter;
+    vec3 R = vec3( Modelview * vec4(SurfaceCenter,1) ) - O;
+    vec3 N = vec3( 0, -1, 0 );
+//    vec3 X = Position;
+    vec3 X = vec3( Modelview * vec4(Position,1) ) - O;
     
     vec3 nR = normalize(R);
     vec3 nN = normalize(N);
@@ -35,8 +37,8 @@ void main(void) {
     vec3 T = Tn - Tr;
     vec3 nT = normalize(T);
     
-    TexCoordOut.x = 0.5 + dot( nT, normalize( X - R ) ) / 2.0;
-    TexCoordOut.y = 0.5 + dot( cross( nR, nN ), normalize( X - R ) ) / 2.0;
+    TexCoordOut.y = 0.5 + dot( nT, normalize( X - R ) ) / 2.0;
+    TexCoordOut.x = -0.5 - dot( cross( nR, nN ), normalize( X - R ) ) / 2.0;
 }
 
 

@@ -43,8 +43,8 @@
 }
 - (void)panHandler:(UIPanGestureRecognizer *)gesture {
     CGPoint translation = [gesture translationInView:self];
-    _lon += translation.x;
-    _lat += translation.y;
+    _lon += translation.x/4;
+    _lat += translation.y/4;
     [gesture setTranslation:CGPointZero inView:self];
 }
 
@@ -227,8 +227,8 @@ void icosahedron_initialize(GLuint n)
     _vertices = p = calloc( _N, sizeof(Vertex) );
     
     (*p).x = 0;
-    (*p).z = R;
-    (*p).y = 0;
+    (*p).y = R;
+    (*p).z = 0;
     p++;
     
     for (j = 1; j < _n + 1; j++)
@@ -239,8 +239,8 @@ void icosahedron_initialize(GLuint n)
         {
             lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
             (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).z = R * sinf(lat);
-            (*p).y = R * cosf(lat) * sinf(lon);
+            (*p).y = R * sinf(lat);
+            (*p).z = R * cosf(lat) * sinf(lon);
         }
     }
     
@@ -253,8 +253,8 @@ void icosahedron_initialize(GLuint n)
         {
             GLfloat lon = sLon + i*2.0f*(GLfloat)M_PI/(5*_n);
             (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).z = R * sinf(lat);
-            (*p).y = R * cosf(lat) * sinf(lon);
+            (*p).y = R * sinf(lat);
+            (*p).z = R * cosf(lat) * sinf(lon);
         }
     }
     
@@ -266,14 +266,14 @@ void icosahedron_initialize(GLuint n)
         {
             lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
             (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).z = R * sinf(lat);
-            (*p).y = R * cosf(lat) * sinf(lon);
+            (*p).y = R * sinf(lat);
+            (*p).z = R * cosf(lat) * sinf(lon);
         }
     }
     
     (*p).x = 0;
-    (*p).z = -R;
-    (*p).y = 0;
+    (*p).y = -R;
+    (*p).z = 0;
 }
 
 typedef struct {
@@ -724,6 +724,64 @@ void icosahedron_indexes()
     
     {
         GLuint s[] = {29,30,45,59,58,43};
+        p->indexes = malloc(sizeof(s));
+        memcpy(p->indexes, s, sizeof(s));
+        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
+        for (GLuint i = 0; i < p->numberOfVertices; i++)
+        {
+            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
+            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
+            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
+            
+            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
+            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
+            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
+            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
+        }
+        
+        glGenBuffers(1, &(p->indexBuffer));
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
+        
+        p->texture = setupTexture(@"american-beauty0021.png");
+        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
+        
+        _numberOfSides++;
+        p++;
+    }
+    
+#pragma mark BOTTOM CENTER 6
+//    {
+//        GLuint s[] = {33,34,49,63,62,47};
+//        p->indexes = malloc(sizeof(s));
+//        memcpy(p->indexes, s, sizeof(s));
+//        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
+//        for (GLuint i = 0; i < p->numberOfVertices; i++)
+//        {
+//            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
+//            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
+//            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
+//            
+//            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
+//            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
+//            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
+//            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
+//        }
+//        
+//        glGenBuffers(1, &(p->indexBuffer));
+//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
+//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
+//        
+//        p->texture = setupTexture(@"american-beauty0021.png");
+//        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
+//        
+//        _numberOfSides++;
+//        p++;
+//    }
+    
+#pragma mark BOTTOM
+    {
+        GLuint s[] = {61,62,63,64,65};
         p->indexes = malloc(sizeof(s));
         memcpy(p->indexes, s, sizeof(s));
         p->numberOfVertices = sizeof(s)/sizeof(s[0]);

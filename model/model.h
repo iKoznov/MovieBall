@@ -61,5 +61,6 @@ vec3f vec3fMake( GLfloat, GLfloat, GLfloat );
 vec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
 
 void _printMatrixf (GLfloat *m);
+void model();
 
 #endif

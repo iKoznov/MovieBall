@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:testbed/SPHERE_TESTBED.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:testbed/SPHERE.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:hello/tmp/HELLO.xcodeproj">
    </FileRef>
    <FileRef

@@ -1,9 +1,10 @@
 //#include <stdio.h>
 #include <locale.h>
-#include "engine.h"
+//#include "engine.h"
 #include <GLUT/glut.h>
-#include "icosahedron.h"
-#include "xyz.h"
+//#include "icosahedron.h"
+//#include "xyz.h"
+#include "model.h"
 
 //#include <GL/glew.h>
 //#include <OpenGL/glext.h>
@@ -21,6 +22,7 @@ static GLfloat _b = 0;
 int main(int argc, char **argv)
 {
 	puts("<<< SPHERE PROJECT >>>");
+    model();
     
     //char *locale = setlocale(LC_ALL, "Russian");
     //printf("LOCALE : %s\n", locale);
@@ -99,7 +101,7 @@ void display()
     glRotatef(_b*180.0f/M_PI, 1, 0, 0);
     glRotatef(_a, 0, 1, 0);
 //    xyz();
-    icosahedron();
+//    icosahedron();
 //    glutWireCube(2);
     glPopMatrix();
     

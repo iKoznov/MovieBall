@@ -20,7 +20,7 @@
 #include <math.h>
 
 #if defined WIN32 | WIN64
-//#include <gl/gl.h>
+#include <gl/gl.h>
 #elif __APPLE__
 //    #if defined TARGET_OS_IPHONE
 //    #include <OpenGLES/ES1/gl.h>

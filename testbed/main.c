@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     //char *locale = setlocale(LC_ALL, "Russian");
     //printf("LOCALE : %s\n", locale);
 	
-    glutInit(&argc, argv);
+/*    glutInit(&argc, argv);
     glutInitWindowSize(800, 600);
     glutInitWindowPosition(0,0);
     glutInitDisplayMode(GLUT_RGB|GLUT_DOUBLE|GLUT_DEPTH);
@@ -42,12 +42,12 @@ int main(int argc, char **argv)
     glEnable(GL_LINE_SMOOTH);
     glEnable(GL_DEPTH_TEST);
     
-    glutMainLoop();
+    glutMainLoop();*/
 	
 	return 0;
 }
 
-void reshape(int width, int height)
+/*void reshape(int width, int height)
 {
 //    puts(__PRETTY_FUNCTION__);
     
@@ -118,4 +118,4 @@ void timer(int value)
     
     display();
     glutTimerFunc(_msecs, timer, 0);
-}
+}*/

@@ -7,7 +7,7 @@
 
 #if defined WIN32 | WIN64
 #include <Windows.h>
-#include <WinDef.h>
+//#include <WinDef.h>
 #define bool BOOL
 #define true TRUE
 #define false FALSE
@@ -18,6 +18,9 @@
 
 #include <stddef.h>
 #include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 #if defined WIN32 | WIN64
 #include <gl/gl.h>
@@ -32,10 +35,6 @@
     #include <OpenGL/gl.h>
 //    #endif
 #endif
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846264338327950288

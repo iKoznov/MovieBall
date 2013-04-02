@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(SPHERE)
+project(TESTBED)
 #add_subdirectory(src)
 
 #find_package(OpenGL)
@@ -19,16 +19,16 @@ set(SOURCE_TESTBED
 #include_directories( ${OPENGL_INCLUDE_DIR} )
 
 
-#IF(APPLE)
-#   INCLUDE_DIRECTORIES ( /System/Library/Frameworks )
-#   FIND_LIBRARY(COCOA_LIBRARY Cocoa)
-#   FIND_LIBRARY(GLUT_LIBRARY GLUT )
-#   FIND_LIBRARY(OpenGL_LIBRARY OpenGL )
-#   MARK_AS_ADVANCED (COCOA_LIBRARY
-#                     GLUT_LIBRARY
-#                     OpenGL_LIBRARY)
-#   SET(EXTRA_LIBS ${COCOA_LIBRARY} ${GLUT_LIBRARY} ${OpenGL_LIBRARY})
-#ENDIF (APPLE)
+IF(APPLE)
+   INCLUDE_DIRECTORIES ( /System/Library/Frameworks )
+   FIND_LIBRARY(COCOA_LIBRARY Cocoa)
+   FIND_LIBRARY(GLUT_LIBRARY GLUT )
+   FIND_LIBRARY(OpenGL_LIBRARY OpenGL )
+   MARK_AS_ADVANCED (COCOA_LIBRARY
+                     GLUT_LIBRARY
+                     OpenGL_LIBRARY)
+   SET(EXTRA_LIBS ${COCOA_LIBRARY} ${GLUT_LIBRARY} ${OpenGL_LIBRARY})
+ENDIF (APPLE)
 
 IF(WIN32)
 	INCLUDE_DIRECTORIES ( . )

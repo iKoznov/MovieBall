@@ -1,9 +1,10 @@
 /* engine.h */
 
-#ifndef ENGINE_H
+#if defined ENGINE_H
+#else
 #define ENGINE_H
 
-//#include "TargetConditionals.h"
+//#include <TargetConditionals.h>
 
 #if defined WIN32 | WIN64
 #include <Windows.h>
@@ -32,8 +33,13 @@
 //    #include <OpenGLES/ES1/gl.h>
 //    #include <OpenGLES/ES1/glext.h>
 //    #if defined TARGET_OS_MAC
-    #include <OpenGL/gl.h>
+//    #include <OpenGL/gl.h>
 //    #endif
+
+#if defined SPHERE_TARGET_TESTBED
+#include <OpenGL/gl.h>
+#endif
+
 #endif
 
 #ifndef M_PI

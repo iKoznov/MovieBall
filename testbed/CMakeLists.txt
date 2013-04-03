@@ -59,6 +59,7 @@ ENDIF(WIN32)
 #  VERBATIM
 #)
 
+add_definitions(-DSPHERE_TARGET_TESTBED)
 add_executable( testbed ${SOURCE_TESTBED} )
 
 target_link_libraries( testbed ${EXTRA_LIBS} model )

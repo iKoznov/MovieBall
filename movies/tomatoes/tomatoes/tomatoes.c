@@ -57,20 +57,21 @@ size_t write_data( void *buffer, size_t size, size_t nmemb, void *userp )
 }
 
 void json( cJSON *, int, int );
-void curl()
+cJSON *curl( char *URL )
 {
     int wr_error = 0;
+    wr_index = 0;
     
     /* First step, init curl */
     CURL *curl = curl_easy_init();
     if (!curl) {
         printf("couldn't init curl\n");
-        return;
+        return NULL;
     }
     
     /* Tell curl the URL of the file we're going to retrieve */
-    curl_easy_setopt( curl, CURLOPT_URL, "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=gfh7w8cm88rvptkndqq556x4&q=Toy+Story+3&_prettyprint=true" );
-    curl_easy_setopt( curl, CURLOPT_URL, "http://api.rottentomatoes.com/api/public/v1.0/movies/770672122/similar.json?apikey=gfh7w8cm88rvptkndqq556x4&_prettyprint=true" );
+    curl_easy_setopt( curl, CURLOPT_URL, URL );
+//    curl_easy_setopt( curl, CURLOPT_URL, "http://api.rottentomatoes.com/api/public/v1.0/movies/770672122/similar.json?apikey=gfh7w8cm88rvptkndqq556x4&_prettyprint=true" );
 //    770672122
     
     curl_easy_setopt( curl, CURLOPT_WRITEDATA, (void *)&wr_error );
@@ -84,14 +85,15 @@ void curl()
         printf( "%s\n", wr_buf );
         printf( "Recived chars : %zd\n", strlen(wr_buf) );
     }
-    else return;
+    else return NULL;
     
     curl_easy_cleanup( curl );
     
     cJSON *root = cJSON_Parse(wr_buf);
 //    json(root,0,999);
 //    puts( cJSON_Print(root) );
-    cJSON_Delete(root);
+//    cJSON_Delete(root);
+    return root;
 }
 
 void json( cJSON *node, int inset, int maxInset )
@@ -133,8 +135,7 @@ struct _Movie {
 };
 
 char apikey[] = "apikey=gfh7w8cm88rvptkndqq556x4";
-
-char *arr[] = { "apikey=gfh7w8cm88rvptkndqq556x4", "_prettyprint=true" };
+char *paramsArr[] = { "apikey=gfh7w8cm88rvptkndqq556x4", "_prettyprint=true" };
 
 Movie movie_make( int id, char *title )
 {
@@ -149,7 +150,49 @@ void movie_reqTitle( Movie movie )
     
 }
 
-Movie *movie_similars( Movie *movie )
+void movie_reqId( Movie movie )
+{
+    mStr _url = mStr_make( strdup("http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=gfh7w8cm88rvptkndqq556x4&_prettyprint=true") );
+    mStr_addStr( _url, strdup("&q=") );
+    mStr_addStr( _url, strdup(movie->title) );
+    char *url = mStr_string( _url );
+    mStr_free( _url );
+    puts( url );
+    
+    
+//    size_t cParams = sizeof( paramsArr ) / sizeof( paramsArr[0] );
+//    for ( size_t i = 0; i < cParams; i++) {
+//        
+//    }
+//    printf( "params size : %ld\n", sizeof( paramsArr ) / sizeof( paramsArr[0] ) );
+    
+    cJSON *tree = curl( url );
+    free(url);
+    
+    json( tree, 0, 10 );
+    
+//    cJSON *total = tree->child;
+//    if ( total->valueint <= 0 ) { movie->id = -1; return; }
+    
+    cJSON *total = NULL, *movies = NULL;
+    cJSON *p = tree->child;
+    while ( p ) {
+        if ( strcmp( "total", p->string ) == 0 ) total = p;
+        if ( strcmp( "movies", p->string ) == 0 ) movies = p;
+        p = p->next;
+    }
+    
+    p = movies->child;
+    while ( p ) {
+        p = p->next;
+    }
+    
+    puts(total->string);
+    
+    cJSON_Delete( tree );
+}
+
+Movie movie_similars( Movie movie )
 {
     
 }
@@ -163,16 +206,19 @@ void tomatoes()
 {
     puts(__PRETTY_FUNCTION__);
     
+    Movie m = movie_make( 0, strdup("Toy+Story+3") );
+    movie_reqId( m );
+    
 //    curl();
-    while (1) {
-        mStr myString = mStr_make(strdup("abc"));
-        mStr_addStr( myString, strdup(" Hello") );
-        printf("LEN : %zd\n", mStr_length(myString) );
-        char *str = mStr_string(myString);
-        printf( "%s\n", str );
-        free(str);
-        mStr_free(myString);
-    }
+//    while (1) {
+//        mStr myString = mStr_make(strdup("abc"));
+//        mStr_addStr( myString, strdup(" Hello") );
+//        printf("LEN : %zd\n", mStr_length(myString) );
+//        char *str = mStr_string(myString);
+//        printf( "%s\n", str );
+//        free(str);
+//        mStr_free(myString);
+//    }
     
 //    struct sockaddr_in peer;
 //    int s;

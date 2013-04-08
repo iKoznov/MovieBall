@@ -14,76 +14,91 @@
 #include "mStr.h"
 #include "movie.h"
 
+#include <istream>
 #include <algorithm>
 #include <list>
+#include <map>
 
 using namespace std;
 
-typedef struct _MovieTreeNode *MovieTreeNode;
-struct _MovieTreeNode {
-    list<MovieTreeNode>nodes;
+class MovieTreeNode
+{
+public:
+    static map < string, MovieTreeNode > NODES;
+    list<MovieTreeNode *>links;
     Movie movie;
+    
+    static MovieTreeNode *init(Movie m) {
+//        movie = m;
+        MovieTreeNode *node = new MovieTreeNode;
+        node->movie = m;
+        return node;
+    }
+    
+    void similars(size_t depth)
+    {
+        MovieList similars = movie_similars( movie );
+        struct _MovieListElem *elem = similars->first;
+        while (elem) {
+            MovieTreeNode *link = init(elem->movie);
+            links.push_back(link);
+//            elem->movie
+            elem = elem->next;
+        }
+        MovieListFree( similars );
+    }
+    
+    ~MovieTreeNode() {
+        movie_free( movie );
+    }
+private:
+    MovieTreeNode(){};
+    MovieTreeNode(const MovieTreeNode& root);
+    MovieTreeNode& operator=(const MovieTreeNode&);
 };
 
-//struct _MovieTreeNodeListElem {
-//    struct _MovieTreeNode *node;
-//    struct _MovieTreeNodeListElem *next;
-//};
-//
-//struct _MovieTreeNodeList {
-//    struct _MovieTreeNodeList *first;
-//    struct _MovieTreeNodeList *last;
-//    size_t count;
-//};
-
-//struct _MovieListElem {
-//    Movie movie;
-//    struct _MovieListElem *next;
-//};
-//
-//typedef struct _MovieList *MovieList;
-//struct _MovieList {
-//    struct _MovieListElem *first;
-//    struct _MovieListElem *last;
-//    size_t count;
-//};
-
-//#define List( Type ) \
-//struct _##Type##ListElem { \
-//    Type elem; \
-//    struct _MovieListElem *next; \
-//}; \
-//typedef struct _##Type##List *Type##List; \
-//struct _##Type##List { \
-//    struct _##Type##ListElem *first; \
-//    struct _##Type##ListElem *last; \
-//    size_t count; \
-//};
-//
-//List( MovieTreeNode )
+map <string,MovieTreeNode> MovieTreeNode::NODES = map <string,MovieTreeNode> ();
 
 void tomatoes()
 {
     puts(__PRETTY_FUNCTION__);
     
-    Movie m = movie_make( "771188157", strdup("american+Beauty") );
-//    movie_reqId( m );
+    //    int c = MovieTreeNode::count;
     
-//    printf( "        id : %s\n", m->id );
-//    printf( "     title : %s\n", m->title );
-    
-    MovieList similars = movie_similars( m );
-    
-    struct _MovieListElem *elem = similars->first;
-    while ( elem ) {
-        Movie movie = elem->movie;
-        printf( "        id : %s\n", movie->id );
-        printf( "     title : %s\n", movie->title );
-        elem = elem->next;
+    while (true) {
+        Movie m = movie_make( strdup("771188157"), strdup("american+Beauty") );
+        MovieTreeNode *node = MovieTreeNode::init(m);
+        node->similars(2);
+//        movie_free(m);
+        delete node;
     }
     
-    MovieListFree( similars );
-    movie_free( m );
+//    //    movie_reqId( m );
+//    
+//    //    printf( "        id : %s\n", m->id );
+//    //    printf( "     title : %s\n", m->title );
+//    
+//    MovieList similars = movie_similars( m );
+//    
+//    struct _MovieListElem *elem = similars->first;
+//    while ( elem ) {
+//        Movie movie = elem->movie;
+//        printf( "        id : %s\n", movie->id );
+//        printf( "     title : %s\n", movie->title );
+//        
+//        MovieTreeNode node = MovieTreeNode(m);
+//        node.NODES.insert ( pair<string, MovieTreeNode> ( movie->id, node ) );
+//        
+//        elem = elem->next;
+//    }
+//    
+//    for ( map <string,MovieTreeNode>::iterator i = MovieTreeNode::NODES.begin(); i != MovieTreeNode::NODES.end(); i++ )
+//    {
+//        cout << "MAP : " << i->first << endl;
+//    }
+//    
+//    MovieListFree( similars );
+//    movie_free( m );
 }
 
 

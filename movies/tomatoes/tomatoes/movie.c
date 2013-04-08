@@ -135,6 +135,8 @@ Movie movie_make( char *id, char *title )
 void movie_free( Movie movie )
 {
     free( movie->title );
+    free( movie->id );
+    free( movie );
 }
 
 void movie_reqTitle( Movie movie )
@@ -256,8 +258,8 @@ void MovieListFree( MovieList list )
 {
     struct _MovieListElem *elem = list->first;
     while (elem) {
-        movie_free(elem->movie);
-        free(elem->movie);
+//        movie_free(elem->movie);
+//        free(elem->movie);
         struct _MovieListElem *tmp = elem;
         elem = elem->next;
         free(tmp);

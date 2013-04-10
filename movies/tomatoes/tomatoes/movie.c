@@ -24,7 +24,7 @@ int wr_index;
 
 size_t write_data( void *buffer, size_t size, size_t nmemb, void *userp )
 {
-    //    puts(__PRETTY_FUNCTION__);
+    puts(__PRETTY_FUNCTION__);
     
     size_t segsize = size * nmemb;
     
@@ -53,6 +53,8 @@ size_t write_data( void *buffer, size_t size, size_t nmemb, void *userp )
 void json( cJSON *, int, int );
 cJSON *curl( char *URL )
 {
+    puts( __PRETTY_FUNCTION__ );
+    
     int wr_error = 0;
     wr_index = 0;
     

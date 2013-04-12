@@ -24,7 +24,7 @@ int wr_index;
 
 size_t write_data( void *buffer, size_t size, size_t nmemb, void *userp )
 {
-    puts(__PRETTY_FUNCTION__);
+//    puts(__PRETTY_FUNCTION__);
     
     size_t segsize = size * nmemb;
     
@@ -53,7 +53,7 @@ size_t write_data( void *buffer, size_t size, size_t nmemb, void *userp )
 void json( cJSON *, int, int );
 cJSON *curl( char *URL )
 {
-    puts( __PRETTY_FUNCTION__ );
+//    puts( __PRETTY_FUNCTION__ );
     
     int wr_error = 0;
     wr_index = 0;
@@ -75,15 +75,14 @@ cJSON *curl( char *URL )
     
     /* Allow curl to perform the action */
     CURLcode ret = curl_easy_perform( curl );
+    curl_easy_cleanup( curl );
     
     /* Emit the page if curl indicates that no errors occurred */
     if ( ret == 0 ) {
-        //        printf( "%s\n", wr_buf );
-        printf( "Recived chars : %zd\n", strlen(wr_buf) );
+        printf( "%s\n", wr_buf );
+//        printf( "Recived chars : %zd\n", strlen(wr_buf) );
     }
     else return NULL;
-    
-    curl_easy_cleanup( curl );
     
     cJSON *root = cJSON_Parse(wr_buf);
     //    json(root,0,999);
@@ -117,7 +116,7 @@ void json( cJSON *node, int inset, int maxInset )
         printf( "<%s : %s> %s\n", typeStr, node->string, valueStr );
         free( strBuf );
         
-        json( node->child, inset + 1, maxInset );
+//        json( node->child, inset + 1, maxInset );
         
         node = node->next;
     }
@@ -153,7 +152,7 @@ void movie_reqId( Movie movie )
     mStr_addStr( _url, strdup(movie->title) );
     char *url = mStr_string( _url );
     mStr_free( _url );
-    puts( url );
+//    puts( url );
     
     
     //    size_t cParams = sizeof( paramsArr ) / sizeof( paramsArr[0] );
@@ -260,7 +259,7 @@ void MovieListFree( MovieList list )
 {
     struct _MovieListElem *elem = list->first;
     while (elem) {
-//        movie_free(elem->movie);
+        movie_free(elem->movie);
 //        free(elem->movie);
         struct _MovieListElem *tmp = elem;
         elem = elem->next;
@@ -277,7 +276,7 @@ MovieList movie_similars( Movie movie )
     mStr_addStr( _url, strdup("?apikey=gfh7w8cm88rvptkndqq556x4&_prettyprint=true") );
     char *url = mStr_string( _url );
     mStr_free( _url );
-    puts( url );
+//    puts( url );
     
     MovieList list = MovieListMake(NULL);
     
@@ -285,7 +284,7 @@ MovieList movie_similars( Movie movie )
     free(url);
     if ( !tree ) goto errorSimilars;
     
-    json( tree, 0, 2 );
+//    json( tree, 0, 2 );
     
     cJSON *p = tree->child;
     if ( !p ) goto errorSimilars;
@@ -327,7 +326,7 @@ MovieList movie_similars( Movie movie )
     goto cleanSimilars;
     
 errorSimilars:
-    printf("%s : recieved JSON isn't correct", __PRETTY_FUNCTION__);
+//    printf("%s : recieved JSON isn't correct", __PRETTY_FUNCTION__);
 cleanSimilars:
     cJSON_Delete( tree );
     return list;

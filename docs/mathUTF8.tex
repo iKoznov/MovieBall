@@ -1,0 +1,77 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{latexsym}
+\usepackage{bm}
+\usepackage{url}
+%\usepackage{icomma}
+%\usepackage[icomma]{eulervm}
+%\usepackage{program}
+
+\DeclareMathOperator{\Sp}{Sp-t:r}
+
+\def\nobr{} % это позволит работать и в случае, если загрузка rumathbr будет закомментирована
+\usepackage{rumathbr}
+
+\usepackage[matrix,arrow]{xy} % Xy - после rumathbr
+
+
+\textwidth 1mm
+\sloppy
+
+\begin{document}
+
+% Проверка оглавления
+\tableofcontents
+\section{$\to\infty\ldots 12_3^4, x:=y, y=z$}
+
+% Проверка пакета icomma
+\noindent $1,23$ $1,x3$ $1, 23$
+
+% Проверка пакета xy
+\noindent $\xymatrix@1{A\ar[r]^f&B}$
+\[
+\xymatrix{a \ar[r]^{x^2} & b}
+\]
+
+% Проверка, что все в порядке внутри display math и проверка работы с пакетом bm
+\begin{equation}
+\hm{X_\star}=x+y
+\end{equation}
+\noindent $\hm{X_\star}$ $q=\hm{\frac{\pi}{3}}$
+
+% Проверка команд, созданных через \DeclareMathOperator
+\noindent $\Sp X_\star$
+
+% Проверка \not
+\noindent $x\not\models y$
+
+% Проверка \nobr
+\noindent $\sum\limits_i^j\nobr-x_i$ $x\nobr\times y$ $x\nobr\bowtie y$
+
+% Проверка \scriptstyle
+\noindent $\scriptstyle x\times y$ $\scriptstyle x+1$ $\scriptstyle x\cong y$
+
+% Разные проверки
+\noindent $a-(b+c)\leqslant d+(-e)$ $x-y$ $+$ $x\*y$ $x{\*}y$ $x*y$ $x=1$
+$x\equiv 1$ $x\notin 1$ $x>1$ $(-1)$ $-1$ $x.-y$ $x;-y$ $x,-y$ $x/y$ $x.y$
+$x,y$ $x:=y$ $x{:}=y$ $x{:=}y$ $x:y$ $x:$ $x:y:+z$ $x\colon y$ $x\leadsto y$
+$x\restriction y$ $x+_{a_b}^{w^z_y} y$$x\bigoplus_i^j y$
+$z=\left<-x+y\right>$ $z=<-x+y>$ $x:=\relax_1^2y$ $x:_1^2y$ $x\gg y$,
+$x\exists y$, $x\bigl(y$ $x\bigm(y$ $x\bigr)y$ $x\langle y{\rangle}$
+$x+^1y-z$ $\sin\frac12$ $x+\cdots+y$ $x^\bgroup y\egroup$ $x+^\leq y$ $x+^*y$
+$R^+$ $\ldots_a$ $x\neq y$ $\langle-1\rangle$ $N\to\infty$
+$x\rightleftharpoons y$ $x\cong y$ $x\notin y$ $x\bowtie y$ $x\doteq y$
+$x+_{a_b}^{w^z_y} y$ $x+{}_{a_b}^{w^z_y} y$ $x=_{a_b}^{w^z_y} y$
+$x={}_{a_b}^{w^z_y} y$ $x\ldots_{a_b}^{w^z_y}y$ $x\ldots{}_{a_b}^{w^z_y} y$
+$T+_{\omega_b}G$ $^\circ$ $\int\limits_a^b xdx$ $\int\nolimits_a^b xdx$ $x+^w
+y$ $x +_a y$ $\beta>0$ $\{-x+y\}$ $x\cdot y$ $\left(x+y\right\}$ $(x+y\}$
+$x\cong y$ $x\in X$ $x\times x$ $x\subset x$ $x\sim x$ $x\to x$ $\ge n$
+$x=-y$ $\{-x+\frac12\}$ $[-x+\frac12]$ $(-x+\frac12)$
+
+\end{document}

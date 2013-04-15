@@ -2,7 +2,7 @@
 #ifndef allocator_hpp_e1184f45_01e5_4089_b02d_d6f41dcf1192
 #define allocator_hpp_e1184f45_01e5_4089_b02d_d6f41dcf1192
 
-#include <SmallObj.h>
+#include <loki/SmallObj.h>
 #include <limits>
 #include <memory>
 

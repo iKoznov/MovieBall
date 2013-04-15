@@ -1,166 +1,74 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include <map>
+#include <memory>
 
-using namespace std;
-
-class Pool
-{
-	struct Link { Link* next; };
-	
-	struct Chunk
-	{
-		enum { size = 8*1024 - 16 };
-		char mem[size];
-		Chunk* next;
-	};
-	
-	Chunk* chunks;
-	const unsigned int esize;
-    Link* head;
-    Pool(Pool&);
-    void operator=(Pool&);
-    void grow();
+namespace my_namespace {
     
-public:
-    Pool(unsigned int n);
-    ~Pool();
-    
-    void* alloc();
-    void free(void* b);
-};
-
-inline void* Pool::alloc()
-{
-    if (head==0) grow();
-    Link* p = head;
-    head = p->next;
-    return p;
-}
-
-inline void Pool::free(void* b)
-{
-    Link* p = static_cast<Link*>(b);
-    p->next = head;
-    head = p;
-}
-
-Pool::Pool(unsigned int sz)
-    :esize(sz<sizeof(Link)?sizeof(Link):sz)
-{
-    head = 0;
-    chunks = 0;
-}
-
-Pool::~Pool()
-{
-    Chunk* n = chunks;
-    while (n)
+    template <class T, class Allocator = std::allocator<T> >
+    class set
     {
-        Chunk* p = n;
-        n = n->next;
-        delete p;
+    public:
+        // typedefs and allocator member as  above
+        typedef Allocator allocator_type;
+        typedef typename Allocator::size_type size_type;
+        typedef typename Allocator::difference_type
+        difference_type;
+        typedef typename Allocator::reference reference;
+        typedef typename Allocator::const_reference
+        const_reference;
+        
+        // Our iterator will be a simple pointer
+        typedef typename Allocator::pointer iterator;
+        typedef Allocator::const_pointer iterator;
+        
+    protected:
+        Allocator the_allocator;  // copy of the allocator
+        
+    private:
+        size_type buffer_size;
+        iterator buffer_start;
+        iterator current_end;
+        iterator end_of_buffer;
+        
+    public:
+        // A constructor that initializes the set using a range
+        // from some other container or array
+        template <class Iterator>
+        set(Iterator start, Iterator finish,
+            Allocator alloc = Allocator());
+        
+        iterator begin() { return buffer_start; }
+        iterator end() { return current_end; } 
+    };                    // Construct instance
+    
+    template <class T, class Allocator>
+    template <class Iterator>
+    set<T,Allocator>::set(Iterator start, Iterator finish,
+                          Allocator alloc)
+    : buffer_size(finish-start + DEFAULT_CUSHION),
+    buffer_start(0),
+    current_end(0), end_of_buffer(0)
+    {
+        // Copy the argument to our internal object
+        the_allocator = alloc;                               // 1
+        
+        // Create an initial buffer
+        buffer_start = the_allocator.allocate(buffer_size);  // 2
+        end_of_buffer = buffer_start + buffer_size;
+        
+        // Construct new values from iterator range on the buffer
+        for (current_end = buffer_start;
+             start != finish;
+             current_end++, start++)
+            the_allocator.construct(current_end,*start);      // 3
+        
+        // Now let's remove duplicates using a standard algorithm
+        std::unique(begin(),end());
     }
-}
-
-void Pool::grow()
-{
-    Chunk* n = new Chunk;
-    n->next = chunks;
-    chunks = n;
-    
-    const int nelem = Chunk::size/esize;
-    char* start = n->mem;
-    char* last = &start[ (nelem-1) * esize ];
-    
-    for (char* p = start; p<last; p+=esize)
-        reinterpret_cast<Link*> (p)->next = reinterpret_cast<Link*> (p+esize);
-    
-    reinterpret_cast<Link*> (last)->next = 0;
-    head = reinterpret_cast<Link*> (start);
-}
-
-//template<class T>class allocator {
-//public:
-//    typedef T value_type;
-//    typedef size_t size_type;
-//    typedef ptrdiff_t difference_type;
-//    
-//    typedef T*pointer;
-//    typedef const T*const_pointer;
-//    
-//    typedef T&reference;
-//    typedef const T&const_reference;
-//    
-//    pointer address(reference r)const{return&r;}
-//    const_pointer address(const_reference r)const{return&r;}
-//    
-//    allocator() throw();
-//    template<class U>allocator(const allocator<U>&)throw();
-//    ~allocator() throw();
-//    
-//    pointer allocate(size_type n, allocator<void>::const_pointer hint = 0);// space for n Ts
-//    void deallocate(pointer p,size_type n); //deallocate n Ts, don’t destroy
-//    
-//    void construct(pointer p, const T& val) { new(p) T(val); } // initialize *p by val
-//    void destroy(pointer p){p->~T();} //destroy *p but don’t deallocate
-//    size_type max_size()const throw();
-//    template<class U>
-//    struct rebind { typedef allocator<U> other; }; // in effect: typedef allocator<U> other
-//};
-//template<class T>bool operator==(const allocator<T>&,const allocator<T>&)throw();
-//template<class T>bool operator!=(const allocator<T>&,const allocator<T>&)throw();
-
-template <class T> class Pool_alloc {
-private:
-    static Pool mem;
-public:
-    typedef T value_type;
-    typedef size_t size_type;
-    typedef ptrdiff_t difference_type;
-    
-    typedef T*pointer;
-    typedef const T*const_pointer;
-    
-    typedef T&reference;
-    typedef const T&const_reference;
-    
-    T* allocate(size_type n, void* = 0);
-    void deallocate(pointer p, size_type n);
-    
-    Pool_alloc();
-};
-
-template <class T> Pool Pool_alloc<T>::mem(sizeof(T));
-template <class T> Pool_alloc<T>::Pool_alloc() { }
-
-template <class T>
-T* Pool_alloc<T>::allocate(size_type n, void*) {
-    if (n==1) return static_cast<T*>(mem.alloc());
-    // ...
-}
-
-template <class T>
-void Pool_alloc<T>::deallocate(pointer p, size_type n) {
-    if (n==1) {
-        mem.free(p);
-        return;
-    }
-    // ...
-}
+} // End of my_namespace
 
 int main( int argc, const char* argv[] )
 {
-    cout << "Pool testing" << endl;
-    
-    vector<int,Pool_alloc> v;
-    
-    Pool p(1);
-    while (true) {
-        void *e = p.alloc();
-        p.free(e);
-    }
+    std::cout << "Pool testing" << std::endl;
     
     return 0;
 }

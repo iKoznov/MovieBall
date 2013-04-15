@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(Pool)
+project(RED_BLACK_TREE)
 
-find_path(LOKI_INCLUDE_PATH loki)
-include_directories("${LOKI_INCLUDE_PATH}/")
+#find_path(LOKI_INCLUDE_PATH loki)
+#include_directories("${LOKI_INCLUDE_PATH}/")
 
 set(SOURCE_MODEL
-	pool.cpp
+	RedBlack.c
     )
 
-add_executable( pool ${SOURCE_MODEL} )
+add_executable( tree ${SOURCE_MODEL} )

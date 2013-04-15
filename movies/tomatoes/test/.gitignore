@@ -6,3 +6,5 @@
 !*.cpp
 !*.hpp
 !*.h
+
+CMakeCache.txt

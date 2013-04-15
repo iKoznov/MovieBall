@@ -1,0 +1,8 @@
+# Ignore everything in this directory
+*
+# Except those files
+!.gitignore
+!*.txt
+!*.cpp
+!*.hpp
+!*.h

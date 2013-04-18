@@ -24,6 +24,13 @@ void insert_case2(struct node *n);
 void insert_case3(struct node *n);
 void insert_case4(struct node *n);
 void insert_case5(struct node *n);
+void delete_case1(struct node *n);
+void delete_case2(struct node *n);
+void delete_case3(struct node *n);
+void delete_case4(struct node *n);
+void delete_case5(struct node *n);
+void delete_case6(struct node *n);
+
 
 void insert(struct node *R, struct node *N) {
     if ( less(N->value, R->value) ) {
@@ -80,12 +87,15 @@ struct node *uncle(struct node *n) {
         return g->left;
 }
 
+struct node *sibling(struct node *n) {
+    if (n == n->parent->left)
+        return n->parent->right;
+    else
+        return n->parent->left;
+}
+
 void rotate_left(struct node *x)
 {
-    /**************************
-     *  rotate node x to left *
-     **************************/
-    
     struct node *y = x->right;
     
     /* establish x->right link */
@@ -110,10 +120,6 @@ void rotate_left(struct node *x)
 
 void rotate_right(struct node *x)
 {
-    /****************************
-     *  rotate node x to right  *
-     ****************************/
-    
     struct node *y = x->left;
     
     /* establish x->left link */
@@ -186,6 +192,107 @@ void insert_case5(struct node *n) {
         rotate_right(g);
     } else { /* (n == n->parent->right) and (n->parent == g->right) */
         rotate_left(g);
+    }
+}
+
+void delete_one_child(struct node *n) {
+    /*
+     * Условие: n имеет не более одного ненулевого потомка.
+     */
+    struct node *child = is_leaf(n->right) ? n->left : n->right;
+    
+    replace_node(n, child);
+    if (n->color == BLACK) {
+        if (child->color == RED)
+            child->color = BLACK;
+        else
+            delete_case1(child);
+    }
+    free(n);
+}
+
+void delete_case1(struct node *n) {
+    if (n->parent != NULL)
+        delete_case2(n);
+}
+
+void delete_case2(struct node *n) {
+    struct node *s = sibling(n);
+    
+    if (s->color == RED) {
+        n->parent->color = RED;
+        s->color = BLACK;
+        if (n == n->parent->left)
+            rotate_left(n->parent);
+        else
+            rotate_right(n->parent);
+    }
+    delete_case3(n);
+}
+
+void delete_case3(struct node *n) {
+    struct node *s = sibling(n);
+    
+    if ((n->parent->color == BLACK) &&
+        (s->color == BLACK) &&
+        (s->left->color == BLACK) &&
+        (s->right->color == BLACK)) {
+        s->color = RED;
+        delete_case1(n->parent);
+    } else
+        delete_case4(n);
+}
+
+void delete_case4(struct node *n) {
+    struct node *s = sibling(n);
+    
+    if ((n->parent->color == RED) &&
+        (s->color == BLACK) &&
+        (s->left->color == BLACK) &&
+        (s->right->color == BLACK)) {
+        s->color = RED;
+        n->parent->color = BLACK;
+    } else
+        delete_case5(n);
+}
+
+void delete_case5(struct node *n) {
+    struct node *s = sibling(n);
+    
+    if  (s->color == BLACK) { /* this if statement is trivial,
+                               due to case 2 (even though case 2 changed the sibling to a sibling's child,
+                               the sibling's child can't be red, since no red parent can have a red child). */
+        /* the following statements just force the red to be on the left of the left of the parent,
+         or right of the right, so case six will rotate correctly. */
+        if ((n == n->parent->left) &&
+            (s->right->color == BLACK) &&
+            (s->left->color == RED)) { /* this last test is trivial too due to cases 2-4. */
+            s->color = RED;
+            s->left->color = BLACK;
+            rotate_right(s);
+        } else if ((n == n->parent->right) &&
+                   (s->left->color == BLACK) &&
+                   (s->right->color == RED)) {/* this last test is trivial too due to cases 2-4. */
+            s->color = RED;
+            s->right->color = BLACK;
+            rotate_left(s);
+        }
+    }
+    delete_case6(n);
+}
+
+void delete_case6(struct node *n) {
+    struct node *s = sibling(n);
+    
+    s->color = n->parent->color;
+    n->parent->color = BLACK;
+    
+    if (n == n->parent->left) {
+        s->right->color = BLACK;
+        rotate_left(n->parent);
+    } else {
+        s->left->color = BLACK;
+        rotate_right(n->parent);
     }
 }
 

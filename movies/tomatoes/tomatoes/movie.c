@@ -79,7 +79,7 @@ cJSON *curl( char *URL )
     
     /* Emit the page if curl indicates that no errors occurred */
     if ( ret == 0 ) {
-        printf( "%s\n", wr_buf );
+//        printf( "%s\n", wr_buf );
 //        printf( "Recived chars : %zd\n", strlen(wr_buf) );
     }
     else return NULL;

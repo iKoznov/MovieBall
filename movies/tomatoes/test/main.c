@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "tomatoes.h"
+#include <curl/curl.h>
 
 int main(int argc, const char * argv[])
 {

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdarg.h>
+#include <time.h>
 
 
 typedef int T;                  /* type of item to be stored */
@@ -306,6 +306,38 @@ Node *findNode(T data) {
     return(0);
 }
 
+void print(Node *N) {
+    if (N==NIL) return;
+    print(N->left);
+    printf("%d\n", N->data);
+    print(N->right);
+}
+
+Node *firstNode() {
+    Node *current = root;
+    if(current != NIL) {
+        while (current->left != NIL)
+            current = current->left;
+        return current;
+    }
+    return(0);
+}
+
+Node *nextNode(Node *N) {
+    if (N->right != NIL) {
+        N = N->right;
+        while (N->left != NIL)
+            N = N->left;
+        return N;
+    }
+    while (N->parent) {
+        if (N == N->parent->left)
+            return N->parent;
+        N = N->parent;
+    }
+    return 0;
+}
+
 int main(int argc, char **argv) {
     int a, maxnum, ct;
     Node *t;
@@ -319,15 +351,30 @@ int main(int argc, char **argv) {
      *
      */
     
-    maxnum = 100;
+    srand( time(NULL) );
+    clock_t t0 = clock();
+    
+    maxnum = 10;
     
     for (ct = maxnum; ct; ct--) {
-        a = rand() % 9 + 1;
-        if ((t = findNode(a)) != NULL) {
-            deleteNode(t);
-        } else {
-            insertNode(a);
-        }
+        insertNode( rand()%100 );
+//        a = rand() % 9 + 1;
+//        if ((t = findNode(a)) != NULL) {
+//            deleteNode(t);
+//        } else {
+//            insertNode(a);
+//        }
+    }
+    
+    clock_t t1 = clock();
+    printf("CLOCK : %f\n", (float)(t1-t0) / (float)CLOCKS_PER_SEC );
+    
+    print(root);
+    
+    Node *iter = firstNode();
+    while (iter) {
+        printf("iter : %d\n", iter->data);
+        iter = nextNode(iter);
     }
     
     return 0;

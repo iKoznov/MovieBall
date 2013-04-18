@@ -10,10 +10,10 @@
 #define tomatoes_mStr_h
 
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+//#ifdef __cplusplus
+//extern "C"
+//{
+//#endif
 
 
 typedef struct _mStr *mStr;
@@ -27,8 +27,8 @@ size_t mStr_length( mStr s );
 void mStr_free( mStr s );
     
     
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 #endif

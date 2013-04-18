@@ -9,10 +9,10 @@
 #ifndef tomatoes_movie_h
 #define tomatoes_movie_h
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+//#ifdef __cplusplus
+//extern "C"
+//{
+//#endif
 
 typedef struct _Movie *Movie;
 struct _Movie {
@@ -42,8 +42,8 @@ void MovieListAdd( MovieList list, Movie movie );
 void MovieListFree( MovieList list );
 MovieList movie_similars( Movie movie );
     
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 #endif

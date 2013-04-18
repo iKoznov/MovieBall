@@ -15,109 +15,54 @@
 #include "mStr.h"
 #include "movie.h"
 
-//#include <istream>
-//#include <list>
-//#include <set>
+#include "RedBlack.h"
 
-//using namespace std;
-//
-//class Node
-//{
-//private:
-//    /* set ban on copying or default constructor */
-//    Node();
-//    Node(const Node& root);
-//    Node& operator=(const Node&);
-//    
-//    /* global set of all Nodes at all */
-//    struct NodeCmp {
-//        bool operator()( const Node& lhs, const Node& rhs ) const {
-////            return strcmp( (left)._movie->id, (right)._movie->id ) < 0;
-//            return true;
-//        }
-//    };
-//    
-//    static set <Node, NodeCmp> _nodes;
-//    
-//    /* properties of each concrete Node object */
-//    string ID;
-////    set <Node *> _links;
-//    
-//    /* consctuctor, that sets identity of object */
-//    Node(string &id);
-//    
-//public:
-//    /* static members */
-//    static const Node& node(string&);
-////    static void printNodes();
-//    
-//    /* messages that can be recieved by each object */
-////    void similars();
-//    
-//    /* destructor */
-//    ~Node();
-//};
-//
-//set <Node, Node::NodeCmp> Node::_nodes = set <Node, Node::NodeCmp> ();
-//
-//Node::Node(string &id)
-//{
-//    ID = id;
-//}
-//
-//Node::~Node() { }
-//
-//const Node& Node::node(string& id)
-//{
-//    Node* n=new Node(id);
-//    pair <set <Node>::iterator, bool> p = _nodes.insert( *n );
-////    if ( !p.second ) delete n;
-//    return (*p.first);
-//}
-//
-////void Node::printNodes()
-////{
-////    cout << "------------------------------------" << endl;
-////    for ( set <Node>::iterator i = _nodes.begin(); i!=_nodes.end(); i++ ) {
-////        cout << "[" << (*i)._movie->id << "] - " << (*i)._movie->title << endl;
-////    }
-////}
-////
-////void Node::similars()
-////{
-////    MovieList list = movie_similars( _movie );
-////    MovieListFree(list);
-////}
+redBlackType(MovieNode)
 
-struct _Set {
-    
+//#define T MovieNode                  /* type of item to be stored */
+typedef struct _MovieNode *MovieNode;
+struct _MovieNode {
+    Movie movie;
+    SetMovieNode links;
 };
+char *MovieNodeId(MovieNode);
+#define compLT(a,b) ( strcmp(MovieNodeId(a),MovieNodeId(b)) < 0 )
+#define compEQ(a,b) ( strcmp(MovieNodeId(a),MovieNodeId(b)) == 0 )
 
-static Set NODES;
+redBlack(MovieNode)
+
+
+redBlackType(int)
+//#define T int                  /* type of item to be stored */
+#define compLT(a,b) ( a < b )
+#define compEQ(a,b) ( a == b )
+redBlack(int)
+
+static SetMovieNode NODES;
 
 
 
-void MovieNodeDelete(Node *node) {
-    MovieNode movNd = nodeData(node);
+void MovieNodeDelete( SetMovieNode *S, NodeMovieNode *node ) {
+    MovieNode movNd = nodeDataMovieNode(node);
     movie_free(movNd->movie);
     free(movNd);
-    deleteNode(&NODES, node);
+    deleteNodeMovieNode(S, node);
 }
 
-MovieNode NodeByMovie(Movie movie)
+MovieNode NodeByMovie( SetMovieNode *S, Movie movie )
 {
     MovieNode node = malloc( sizeof(struct _MovieNode) );
     node->movie = movie;
-    Node *res = findNode( &NODES, node );
+    NodeMovieNode *res = findNodeMovieNode( S, node );
     if (res) {
         free(node);
         movie_free(movie);
 //        MovieNodeDelete(res);
-        return nodeData(res);
+        return nodeDataMovieNode(res);
 //        return NULL;
     };
-    insertNode( &NODES, node );
-    node->links = SetMake();
+    insertNodeMovieNode( S, node );
+    node->links = SetMakeMovieNode();
     return node;
 }
 
@@ -129,67 +74,48 @@ void tomatoes()
 {
     puts(__PRETTY_FUNCTION__);
     
+    hiMovieNode();
+    
 //    insertNode( MovieNO );
     printf("RAND_MAX : %d\n", RAND_MAX);
     srand( (unsigned)time(NULL) );
     
-    NODES = SetMake();
+    NODES = SetMakeMovieNode();
     
     Movie mov = movie_make( strdup("770672122"), strdup("abc") );
-    MovieNode node = NodeByMovie(mov);
+    NodeByMovie(&NODES,mov);
     
     MovieList list = movie_similars(mov);
     struct _MovieListElem *elem = list->first;
     
     while (elem) {
         Movie same = elem->movie;
-        MovieNode linked = NodeByMovie(same);
+        NodeByMovie(&NODES,same);
+        
+//        NodeByMovie( &(node->links), mov );
         
         printf("[%s] - %s\n", same->id, same->title);
         
         elem = elem->next;
     }
     
-    print(NODES);
+//    print(NODES);
     
-    Node *iter = firstNode( &NODES );
+    NodeMovieNode *iter = firstNodeMovieNode( &NODES );
     while(iter) {
-        MovieNode nd = nodeData( iter );
+        MovieNode nd = nodeDataMovieNode( iter );
         printf("%s\n", nd->movie->id);
-        iter = nextNode(iter);
+        
+        NodeMovieNode *lnk = firstNodeMovieNode(&(nd->links));
+        while (lnk) {
+            printf("\t%s\n", nodeDataMovieNode(lnk)->movie->id);
+            lnk = nextNodeMovieNode(lnk);
+        }
+        
+        
+        iter = nextNodeMovieNode(iter);
 //    nd->movie->id
     }
-    
-//    
-//    unsigned counter = 0;
-//    while (1)
-//    {
-//        char *id = calloc( 41, sizeof(char) );
-//        sprintf( id, "%d", rand()%1000000 );
-//        Movie mov = movie_make( id, strdup("abc") );
-//        MovieNode node = NodeByMovie(mov);
-//        
-//        MovieNode node = malloc( sizeof(struct _MovieNode) );
-//        node->movie = mov;
-//        
-//        insertNode(NODES,node);
-//        
-//        Node *t;
-//        if ((t = findNode(NODES,node)) != NULL) {
-////            MovieNode nd = nodeData(t);
-////            movie_free(nd->movie);
-////            deleteNode(NODES,t);
-//            free(node);
-//            movie_free(mov);
-//        } else {
-//            insertNode(NODES,node);
-//        }
-//        
-//        free(node);
-//        movie_free(mov);
-//        
-//        printf("%d\n", counter++);
-//    }
 }
 
 

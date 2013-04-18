@@ -16,7 +16,7 @@
 		CED16F3A171319FD0076EA2D /* movie.c in Sources */ = {isa = PBXBuildFile; fileRef = CED16F38171319FD0076EA2D /* movie.c */; };
 		CED16F3D1713255B0076EA2D /* tomatoes.c in Sources */ = {isa = PBXBuildFile; fileRef = CED16F3B1713255B0076EA2D /* tomatoes.c */; };
 		CED16F3E1713255B0076EA2D /* tomatoes.c in Sources */ = {isa = PBXBuildFile; fileRef = CED16F3B1713255B0076EA2D /* tomatoes.c */; };
-		CEDC7E80171ED421000644AD /* RedBlackMovie.c in Sources */ = {isa = PBXBuildFile; fileRef = CEDC7E7F171ED421000644AD /* RedBlackMovie.c */; };
+		CEDC7E80171ED421000644AD /* RedBlack.h in Sources */ = {isa = PBXBuildFile; fileRef = CEDC7E7F171ED421000644AD /* RedBlack.h */; };
 		CEF3D70C170F1CA400B25B92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF3D70B170F1CA400B25B92 /* UIKit.framework */; };
 		CEF3D70E170F1CA400B25B92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF3D70D170F1CA400B25B92 /* Foundation.framework */; };
 		CEF3D710170F1CA400B25B92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF3D70F170F1CA400B25B92 /* CoreGraphics.framework */; };
@@ -54,7 +54,7 @@
 		CED16F38171319FD0076EA2D /* movie.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = movie.c; sourceTree = "<group>"; };
 		CED16F3B1713255B0076EA2D /* tomatoes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tomatoes.c; sourceTree = "<group>"; };
 		CED16F3C1713255B0076EA2D /* tomatoes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tomatoes.h; sourceTree = "<group>"; };
-		CEDC7E7F171ED421000644AD /* RedBlackMovie.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RedBlackMovie.c; sourceTree = "<group>"; };
+		CEDC7E7F171ED421000644AD /* RedBlack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBlack.h; sourceTree = "<group>"; };
 		CEF3D708170F1CA400B25B92 /* tomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tomatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF3D70B170F1CA400B25B92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF3D70D170F1CA400B25B92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -138,7 +138,7 @@
 				CEF3D729170F1D8C00B25B92 /* RootViewController.m */,
 				CED16F3C1713255B0076EA2D /* tomatoes.h */,
 				CED16F3B1713255B0076EA2D /* tomatoes.c */,
-				CEDC7E7F171ED421000644AD /* RedBlackMovie.c */,
+				CEDC7E7F171ED421000644AD /* RedBlack.h */,
 				CED16F37171319F10076EA2D /* movie.h */,
 				CED16F38171319FD0076EA2D /* movie.c */,
 				CED16F331710839D0076EA2D /* mStr.h */,
@@ -273,7 +273,7 @@
 				CED16F36171083A90076EA2D /* mStr.c in Sources */,
 				CED16F3A171319FD0076EA2D /* movie.c in Sources */,
 				CED16F3E1713255B0076EA2D /* tomatoes.c in Sources */,
-				CEDC7E80171ED421000644AD /* RedBlackMovie.c in Sources */,
+				CEDC7E80171ED421000644AD /* RedBlack.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

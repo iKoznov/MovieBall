@@ -17,26 +17,25 @@
 
 #include "RedBlack.h"
 
+typedef struct _MovieNode *MovieNode;
 redBlackType(MovieNode)
 
-//#define T MovieNode                  /* type of item to be stored */
-typedef struct _MovieNode *MovieNode;
+typedef MovieNode MovieNodePointer;
+redBlackType(MovieNodePointer)
+
 struct _MovieNode {
     Movie movie;
-    SetMovieNode links;
+    SetMovieNodePointer links;
 };
-char *MovieNodeId(MovieNode);
-#define compLT(a,b) ( strcmp(MovieNodeId(a),MovieNodeId(b)) < 0 )
-#define compEQ(a,b) ( strcmp(MovieNodeId(a),MovieNodeId(b)) == 0 )
 
+char *MovieNodeId(MovieNode);
+#define compLT(a,b) ( strcmp(a->movie->id,b->movie->id) < 0 )
+#define compEQ(a,b) ( strcmp(a->movie->id,b->movie->id) == 0 )
 redBlack(MovieNode)
 
-
-redBlackType(int)
-//#define T int                  /* type of item to be stored */
 #define compLT(a,b) ( a < b )
 #define compEQ(a,b) ( a == b )
-redBlack(int)
+redBlack(MovieNodePointer)
 
 static SetMovieNode NODES;
 
@@ -62,12 +61,16 @@ MovieNode NodeByMovie( SetMovieNode *S, Movie movie )
 //        return NULL;
     };
     insertNodeMovieNode( S, node );
-    node->links = SetMakeMovieNode();
+    node->links = SetMakeMovieNodePointer();
     return node;
 }
 
-char *MovieNodeId(MovieNode node) {
-    return node->movie->id;
+MovieNodePointer NodeByPointer( SetMovieNodePointer *S, MovieNodePointer pointer )
+{
+    NodeMovieNodePointer *res = findNodeMovieNodePointer(S, pointer);
+    if (res) return nodeDataMovieNodePointer(res);
+    res = insertNodeMovieNodePointer( S, pointer);
+    return nodeDataMovieNodePointer(res);
 }
 
 void tomatoes()
@@ -83,16 +86,17 @@ void tomatoes()
     NODES = SetMakeMovieNode();
     
     Movie mov = movie_make( strdup("770672122"), strdup("abc") );
-    NodeByMovie(&NODES,mov);
+    MovieNode node = NodeByMovie(&NODES,mov);
     
     MovieList list = movie_similars(mov);
     struct _MovieListElem *elem = list->first;
     
     while (elem) {
         Movie same = elem->movie;
-        NodeByMovie(&NODES,same);
+        MovieNode sameNode = NodeByMovie(&NODES,same);
         
-//        NodeByMovie( &(node->links), mov );
+        NodeByPointer( &(node->links), sameNode );
+        NodeByPointer( &(sameNode->links), node );
         
         printf("[%s] - %s\n", same->id, same->title);
         
@@ -106,10 +110,10 @@ void tomatoes()
         MovieNode nd = nodeDataMovieNode( iter );
         printf("%s\n", nd->movie->id);
         
-        NodeMovieNode *lnk = firstNodeMovieNode(&(nd->links));
+        NodeMovieNodePointer *lnk = firstNodeMovieNodePointer(&(nd->links));
         while (lnk) {
-            printf("\t%s\n", nodeDataMovieNode(lnk)->movie->id);
-            lnk = nextNodeMovieNode(lnk);
+            printf("\t%s\n", nodeDataMovieNodePointer(lnk)->movie->id);
+            lnk = nextNodeMovieNodePointer(lnk);
         }
         
         

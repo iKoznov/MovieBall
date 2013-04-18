@@ -10,5 +10,6 @@
 #define __tomatoes__tomatoes__
 
 //#include <iostream>
+void tomatoes();
 
 #endif /* defined(__tomatoes__tomatoes__) */

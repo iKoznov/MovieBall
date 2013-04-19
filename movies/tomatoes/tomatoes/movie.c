@@ -326,7 +326,7 @@ MovieList movie_similars( Movie movie )
     goto cleanSimilars;
     
 errorSimilars:
-//    printf("%s : recieved JSON isn't correct", __PRETTY_FUNCTION__);
+    printf("%s : recieved JSON isn't correct", __PRETTY_FUNCTION__);
 cleanSimilars:
     cJSON_Delete( tree );
     return list;

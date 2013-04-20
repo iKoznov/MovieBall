@@ -299,515 +299,60 @@ void icosahedron_indexes()
     _numberOfSides = 0;
     Side *p = _sides = calloc(12+20, sizeof(Side));
     
-#pragma mark TOP
-    {
-        GLuint s[] = {1,2,3,4,5};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
+#define SIDE(...) { \
+        GLuint s[] = {__VA_ARGS__}; \
+        p->indexes = malloc(sizeof(s)); \
+        memcpy(p->indexes, s, sizeof(s)); \
+        p->numberOfVertices = sizeof(s)/sizeof(s[0]); \
+        for (GLuint i = 0; i < p->numberOfVertices; i++) \
+        { \
+            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices; \
+            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices; \
+            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices; \
+             \
+            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;\
+            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;\
+        }\
+        \
+        glGenBuffers(1, &(p->indexBuffer));\
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);\
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);\
+        \
+        p->texture = setupTexture(@"american-beauty0021.png");\
+        \
+        _numberOfSides++;\
+        p++;\
     }
+    
+#pragma mark TOP
+    SIDE(1,2,3,4,5)
     
 #pragma mark SECOND ROW
-    {
-        GLuint s[] = {1,2,8,18,17,6};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {2,3,10,21,20,8};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {3,4,12,24,23,10};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {4,5,14,27,26,12};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {5,1,6,30,29,14};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
+    SIDE(1,2,8,18,17,6)
+    SIDE(2,3,10,21,20,8)
+    SIDE(3,4,12,24,23,10)
+    SIDE(4,5,14,27,26,12)
+    SIDE(5,1,6,30,29,14)
     
 #pragma mark TOP CENTER 5
-    {
-        GLuint s[] = {8,20,34,33,18};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {10,23,37,36,21};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {12,26,40,39,24};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {14,29,43,42,27};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {6,17,31,45,30};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
+    SIDE(6,17,31,45,30)
+    SIDE(8,20,34,33,18)
+    SIDE(10,23,37,36,21)
+    SIDE(12,26,40,39,24)
+    SIDE(14,29,43,42,27)
     
 #pragma mark TOP CENTER 6
-    {
-        GLuint s[] = {17,18,33,47,46,31};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {20,21,36,50,49,34};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {23,24,39,53,52,37};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {26,27,42,56,55,40};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
-    
-    {
-        GLuint s[] = {29,30,45,59,58,43};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
+    SIDE(17,18,33,47,46,31)
+    SIDE(20,21,36,50,49,34)
+    SIDE(23,24,39,53,52,37)
+    SIDE(26,27,42,56,55,40)
+    SIDE(29,30,45,59,58,43)
     
 #pragma mark BOTTOM CENTER 6
-//    {
-//        GLuint s[] = {33,34,49,63,62,47};
-//        p->indexes = malloc(sizeof(s));
-//        memcpy(p->indexes, s, sizeof(s));
-//        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-//        for (GLuint i = 0; i < p->numberOfVertices; i++)
-//        {
-//            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-//            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-//            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-//            
-//            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-//            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-//            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-//            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-//        }
-//        
-//        glGenBuffers(1, &(p->indexBuffer));
-//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-//        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-//        
-//        p->texture = setupTexture(@"american-beauty0021.png");
-//        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-//        
-//        _numberOfSides++;
-//        p++;
-//    }
+//    SIDE(33,34,49,63,62,47)
     
 #pragma mark BOTTOM
-    {
-        GLuint s[] = {61,62,63,64,65};
-        p->indexes = malloc(sizeof(s));
-        memcpy(p->indexes, s, sizeof(s));
-        p->numberOfVertices = sizeof(s)/sizeof(s[0]);
-        for (GLuint i = 0; i < p->numberOfVertices; i++)
-        {
-            p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices;
-            p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices;
-            p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices;
-            
-            _vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            _vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;
-            NSLog(@"cord[%d] : %f %f %f", p->indexes[i], _vertices[p->indexes[i]].x, _vertices[p->indexes[i]].y, _vertices[p->indexes[i]].z );
-            NSLog(@"texCord[%d] : %f %f", p->indexes[i], _vertices[p->indexes[i]].tX, _vertices[p->indexes[i]].tY );
-        }
-        
-        glGenBuffers(1, &(p->indexBuffer));
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);
-        
-        p->texture = setupTexture(@"american-beauty0021.png");
-        NSLog(@"center : %f %f %f", p->center[0], p->center[1], p->center[2]);
-        
-        _numberOfSides++;
-        p++;
-    }
+    SIDE(61,62,63,64,65)
     
     glGenBuffers(1, &_vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);

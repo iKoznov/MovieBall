@@ -29,6 +29,8 @@
 		CEF3D72A170F1D8C00B25B92 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D729170F1D8C00B25B92 /* RootViewController.m */; };
 		CEF3D735170F2A6B00B25B92 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D734170F2A6B00B25B92 /* main.c */; };
 		CEF3D737170F2A6B00B25B92 /* test.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEF3D736170F2A6B00B25B92 /* test.1 */; };
+		CEF8B77B1722D98D00E98CDE /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF8B77A1722D98D00E98CDE /* libcurl.a */; };
+		CEF8B7821722F0AA00E98CDE /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF8B77C1722E9A500E98CDE /* libz.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +75,8 @@
 		CEF3D732170F2A6B00B25B92 /* test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF3D734170F2A6B00B25B92 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		CEF3D736170F2A6B00B25B92 /* test.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = test.1; sourceTree = "<group>"; };
+		CEF8B77A1722D98D00E98CDE /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../libsUNIVERSAL/libcurl.a; sourceTree = "<group>"; };
+		CEF8B77C1722E9A500E98CDE /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = ../../libsUNIVERSAL/libz.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF8B7821722F0AA00E98CDE /* libz.a in Frameworks */,
+				CEF8B77B1722D98D00E98CDE /* libcurl.a in Frameworks */,
 				CEF3D70C170F1CA400B25B92 /* UIKit.framework in Frameworks */,
 				CEF3D70E170F1CA400B25B92 /* Foundation.framework in Frameworks */,
 				CEF3D710170F1CA400B25B92 /* CoreGraphics.framework in Frameworks */,
@@ -100,6 +106,8 @@
 		CEF3D6FF170F1CA400B25B92 = {
 			isa = PBXGroup;
 			children = (
+				CEF8B77C1722E9A500E98CDE /* libz.a */,
+				CEF8B77A1722D98D00E98CDE /* libcurl.a */,
 				CED16F14171051F30076EA2D /* libcurl.dylib */,
 				CED16F2F17105A7D0076EA2D /* cJSON.c */,
 				CED16F3017105A7D0076EA2D /* cJSON.h */,
@@ -352,8 +360,15 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tomatoes/tomatoes-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../libsUNIVERSAL/";
 				INFOPLIST_FILE = "tomatoes/tomatoes-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../libsUNIVERSAL\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -363,8 +378,15 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tomatoes/tomatoes-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../libsUNIVERSAL/";
 				INFOPLIST_FILE = "tomatoes/tomatoes-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../libsUNIVERSAL\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

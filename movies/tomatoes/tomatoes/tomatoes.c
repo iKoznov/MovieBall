@@ -211,7 +211,6 @@ float Force(NodePair pair)
     
     PrintCounter(counter);
     PathFree(counter);
-#warning !!! remember to free RouteStack !!!
     free( route );
     
     return F;

@@ -12,8 +12,8 @@ echo "Start building libraries."
 #fi
 mkdir -p "${BUILD_PATH}/"
 
-cd "${CURRENTPATH}/"
-/bin/sh build-libz.sh
+#cd "${CURRENTPATH}/"
+#/bin/sh build-libz.sh
 cd "${CURRENTPATH}/"
 /bin/sh build-libcurl.sh
 

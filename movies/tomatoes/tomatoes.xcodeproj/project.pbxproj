@@ -30,7 +30,6 @@
 		CEF3D735170F2A6B00B25B92 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D734170F2A6B00B25B92 /* main.c */; };
 		CEF3D737170F2A6B00B25B92 /* test.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEF3D736170F2A6B00B25B92 /* test.1 */; };
 		CEF8B77B1722D98D00E98CDE /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF8B77A1722D98D00E98CDE /* libcurl.a */; };
-		CEF8B7821722F0AA00E98CDE /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF8B77C1722E9A500E98CDE /* libz.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,7 +75,6 @@
 		CEF3D734170F2A6B00B25B92 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		CEF3D736170F2A6B00B25B92 /* test.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = test.1; sourceTree = "<group>"; };
 		CEF8B77A1722D98D00E98CDE /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../libsUNIVERSAL/libcurl.a; sourceTree = "<group>"; };
-		CEF8B77C1722E9A500E98CDE /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = ../../libsUNIVERSAL/libz.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF8B7821722F0AA00E98CDE /* libz.a in Frameworks */,
 				CEF8B77B1722D98D00E98CDE /* libcurl.a in Frameworks */,
 				CEF3D70C170F1CA400B25B92 /* UIKit.framework in Frameworks */,
 				CEF3D70E170F1CA400B25B92 /* Foundation.framework in Frameworks */,
@@ -106,7 +103,6 @@
 		CEF3D6FF170F1CA400B25B92 = {
 			isa = PBXGroup;
 			children = (
-				CEF8B77C1722E9A500E98CDE /* libz.a */,
 				CEF8B77A1722D98D00E98CDE /* libcurl.a */,
 				CED16F14171051F30076EA2D /* libcurl.dylib */,
 				CED16F2F17105A7D0076EA2D /* cJSON.c */,

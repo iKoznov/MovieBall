@@ -21,15 +21,14 @@
 		468ED0EA1704D6BC00763C7B /* SphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 468ED0E91704D6BC00763C7B /* SphereView.m */; };
 		46BD48251704E57C0088A2AB /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 46BD48241704E57C0088A2AB /* SimpleVertex.glsl */; };
 		46BD48271704E8CA0088A2AB /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 46BD48261704E8CA0088A2AB /* SimpleFragment.glsl */; };
-		46BD4833170585660088A2AB /* CC3Foundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BD482A170585660088A2AB /* CC3Foundation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		46BD4834170585660088A2AB /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BD482C170585660088A2AB /* CC3GLMatrix.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		46BD4835170585660088A2AB /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 46BD482D170585660088A2AB /* CC3Kazmath.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		46BD4836170585660088A2AB /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BD4831170585660088A2AB /* CC3Math.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		46BD485C170809A50088A2AB /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485A170809A50088A2AB /* item_powerup_fish.png */; };
 		46BD485D170809A50088A2AB /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485B170809A50088A2AB /* tile_floor.png */; };
 		46BD4860170814230088A2AB /* american-beauty0021.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485E170814230088A2AB /* american-beauty0021.png */; };
 		CEC244551705CD2D00106A0B /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244531705CD2D00106A0B /* item_powerup_fish.png */; };
 		CEC244561705CD2D00106A0B /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244541705CD2D00106A0B /* tile_floor.png */; };
+		CED5043E17258EC00048404D /* mStr.c in Sources */ = {isa = PBXBuildFile; fileRef = CED5043C17258EC00048404D /* mStr.c */; };
+		CED5044317259F4B0048404D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED5044217259F4B0048404D /* GLKit.framework */; };
+		CED504461725A46C0048404D /* icosahedron.m in Sources */ = {isa = PBXBuildFile; fileRef = CED504451725A46C0048404D /* icosahedron.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,21 +51,16 @@
 		468ED0E91704D6BC00763C7B /* SphereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereView.m; sourceTree = "<group>"; };
 		46BD48241704E57C0088A2AB /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
 		46BD48261704E8CA0088A2AB /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
-		46BD4829170585660088A2AB /* CC3Foundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Foundation.h; sourceTree = "<group>"; };
-		46BD482A170585660088A2AB /* CC3Foundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Foundation.m; sourceTree = "<group>"; };
-		46BD482B170585660088A2AB /* CC3GLMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3GLMatrix.h; sourceTree = "<group>"; };
-		46BD482C170585660088A2AB /* CC3GLMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3GLMatrix.m; sourceTree = "<group>"; };
-		46BD482D170585660088A2AB /* CC3Kazmath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CC3Kazmath.c; sourceTree = "<group>"; };
-		46BD482E170585660088A2AB /* CC3Kazmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Kazmath.h; sourceTree = "<group>"; };
-		46BD482F170585660088A2AB /* CC3Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Logging.h; sourceTree = "<group>"; };
-		46BD4830170585660088A2AB /* CC3Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Math.h; sourceTree = "<group>"; };
-		46BD4831170585660088A2AB /* CC3Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Math.m; sourceTree = "<group>"; };
-		46BD4832170585660088A2AB /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
 		46BD485A170809A50088A2AB /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
 		46BD485B170809A50088A2AB /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
 		46BD485E170814230088A2AB /* american-beauty0021.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "american-beauty0021.png"; sourceTree = "<group>"; };
 		CEC244531705CD2D00106A0B /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
 		CEC244541705CD2D00106A0B /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
+		CED5043C17258EC00048404D /* mStr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mStr.c; sourceTree = "<group>"; };
+		CED5043D17258EC00048404D /* mStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mStr.h; sourceTree = "<group>"; };
+		CED5044217259F4B0048404D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		CED504441725A46C0048404D /* icosahedron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = icosahedron.h; sourceTree = "<group>"; };
+		CED504451725A46C0048404D /* icosahedron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = icosahedron.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED5044317259F4B0048404D /* GLKit.framework in Frameworks */,
 				468ED0E71704D5EA00763C7B /* QuartzCore.framework in Frameworks */,
 				468ED0E51704D5DA00763C7B /* OpenGLES.framework in Frameworks */,
 				468ED0C81704D5AD00763C7B /* UIKit.framework in Frameworks */,
@@ -88,6 +83,7 @@
 		468ED0BB1704D5AD00763C7B = {
 			isa = PBXGroup;
 			children = (
+				CED5044217259F4B0048404D /* GLKit.framework */,
 				468ED0CD1704D5AD00763C7B /* SphereIOS */,
 				468ED0C61704D5AD00763C7B /* Frameworks */,
 				468ED0C51704D5AD00763C7B /* Products */,
@@ -118,11 +114,14 @@
 			isa = PBXGroup;
 			children = (
 				CEC244521705CD2D00106A0B /* Art */,
-				46BD4828170585660088A2AB /* Cocos3DMathLib */,
 				468ED0D61704D5AD00763C7B /* AppDelegate.h */,
 				468ED0D71704D5AD00763C7B /* AppDelegate.m */,
+				CED5043C17258EC00048404D /* mStr.c */,
+				CED5043D17258EC00048404D /* mStr.h */,
 				468ED0E81704D6BC00763C7B /* SphereView.h */,
 				468ED0E91704D6BC00763C7B /* SphereView.m */,
+				CED504441725A46C0048404D /* icosahedron.h */,
+				CED504451725A46C0048404D /* icosahedron.m */,
 				46BD48241704E57C0088A2AB /* SimpleVertex.glsl */,
 				46BD48261704E8CA0088A2AB /* SimpleFragment.glsl */,
 				46BD485E170814230088A2AB /* american-beauty0021.png */,
@@ -145,23 +144,6 @@
 				468ED0DD1704D5AD00763C7B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		46BD4828170585660088A2AB /* Cocos3DMathLib */ = {
-			isa = PBXGroup;
-			children = (
-				46BD4829170585660088A2AB /* CC3Foundation.h */,
-				46BD482A170585660088A2AB /* CC3Foundation.m */,
-				46BD482B170585660088A2AB /* CC3GLMatrix.h */,
-				46BD482C170585660088A2AB /* CC3GLMatrix.m */,
-				46BD482D170585660088A2AB /* CC3Kazmath.c */,
-				46BD482E170585660088A2AB /* CC3Kazmath.h */,
-				46BD482F170585660088A2AB /* CC3Logging.h */,
-				46BD4830170585660088A2AB /* CC3Math.h */,
-				46BD4831170585660088A2AB /* CC3Math.m */,
-				46BD4832170585660088A2AB /* ccTypes.h */,
-			);
-			path = Cocos3DMathLib;
 			sourceTree = "<group>";
 		};
 		CEC244521705CD2D00106A0B /* Art */ = {
@@ -248,10 +230,8 @@
 				468ED0D41704D5AD00763C7B /* main.m in Sources */,
 				468ED0D81704D5AD00763C7B /* AppDelegate.m in Sources */,
 				468ED0EA1704D6BC00763C7B /* SphereView.m in Sources */,
-				46BD4833170585660088A2AB /* CC3Foundation.m in Sources */,
-				46BD4834170585660088A2AB /* CC3GLMatrix.m in Sources */,
-				46BD4835170585660088A2AB /* CC3Kazmath.c in Sources */,
-				46BD4836170585660088A2AB /* CC3Math.m in Sources */,
+				CED5043E17258EC00048404D /* mStr.c in Sources */,
+				CED504461725A46C0048404D /* icosahedron.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

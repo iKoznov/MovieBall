@@ -9,6 +9,7 @@
 #import "SphereView.h"
 #include "mStr.h"
 #include "icosahedron.h"
+#include "tomatoes.h"
 
 #pragma mark -
 #pragma mark SphereView implementation
@@ -38,6 +39,8 @@
     setupVBOs();
     [self setupDisplayLink];
     [self setupGestures];
+    
+    tomatoes();
 }
 
 #pragma mark -

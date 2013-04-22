@@ -24,11 +24,13 @@
 		46BD485C170809A50088A2AB /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485A170809A50088A2AB /* item_powerup_fish.png */; };
 		46BD485D170809A50088A2AB /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485B170809A50088A2AB /* tile_floor.png */; };
 		46BD4860170814230088A2AB /* american-beauty0021.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BD485E170814230088A2AB /* american-beauty0021.png */; };
-		CEC244551705CD2D00106A0B /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244531705CD2D00106A0B /* item_powerup_fish.png */; };
-		CEC244561705CD2D00106A0B /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC244541705CD2D00106A0B /* tile_floor.png */; };
 		CED5043E17258EC00048404D /* mStr.c in Sources */ = {isa = PBXBuildFile; fileRef = CED5043C17258EC00048404D /* mStr.c */; };
 		CED5044317259F4B0048404D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED5044217259F4B0048404D /* GLKit.framework */; };
 		CED504461725A46C0048404D /* icosahedron.m in Sources */ = {isa = PBXBuildFile; fileRef = CED504451725A46C0048404D /* icosahedron.m */; };
+		CED5044C1725AD9E0048404D /* movie.c in Sources */ = {isa = PBXBuildFile; fileRef = CED504481725AD9E0048404D /* movie.c */; };
+		CED5044D1725AD9E0048404D /* tomatoes.c in Sources */ = {isa = PBXBuildFile; fileRef = CED5044A1725AD9E0048404D /* tomatoes.c */; };
+		CED5044F1725ADBC0048404D /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED5044E1725ADBC0048404D /* libcurl.a */; };
+		CED504521725AE220048404D /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = CED504501725AE220048404D /* cJSON.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,13 +56,19 @@
 		46BD485A170809A50088A2AB /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
 		46BD485B170809A50088A2AB /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
 		46BD485E170814230088A2AB /* american-beauty0021.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "american-beauty0021.png"; sourceTree = "<group>"; };
-		CEC244531705CD2D00106A0B /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
-		CEC244541705CD2D00106A0B /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
 		CED5043C17258EC00048404D /* mStr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mStr.c; sourceTree = "<group>"; };
 		CED5043D17258EC00048404D /* mStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mStr.h; sourceTree = "<group>"; };
 		CED5044217259F4B0048404D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		CED504441725A46C0048404D /* icosahedron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = icosahedron.h; sourceTree = "<group>"; };
 		CED504451725A46C0048404D /* icosahedron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = icosahedron.m; sourceTree = "<group>"; };
+		CED504471725AD9E0048404D /* RedBlack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBlack.h; sourceTree = "<group>"; };
+		CED504481725AD9E0048404D /* movie.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = movie.c; sourceTree = "<group>"; };
+		CED504491725AD9E0048404D /* movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movie.h; sourceTree = "<group>"; };
+		CED5044A1725AD9E0048404D /* tomatoes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tomatoes.c; sourceTree = "<group>"; };
+		CED5044B1725AD9E0048404D /* tomatoes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tomatoes.h; sourceTree = "<group>"; };
+		CED5044E1725ADBC0048404D /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../libsUNIVERSAL/libcurl.a; sourceTree = "<group>"; };
+		CED504501725AE220048404D /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
+		CED504511725AE220048404D /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJSON.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED5044F1725ADBC0048404D /* libcurl.a in Frameworks */,
 				CED5044317259F4B0048404D /* GLKit.framework in Frameworks */,
 				468ED0E71704D5EA00763C7B /* QuartzCore.framework in Frameworks */,
 				468ED0E51704D5DA00763C7B /* OpenGLES.framework in Frameworks */,
@@ -83,6 +92,7 @@
 		468ED0BB1704D5AD00763C7B = {
 			isa = PBXGroup;
 			children = (
+				CED5044E1725ADBC0048404D /* libcurl.a */,
 				CED5044217259F4B0048404D /* GLKit.framework */,
 				468ED0CD1704D5AD00763C7B /* SphereIOS */,
 				468ED0C61704D5AD00763C7B /* Frameworks */,
@@ -113,15 +123,21 @@
 		468ED0CD1704D5AD00763C7B /* SphereIOS */ = {
 			isa = PBXGroup;
 			children = (
-				CEC244521705CD2D00106A0B /* Art */,
 				468ED0D61704D5AD00763C7B /* AppDelegate.h */,
 				468ED0D71704D5AD00763C7B /* AppDelegate.m */,
-				CED5043C17258EC00048404D /* mStr.c */,
 				CED5043D17258EC00048404D /* mStr.h */,
+				CED5043C17258EC00048404D /* mStr.c */,
 				468ED0E81704D6BC00763C7B /* SphereView.h */,
 				468ED0E91704D6BC00763C7B /* SphereView.m */,
 				CED504441725A46C0048404D /* icosahedron.h */,
 				CED504451725A46C0048404D /* icosahedron.m */,
+				CED504471725AD9E0048404D /* RedBlack.h */,
+				CED504491725AD9E0048404D /* movie.h */,
+				CED504481725AD9E0048404D /* movie.c */,
+				CED5044B1725AD9E0048404D /* tomatoes.h */,
+				CED5044A1725AD9E0048404D /* tomatoes.c */,
+				CED504511725AE220048404D /* cJSON.h */,
+				CED504501725AE220048404D /* cJSON.c */,
 				46BD48241704E57C0088A2AB /* SimpleVertex.glsl */,
 				46BD48261704E8CA0088A2AB /* SimpleFragment.glsl */,
 				46BD485E170814230088A2AB /* american-beauty0021.png */,
@@ -144,15 +160,6 @@
 				468ED0DD1704D5AD00763C7B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CEC244521705CD2D00106A0B /* Art */ = {
-			isa = PBXGroup;
-			children = (
-				CEC244531705CD2D00106A0B /* item_powerup_fish.png */,
-				CEC244541705CD2D00106A0B /* tile_floor.png */,
-			);
-			path = Art;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +219,6 @@
 				468ED0DE1704D5AD00763C7B /* Default-568h@2x.png in Resources */,
 				46BD48251704E57C0088A2AB /* SimpleVertex.glsl in Resources */,
 				46BD48271704E8CA0088A2AB /* SimpleFragment.glsl in Resources */,
-				CEC244551705CD2D00106A0B /* item_powerup_fish.png in Resources */,
-				CEC244561705CD2D00106A0B /* tile_floor.png in Resources */,
 				46BD485C170809A50088A2AB /* item_powerup_fish.png in Resources */,
 				46BD485D170809A50088A2AB /* tile_floor.png in Resources */,
 				46BD4860170814230088A2AB /* american-beauty0021.png in Resources */,
@@ -232,6 +237,9 @@
 				468ED0EA1704D6BC00763C7B /* SphereView.m in Sources */,
 				CED5043E17258EC00048404D /* mStr.c in Sources */,
 				CED504461725A46C0048404D /* icosahedron.m in Sources */,
+				CED5044C1725AD9E0048404D /* movie.c in Sources */,
+				CED5044D1725AD9E0048404D /* tomatoes.c in Sources */,
+				CED504521725AE220048404D /* cJSON.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +320,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SphereIOS/SphereIOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../libsUNIVERSAL\"",
+				);
 				INFOPLIST_FILE = "SphereIOS/SphereIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../libsUNIVERSAL\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -325,8 +341,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SphereIOS/SphereIOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../libsUNIVERSAL\"",
+				);
 				INFOPLIST_FILE = "SphereIOS/SphereIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../libsUNIVERSAL\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

@@ -21,8 +21,8 @@ void icosahedron_initialize()
     if (_didInitialize) return;
     _didInitialize = true;
     
-    R = 1.8f;
-    _n = 20;
+    R = 1.0f;
+    _n = 1;
     _N = 2 + 10 * _n*_n;
     a = 4.0f * R / sqrtf(10.0f + 2.0f*sqrtf(5.0f));
     h = a * sqrtf( (5.0f - sqrtf(5.0f)) / 10.0f );
@@ -38,61 +38,61 @@ void icosahedron_initialize()
     
     _vertices = p = calloc( _N, sizeof(vec3f) );
     
-    (*p).x = 0;
-    (*p).y = R;
-    (*p).z = 0;
-    p++;
+//    (*p).x = 0;
+//    (*p).y = R;
+//    (*p).z = 0;
+//    p++;
     
     for (j = 1; j < _n + 1; j++)
     {
-        lat = hLat + (_n-j) * (M_PI/2 - hLat) / _n;
+        lat = (R-h) + (_n-j) * h / _n;
         sLon = 0.0f;
         for (i = 0; i < 5*(j); p++, i++)
         {
             lon = sLon + i*2.0f*M_PI/(5*(j));
-            (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
+            (*p).x = R * cosf(lon);
+            (*p).y = lat;
+            (*p).z = R * sinf(lon);
         }
     }
     
-    for (j = 1; j < _n; j++)
-    {
-        lat = hLat * (1.0f - j*2.0f/_n);
-        sLon = (GLfloat)j/(GLfloat)_n * M_PI/5.0f;
-        printf("sLon : %f\n", sLon);
-        for (i = 0; i < 5*_n; p++, i++)
-        {
-            GLfloat lon = sLon + i*2.0f*M_PI/(5*_n);
-            (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
-        }
-    }
-    
-    for (j = 1; j < _n + 1; j++)
-    {
-        lat = -hLat - (_n-j) * (M_PI/2 - hLat) / _n;
-        sLon = M_PI/5.0f;
-        for (i = 0; i < 5*(j); p++, i++)
-        {
-            lon = sLon + i*2.0f*M_PI/(5*(j));
-            (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
-        }
-    }
-    
-//    for (i = 0; i < 5*_n; p++, i++) {
-//        GLfloat b = M_PI + i*2.0f*M_PI/(5*_n);
-//        (*p).x = R5 * cosf(b);
-//        (*p).y = h - R;
-//        (*p).z = R5 * sinf(b);
+//    for (j = 1; j < _n; j++)
+//    {
+//        lat = hLat * (1.0f - j*2.0f/_n);
+//        sLon = (GLfloat)j/(GLfloat)_n * M_PI/5.0f;
+//        printf("sLon : %f\n", sLon);
+//        for (i = 0; i < 5*_n; p++, i++)
+//        {
+//            GLfloat lon = sLon + i*2.0f*M_PI/(5*_n);
+//            (*p).x = R * cosf(lat) * cosf(lon);
+//            (*p).y = R * sinf(lat);
+//            (*p).z = R * cosf(lat) * sinf(lon);
+//        }
 //    }
-    
-    (*p).x = 0;
-    (*p).y = -R;
-    (*p).z = 0;
+//    
+//    for (j = 1; j < _n + 1; j++)
+//    {
+//        lat = -hLat - (_n-j) * (M_PI/2 - hLat) / _n;
+//        sLon = M_PI/5.0f;
+//        for (i = 0; i < 5*(j); p++, i++)
+//        {
+//            lon = sLon + i*2.0f*M_PI/(5*(j));
+//            (*p).x = R * cosf(lat) * cosf(lon);
+//            (*p).y = R * sinf(lat);
+//            (*p).z = R * cosf(lat) * sinf(lon);
+//        }
+//    }
+//    
+////    for (i = 0; i < 5*_n; p++, i++) {
+////        GLfloat b = M_PI + i*2.0f*M_PI/(5*_n);
+////        (*p).x = R5 * cosf(b);
+////        (*p).y = h - R;
+////        (*p).z = R5 * sinf(b);
+////    }
+//    
+//    (*p).x = 0;
+//    (*p).y = -R;
+//    (*p).z = 0;
 }
 
 void icosahedron_dealloc()

@@ -1,0 +1,115 @@
+TtreeEx
+v5
+r1
+cCheck dependencies
+cCompileC RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.o /Users/user/Developer/sphere/movies/tomatoes/test/red-black.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/user/Developer/sphere/movies/tomatoes/test/Debug/treeEx normal x86_64
+cPhaseScriptExecution "CMake PostBuild Rules" /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Script-E996982809004B4B9424F66D.sh
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c00000000514480E000000000000000AA
+t1363443936
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/stdio.h
+c00000000507EBBD60000000000004523
+t1350482902
+s17699
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/stdlib.h
+c00000000507EBBD60000000000003089
+t1350482902
+s12425
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/string.h
+c00000000507EBBD60000000000001A3A
+t1350482902
+s6714
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/time.h
+c00000000507EBBD6000000000000178E
+t1350482902
+s6030
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.2/include/stdarg.h
+c00000000510900790000000000000810
+t1359544441
+s2064
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Debug/treeEx
+t1366297523
+s14512
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.o
+t1366297523
+s12088
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/treeEx.LinkFileList
+c00000000516E94E5000000000000007C
+t1366201573
+s124
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Script-E996982809004B4B9424F66D.sh
+c00000000516E94E500000000000000B3
+t1366201573
+s179
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c
+c0000000051700BB300000000000025AD
+t1366297523
+s9645
+i<stdio.h>
+i<stdlib.h>
+i<string.h>
+i<time.h>
+
+CBuild AST from /Users/user/Developer/sphere/movies/tomatoes/test/red-black.c
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies20f08c4a4320b741^94138d4a4320b741^---0#1#0#--18"Check dependencies36"EA12889A-2CA7-4DB2-B9BA-65575969838F-
+
+CCompileC RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.o /Users/user/Developer/sphere/movies/tomatoes/test/red-black.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s387990323.896095
+e387990323.942224
+r1
+xCompileC
+xRED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.o
+x/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c:342:9: warning: unused variable 'a' [-Wunused-variable]
+o    int a, maxnum, ct;
+o        ^
+o/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c:343:11: warning: unused variable 't' [-Wunused-variable]
+o    Node *t;
+o          ^
+o2 warnings generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"Compile /Users/user/Developer/sphere/movies/tomatoes/test/red-black.cc992e5334320b741^efa8f9334320b741^-317"/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c:342:9: warning: unused variable 'a' [-Wunused-variable]    int a, maxnum, ct;        ^/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c:343:11: warning: unused variable 't' [-Wunused-variable]    Node *t;          ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@19"Unused variable 'a'-387990323#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@77"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c0000000000000000^341#8#341#8#8894#0#19"Unused Entity Issue--2@19"Unused variable 't'-387990323#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@77"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c0000000000000000^342#10#342#10#8919#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@77"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/red-black.c0000000000000000^2276"CompileC RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.o red-black.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/user/Developer/sphere/movies/tomatoes/test    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof "-DCMAKE_INTDIR=\"Debug\"" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion -I/Users/user/Developer/sphere/movies/tomatoes/test/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/DerivedSources/x86_64 -I/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/user/Developer/sphere/movies/tomatoes/test/Debug -MMD -MT dependencies -MF /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.d --serialize-diagnostics /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.dia -c /Users/user/Developer/sphere/movies/tomatoes/test/red-black.c -o /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/red-black.o36"2C8ACCC6-0A79-4575-A5B3-BD30EC3C4A56-
+
+CLd /Users/user/Developer/sphere/movies/tomatoes/test/Debug/treeEx normal x86_64
+s387990323.948406
+e387990323.965073
+r1
+xLd
+x/Users/user/Developer/sphere/movies/tomatoes/test/Debug/treeEx
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Link /Users/user/Developer/sphere/movies/tomatoes/test/Debug/treeEx0ad8f2334320b741^7eabf9334320b741^---0#0#0#--754"Ld Debug/treeEx normal x86_64    cd /Users/user/Developer/sphere/movies/tomatoes/test    setenv MACOSX_DEPLOYMENT_TARGET 10.8    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/user/Developer/sphere/movies/tomatoes/test/Debug -F/Users/user/Developer/sphere/movies/tomatoes/test/Debug -filelist /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Objects-normal/x86_64/treeEx.LinkFileList -mmacosx-version-min=10.8 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -o /Users/user/Developer/sphere/movies/tomatoes/test/Debug/treeEx36"8C7DACBC-F1D3-4D5F-8BEF-0FE5BA1F0E95-
+
+CPhaseScriptExecution "CMake PostBuild Rules" /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Script-E996982809004B4B9424F66D.sh
+s387990346.567252
+e387990346.590487
+r1
+xPhaseScriptExecution
+xCMake PostBuild Rules
+x/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Script-E996982809004B4B9424F66D.sh
+oecho "Depend check for xcode"
+oDepend check for xcode
+ocd /Users/user/Developer/sphere/movies/tomatoes/test && make -C /Users/user/Developer/sphere/movies/tomatoes/test -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/XCODE_DEPEND_HELPER.make PostBuild.treeEx.Debug
+omake[1]: Nothing to be done for `PostBuild.treeEx.Debug'.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Run custom shell script 'CMake PostBuild Rules'6d90914a4320b741^b329974a4320b741^-339"echo "Depend check for xcode"Depend check for xcodecd /Users/user/Developer/sphere/movies/tomatoes/test && make -C /Users/user/Developer/sphere/movies/tomatoes/test -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/XCODE_DEPEND_HELPER.make PostBuild.treeEx.Debugmake[1]: Nothing to be done for `PostBuild.treeEx.Debug'.4(21%IDEActivityLogMessage2@30"echo "Depend check for xcode"-387990346#0#30#-0#-----2@23"Depend check for xcode-387990346#30#23#-0#-----2@228"cd /Users/user/Developer/sphere/movies/tomatoes/test && make -C /Users/user/Developer/sphere/movies/tomatoes/test -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/XCODE_DEPEND_HELPER.make PostBuild.treeEx.Debug-387990346#53#228#-0#-----2@58"make[1]: Nothing to be done for `PostBuild.treeEx.Debug'.-387990346#281#58#-0#-----0#0#0#--317"PhaseScriptExecution "CMake PostBuild Rules" RED_BLACK_TREE.build/Debug/treeEx.build/Script-E996982809004B4B9424F66D.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/treeEx.build/Script-E996982809004B4B9424F66D.sh36"95541D7C-3207-40AF-BE5C-75A6F3E347ED-
+

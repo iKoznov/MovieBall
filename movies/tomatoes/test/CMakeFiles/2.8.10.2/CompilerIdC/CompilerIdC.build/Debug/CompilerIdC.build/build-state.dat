@@ -1,0 +1,68 @@
+TCompilerIdC
+v5
+r1
+cCheck dependencies
+cCompileC ./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/CMakeCCompilerId.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC normal i386
+cPhaseScriptExecution "Run Script" /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC
+t2
+s0
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o
+t2
+s0
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CompilerIdC.LinkFileList
+c00000000516C46C500000000000000A5
+t1366050501
+s165
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+c00000000516C46C5000000000000002A
+t1366050501
+s42
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/CMakeCCompilerId.c
+c00000000516C46C40000000000002F20
+t1366050500
+s12064
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies821d47457e1cb741^2f6f4e457e1cb741^---0#1#0#--18"Check dependencies36"BCC52BC9-ECF9-4848-B40B-2A81BC085265-
+
+CCompileC ./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/CMakeCCompilerId.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+s387743301.309738
+e387743301.413727
+r1
+xCompileC
+x./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o
+x/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/CMakeCCompilerId.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Compile /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/CMakeCCompilerId.ce8664f457e1cb741^3ae969457e1cb741^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/CMakeCCompilerId.c0000000000000000^2554"CompileC ./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o CMakeCCompilerId.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -I/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/CompilerIdC.hmap -I/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/DerivedSources/i386 -I/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/DerivedSources -F/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC -MMD -MT dependencies -MF /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.d --serialize-diagnostics /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.dia -c /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/CMakeCCompilerId.c -o /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CMakeCCompilerId.o36"6C06069A-FFE3-48BA-A301-CE01975F1AB3-
+
+CLd /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC normal i386
+s387743301.420497
+e387743301.669388
+r1
+xLd
+x/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Link /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC63b36b457e1cb741^6c5cab457e1cb741^---0#0#0#--674"Ld ./CompilerIdC normal i386    cd /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -L/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC -F/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC -filelist /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Objects-normal/i386/CompilerIdC.LinkFileList -o /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC36"4E1D099C-3016-4240-B0BF-1B0A571E70D2-
+
+CPhaseScriptExecution "Run Script" /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+s387743301.677341
+e387743301.692960
+r1
+xPhaseScriptExecution
+xRun Script
+x/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh
+oGCC_VERSION=com.apple.compilers.llvm.clang.1_0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Run custom shell script 'Run Script'7fc2ad457e1cb741^f964b1457e1cb741^-47"GCC_VERSION=com.apple.compilers.llvm.clang.1_01(21%IDEActivityLogMessage2@47"GCC_VERSION=com.apple.compilers.llvm.clang.1_0-387743301#0#47#-0#-----0#0#0#--378"PhaseScriptExecution "Run Script" ./CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/2.8.10.2/CompilerIdC/./CompilerIdC.build/Debug/CompilerIdC.build/Script-2C8FEB8E15DC1A1A00E56A5D.sh36"F19FC3FB-84A0-4329-B66C-CCB35A024B2F-
+

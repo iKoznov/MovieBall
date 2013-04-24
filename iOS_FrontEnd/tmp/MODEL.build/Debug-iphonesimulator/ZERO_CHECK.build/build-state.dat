@@ -1,0 +1,28 @@
+TZERO_CHECK
+v5
+r1
+cCheck dependencies
+cPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/ZERO_CHECK.build/Script-54372AC5E2424127B6586AC1.sh
+
+N/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/ZERO_CHECK.build/Script-54372AC5E2424127B6586AC1.sh
+c000000005177D0A100000000000000B5
+t1366806689
+s181
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies537874210828b741^92067b210828b741^---0#1#0#--18"Check dependencies36"EF6EF05F-BB93-4EE4-AB76-CD65DF46DC1A-
+
+CPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/ZERO_CHECK.build/Script-54372AC5E2424127B6586AC1.sh
+s388499489.482323
+e388499489.531310
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/ZERO_CHECK.build/Script-54372AC5E2424127B6586AC1.sh
+oecho ""
+o
+omake -f /Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeScripts/ReRunCMake.make
+omake[1]: `CMakeFiles/cmake.check_cache' is up to date.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'8ae87b210828b741^470388210828b741^-147"echo ""make -f /Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeScripts/ReRunCMake.makemake[1]: `CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-388499489#0#8#-0#-----2@83"make -f /Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeScripts/ReRunCMake.make-388499489#9#83#-0#-----2@55"make[1]: `CMakeFiles/cmake.check_cache' is up to date.-388499489#92#55#-0#-----0#0#0#--356"PhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/ZERO_CHECK.build/Script-54372AC5E2424127B6586AC1.sh    cd /Users/user/Developer/sphere/model    /bin/sh -c /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/ZERO_CHECK.build/Script-54372AC5E2424127B6586AC1.sh36"BEF3EACD-9F0F-4734-BF8C-FB3AD9AE31DB-
+

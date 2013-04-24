@@ -1,13 +1,13 @@
 /* engine.h */
 
-#if defined ENGINE_H
-#else
+#ifndef ENGINE_H
 #define ENGINE_H
-//#include <TargetConditionals.h>
+
+#include "TargetConditionals.h"
 
 #if defined WIN32 | WIN64
 #include <Windows.h>
-//#include <WinDef.h>
+#include <WinDef.h>
 #define bool BOOL
 #define true TRUE
 #define false FALSE
@@ -18,9 +18,6 @@
 
 #include <stddef.h>
 #include <math.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 #if defined WIN32 | WIN64
 #include <gl/gl.h>
@@ -31,16 +28,14 @@
 //    #elif TARGET_IPHONE_SIMULATOR
 //    #include <OpenGLES/ES1/gl.h>
 //    #include <OpenGLES/ES1/glext.h>
-//    #if defined TARGET_OS_MAC
-//    #include <OpenGL/gl.h>
-//    #endif
-#include <OpenGL/gl.h>
-
-#if defined SPHERE_TARGET_TESTBED
-#include <OpenGL/gl.h>
+    #if defined TARGET_OS_MAC
+    #include <OpenGL/gl.h>
+    #endif
 #endif
 
-#endif
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846264338327950288
@@ -66,6 +61,5 @@ vec3f vec3fMake( GLfloat, GLfloat, GLfloat );
 vec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
 
 void _printMatrixf (GLfloat *m);
-void model();
 
 #endif

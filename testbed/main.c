@@ -1,10 +1,10 @@
-//#include <stdio.h>
+#include <stdio.h>
 #include <locale.h>
-//#include "engine.h"
+#include "engine.h"
 #include <stdlib.h>
 #include <GLUT/glut.h>
-//#include "icosahedron.h"
-//#include "xyz.h"
+#include "icosahedron.h"
+#include "xyz.h"
 #include "model.h"
 
 //#include <GL/glew.h>
@@ -102,7 +102,7 @@ void display()
     glRotatef(_b*180.0f/M_PI, 1, 0, 0);
     glRotatef(_a, 0, 1, 0);
 //    xyz();
-//    icosahedron();
+    icosahedron();
     glutWireCube(2);
     glPopMatrix();
     

@@ -12,6 +12,10 @@ project(TESTBED)
 INCLUDE_DIRECTORIES( ../model )
 set(SOURCE_TESTBED
     main.c
+	TargetConditionals.h
+    engine.h engine.c
+    xyz.h xyz.c
+    icosahedron.h icosahedron.c
     )
 
 #message( STATUS "==>> ${OPENGL_INCLUDE_DIR}" )
@@ -62,7 +66,7 @@ ENDIF(WIN32)
 add_definitions(-DSPHERE_TARGET_TESTBED)
 add_executable( testbed ${SOURCE_TESTBED} )
 
-target_link_libraries( testbed ${EXTRA_LIBS} model )
+#target_link_libraries( testbed ${EXTRA_LIBS} model )
 #target_link_libraries( sphere_testbed ${EXTRA_LIBS} )
 
 IF(WIN32)

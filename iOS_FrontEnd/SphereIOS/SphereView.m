@@ -40,7 +40,7 @@
     [self setupDisplayLink];
     [self setupGestures];
     
-    tomatoes();
+//    tomatoes();
 }
 
 #pragma mark -

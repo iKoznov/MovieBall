@@ -15,6 +15,7 @@
 #include <math.h>
 #include "icosahedron.h"
 #include "mStr.h"
+#include "RedBlack.h"
 
 #pragma mark -
 #pragma mark Render and frame buffer setup
@@ -245,51 +246,48 @@ void icosahedron_initialize(GLuint n)
     (*p).z = 0;
 }
 
-typedef struct {
+typedef struct _Polygon Polygon;
+struct _Polygon {
     GLfloat center[3];
-    GLuint *indexes;
+    GLuint *neigbours;
     GLuint numberOfVertices;
     GLuint indexBuffer;
     GLuint texture;
-} Side;
-
-
+};
 
 GLuint _vertexBuffer;
 GLuint _indexBuffer;
-Side *_sides;
-GLuint _numberOfSides;
+struct _Polygon *_sides;
+GLuint _numberOfPolygones;
 void icosahedron_indexes()
 {
     GLuint n = 1;
     icosahedron_initialize(3*n);
     
-    _numberOfSides = 0;
-    Side *p = _sides = calloc(12+20, sizeof(Side));
+    _numberOfPolygones = 0;
+    struct _Polygon *p = _sides = calloc(12+20, sizeof(struct _Polygon));
     
 #define SIDE(...) { \
-GLuint s[] = {__VA_ARGS__}; \
-p->indexes = malloc(sizeof(s)); \
-memcpy(p->indexes, s, sizeof(s)); \
-p->numberOfVertices = sizeof(s)/sizeof(s[0]); \
-for (GLuint i = 0; i < p->numberOfVertices; i++) \
-{ \
-p->center[0] += _vertices[p->indexes[i]].x / p->numberOfVertices; \
-p->center[1] += _vertices[p->indexes[i]].y / p->numberOfVertices; \
-p->center[2] += _vertices[p->indexes[i]].z / p->numberOfVertices; \
-\
-_vertices[p->indexes[i]].tX = 0.5f + cosf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;\
-_vertices[p->indexes[i]].tY = 0.5f + sinf(i*2.0f*M_PI/p->numberOfVertices)/2.0f;\
-}\
-\
-glGenBuffers(1, &(p->indexBuffer));\
-glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);\
-glBufferData(GL_ELEMENT_ARRAY_BUFFER, p->numberOfVertices * sizeof(p->indexes[0]), p->indexes, GL_STATIC_DRAW);\
-\
-p->texture = setupTexture(@"american-beauty0021.png");\
-\
-_numberOfSides++;\
-p++;\
+    GLuint s[] = {__VA_ARGS__}; \
+    GLuint numberOfVertices = p->numberOfVertices = sizeof(s)/sizeof(s[0]); \
+    for (GLuint i = 0; i < numberOfVertices; i++) \
+    { \
+        p->center[0] += _vertices[s[i]].x / (GLfloat)numberOfVertices; \
+        p->center[1] += _vertices[s[i]].y / (GLfloat)numberOfVertices; \
+        p->center[2] += _vertices[s[i]].z / (GLfloat)numberOfVertices; \
+        \
+        _vertices[s[i]].tX = 0.5f + cosf(i*2.0f*M_PI/(GLfloat)numberOfVertices)/2.0f;\
+        _vertices[s[i]].tY = 0.5f + sinf(i*2.0f*M_PI/(GLfloat)numberOfVertices)/2.0f;\
+    }\
+    \
+    glGenBuffers(1, &(p->indexBuffer));\
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);\
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, numberOfVertices * sizeof(s[0]), s, GL_STATIC_DRAW);\
+    \
+    p->texture = setupTexture(@"american-beauty0021.png");\
+    \
+    _numberOfPolygones++;\
+    p++;\
 }
     
 #pragma mark TOP
@@ -317,7 +315,7 @@ p++;\
     SIDE(29,30,45,59,58,43)
     
 #pragma mark BOTTOM CENTER 6
-    //    SIDE(33,34,49,63,62,47)
+//    SIDE(33,34,49,63,62,47)
     
 #pragma mark BOTTOM
     SIDE(61,62,63,64,65)
@@ -350,7 +348,7 @@ void render()
     glViewport(0, 0, _width, _height);
     
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    for (GLuint i=0; i<_numberOfSides; i++)
+    for (GLuint i=0; i<_numberOfPolygones; i++)
     {
         glUniform3f(_SurfaceCenterUniform, _sides[i].center[0], _sides[i].center[1], _sides[i].center[2]);
         

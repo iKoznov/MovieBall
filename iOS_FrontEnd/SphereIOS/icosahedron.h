@@ -11,6 +11,7 @@
 
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
+#include "tomatoes.h"
 
 void setupDepthBuffer();
 void setupRenderBuffer();
@@ -20,10 +21,14 @@ void compileShaders();
 void setupVBOs();
 void render();
 
+void loadPosters();
+
 /* Common parametres */
 GLsizei _width;
 GLsizei _height;
 GLchar *_resoucePath;
+GLuint _defaultTexture;
+Movie _rootMovie;
 
 GLuint _colorRenderBuffer;
 GLuint _depthRenderBuffer;

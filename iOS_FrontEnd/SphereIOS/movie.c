@@ -130,6 +130,10 @@ Movie movie_make( char *id, char *title )
     Movie res = malloc( sizeof(struct _Movie) );
     res->id = id;
     res->title = title;
+    res->thumbnail = NULL;
+    res->profile = NULL;
+    res->detailed = NULL;
+    res->original = NULL;
     return res;
 }
 
@@ -137,6 +141,10 @@ void movie_free( Movie movie )
 {
     free( movie->title );
     free( movie->id );
+    if (movie->thumbnail) free(movie->thumbnail);
+    if (movie->profile) free(movie->profile);
+    if (movie->detailed) free(movie->detailed);
+    if (movie->original) free(movie->original);
     free( movie );
 }
 
@@ -167,7 +175,7 @@ void movie_reqId( Movie movie )
     free(url);
     if (!tree) goto errorReqId;
     
-    //    json( tree, 0, 10 );
+//    json( tree, 0, 10 );
     
     cJSON *p = tree->child;
     if (!p) goto errorReqId;
@@ -188,19 +196,51 @@ void movie_reqId( Movie movie )
     p = mov->child;
     if (!p) goto errorReqId;
     
-    cJSON *id, *title;
+    cJSON *id = NULL, *title = NULL, *posters = NULL;
     while ( p ) {
         //        puts( p->string );
         if ( strcmp( "id", p->string ) == 0 ) id = p;
         if ( strcmp( "title", p->string ) == 0 ) title = p;
+        if ( strcmp( "posters", p->string ) == 0 ) posters = p;
         p = p->next;
     }
+    
+    if (!id || !title) goto errorReqId;
     
     if ( title->valuestring ) titleValue = strdup( title->valuestring );
     else goto errorReqId;
     
     if ( id->valuestring ) idValue = strdup( id->valuestring );
     else goto errorReqId;
+    
+    if ( posters )
+    {
+        p = posters->child;
+        cJSON *thumbnail, *profile, *detailed, *original;
+        while (p) {
+            if ( strcmp( "thumbnail", p->string ) == 0 ) thumbnail = p;
+            if ( strcmp( "profile", p->string ) == 0 ) profile = p;
+            if ( strcmp( "detailed", p->string ) == 0 ) detailed = p;
+            if ( strcmp( "original", p->string ) == 0 ) original = p;
+            p = p->next;
+        }
+        if (thumbnail) if (thumbnail->valuestring) {
+            if (movie->thumbnail) free(movie->thumbnail);
+            movie->thumbnail = strdup(thumbnail->valuestring);
+        }
+        if (profile) if (profile->valuestring) {
+            if (movie->profile) free(movie->profile);
+            movie->profile = strdup(profile->valuestring);
+        }
+        if (detailed) if (detailed->valuestring) {
+            if (movie->detailed) free(movie->detailed);
+            movie->detailed = strdup(detailed->valuestring);
+        }
+        if (original) if (original->valuestring) {
+            if (movie->original) free(movie->original);
+            movie->original = strdup(original->valuestring);
+        }
+    }
     
     //    printf( "     total : %d\n", totalValue );
     //    printf( "        id : %d\n", idValue );
@@ -300,17 +340,47 @@ MovieList movie_similars( Movie movie )
     cJSON *mov = movies->child;
     while ( mov ) {
         p = mov->child;
-        cJSON *id = NULL, *title = NULL;
+        cJSON *id = NULL, *title = NULL, *posters = NULL;
         while (p) {
             //            puts(p->string);
             if ( strcmp( "id", p->string ) == 0 ) id = p;
             if ( strcmp( "title", p->string ) == 0 ) title = p;
+            if ( strcmp( "posters", p->string ) == 0 ) posters = p;
             p = p->next;
         }
         
         if ( id->valuestring && title->valuestring ) {
             Movie tmpMovie = movie_make( strdup(id->valuestring), strdup(title->valuestring) );
             MovieListAdd( list, tmpMovie );
+            
+            if ( posters )
+            {
+                p = posters->child;
+                cJSON *thumbnail, *profile, *detailed, *original;
+                while (p) {
+                    if ( strcmp( "thumbnail", p->string ) == 0 ) thumbnail = p;
+                    if ( strcmp( "profile", p->string ) == 0 ) profile = p;
+                    if ( strcmp( "detailed", p->string ) == 0 ) detailed = p;
+                    if ( strcmp( "original", p->string ) == 0 ) original = p;
+                    p = p->next;
+                }
+                if (thumbnail) if (thumbnail->valuestring) {
+                    if (tmpMovie->thumbnail) free(tmpMovie->thumbnail);
+                    tmpMovie->thumbnail = strdup(thumbnail->valuestring);
+                }
+                if (profile) if (profile->valuestring) {
+                    if (tmpMovie->profile) free(tmpMovie->profile);
+                    tmpMovie->profile = strdup(profile->valuestring);
+                }
+                if (detailed) if (detailed->valuestring) {
+                    if (tmpMovie->detailed) free(tmpMovie->detailed);
+                    tmpMovie->detailed = strdup(detailed->valuestring);
+                }
+                if (original) if (original->valuestring) {
+                    if (tmpMovie->original) free(tmpMovie->original);
+                    tmpMovie->original = strdup(original->valuestring);
+                }
+            }
         }
         
         mov = mov->next;
@@ -332,5 +402,9 @@ cleanSimilars:
     return list;
 }
 
+Poster movie_poster(Movie mov)
+{
+    curl(mov->detailed);
+}
 
 

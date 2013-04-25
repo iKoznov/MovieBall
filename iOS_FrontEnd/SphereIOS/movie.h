@@ -18,6 +18,10 @@ typedef struct _Movie *Movie;
 struct _Movie {
     char *id;
     char *title;
+    char *thumbnail;
+    char *profile;
+    char *detailed;
+    char *original;
 };
 
 Movie movie_make( char *id, char *title );
@@ -41,6 +45,12 @@ MovieList MovieListMake(Movie movie);
 void MovieListAdd( MovieList list, Movie movie );
 void MovieListFree( MovieList list );
 MovieList movie_similars( Movie movie );
+
+typedef struct _Poster *Poster;
+struct _Poster {
+    void *data;
+    size_t size;
+};
     
 #ifdef __cplusplus
 }

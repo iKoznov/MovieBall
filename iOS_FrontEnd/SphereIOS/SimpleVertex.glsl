@@ -38,7 +38,7 @@ void main(void) {
     vec3 nT = normalize(T);
     
     TexCoordOut.y = 0.5 + dot( nT, normalize( X - R ) ) / 2.0;
-    TexCoordOut.x = -0.5 - dot( cross( nR, nT ), normalize( X - R ) ) / 2.0;
+    TexCoordOut.x = 0.5 + dot( cross( nR, nT ), normalize( X - R ) ) / 2.0;
 }
 
 

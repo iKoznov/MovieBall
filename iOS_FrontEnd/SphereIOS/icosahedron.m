@@ -247,12 +247,17 @@ void icosahedron_initialize(GLuint n)
 }
 
 typedef struct _Polygon Polygon;
-struct _Polygon {
+struct _Polygon
+{
     GLfloat center[3];
-    GLuint *neigbours;
     GLuint numberOfVertices;
     GLuint indexBuffer;
     GLuint texture;
+    
+    GLuint *neigbours;
+    GLuint numberOfNeigbours;
+    
+    Movie movie;
 };
 
 GLuint _vertexBuffer;
@@ -284,10 +289,18 @@ void icosahedron_indexes()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, p->indexBuffer);\
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, numberOfVertices * sizeof(s[0]), s, GL_STATIC_DRAW);\
     \
-    p->texture = setupTexture(@"american-beauty0021.png");\
+    p->texture = _defaultTexture;\
     \
     _numberOfPolygones++;\
     p++;\
+}
+    
+#define NEIGBOURS( index, ... ) { \
+    GLuint neigbours[] = {__VA_ARGS__}; \
+    GLuint numberOfNeigbours = sizeof(neigbours) / sizeof(GLuint); \
+    _sides[index].neigbours = calloc(numberOfNeigbours, sizeof(GLuint)); \
+    _sides[index].numberOfNeigbours = numberOfNeigbours; \
+    memcpy(_sides[index].neigbours, neigbours, sizeof(neigbours)); \
 }
     
 #pragma mark TOP
@@ -320,15 +333,105 @@ void icosahedron_indexes()
 #pragma mark BOTTOM
     SIDE(61,62,63,64,65)
     
+    NEIGBOURS(0, 1,2,3,4,5)
+    NEIGBOURS(1, 0)
+    NEIGBOURS(2, 0)
+    NEIGBOURS(3, 0)
+    NEIGBOURS(4, 0)
+    NEIGBOURS(5, 0)
+    
+//    _rootMovie
+    
     glGenBuffers(1, &_vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, _N * sizeof(Vertex), _vertices, GL_STATIC_DRAW);
-    
 }
 
 void setupVBOs()
 {
+    _defaultTexture = setupTexture(@"american-beauty0021.png");
+    
     icosahedron_indexes();
+}
+
+GLuint loadPosterTexture(char *url)
+{
+    NSString *urlString = [NSString stringWithUTF8String:url];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+    
+    CGImageRef spriteImage = image.CGImage;
+    if (!spriteImage) {
+        NSLog(@"Failed to load image %s", url);
+        exit(1);
+    }
+    
+    size_t width = 1024;//CGImageGetWidth(spriteImage);
+    size_t height = 1024;//CGImageGetHeight(spriteImage);
+    float ratio = (float)CGImageGetWidth(spriteImage) / (float)CGImageGetHeight(spriteImage);
+    
+    NSLog(@"TEXTURE : %zd x %zd", width, height);
+    
+    GLubyte * spriteData = (GLubyte *) calloc(width*height*4, sizeof(GLubyte));
+    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width*4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+    
+    CGContextDrawImage(spriteContext, CGRectMake( 0, (height - height/ratio) / 2.0f, width, height/ratio), spriteImage);
+    CGContextRelease(spriteContext);
+    
+    GLuint texName;
+    glGenTextures(1, &texName);
+    glBindTexture(GL_TEXTURE_2D, texName);
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST);
+    glHint(GL_GENERATE_MIPMAP_HINT, GL_NICEST);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    
+    free(spriteData);
+    return texName;
+}
+
+typedef struct _Priority Priority;
+struct _Priority {
+    MovieNode node;
+    float value;
+};
+
+redBlackType(Priority)
+
+#define compLT(a,b) ( a.value > b.value )
+#define compEQ(a,b) ( a.value == b.value )
+redBlack(Priority)
+
+void loadPosters()
+{
+    _sides[0].movie = _rootMovie;
+    _sides[0].texture = loadPosterTexture(_sides[0].movie->original);
+    
+    MovieNode node = NodeByMovie(_rootMovie);
+    firstNodeMovieNode(getNODES());
+    
+    SetPriority priority = SetMakePriority();
+    
+    NodeMovieNodePointer *lnk = firstNodeMovieNodePointer( &node->links );
+    while ( lnk ) {
+        NodePair *pair = PairByNodes( node, nodeDataMovieNodePointer(lnk) );
+        Priority current;
+        current.node = nodeDataMovieNodePointer(lnk);
+        current.value = Force( pair );
+        insertNodePriority( &priority, current );
+        lnk = nextNodeMovieNodePointer( lnk );
+    }
+    
+    NodePriority *p = firstNodePriority( &priority );
+    int i = 0;
+    NSLog(@"numberOfNeigbours : %d", _sides[0].numberOfNeigbours);
+    while (p && i < _sides[0].numberOfNeigbours) {
+        GLuint neigbour = _sides[0].neigbours[i];
+        _sides[neigbour].movie = nodeDataPriority(p).node->movie;
+        _sides[neigbour].texture = loadPosterTexture(_sides[neigbour].movie->original);
+        p = nextNodePriority( p );
+        i++;
+    }
 }
 
 void render()

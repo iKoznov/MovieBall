@@ -22,6 +22,9 @@
 - (void)customInit {
     if (_didCustomInit) return;
     _didCustomInit = YES;
+    
+    _rootMovie = tomatoes("Titanic");
+    
     [self setupLayer];
     [self setupContext];
     
@@ -40,7 +43,7 @@
     [self setupDisplayLink];
     [self setupGestures];
     
-//    tomatoes();
+    loadPosters();
 }
 
 #pragma mark -

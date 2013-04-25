@@ -14,29 +14,6 @@
 
 #include "tomatoes.h"
 #include "mStr.h"
-#include "movie.h"
-
-#include "RedBlack.h"
-
-typedef struct _MovieNode *MovieNode;
-redBlackType(MovieNode)
-
-typedef MovieNode MovieNodePointer;
-redBlackType(MovieNodePointer)
-
-typedef struct _Pair Pair;
-redBlackType(Pair)
-
-struct _MovieNode {
-    Movie movie;
-    SetMovieNodePointer links;
-    unsigned char isLinked;
-};
-
-struct _Pair {
-    MovieNode n1, n2;
-    float strenth;
-};
 
 char *MovieNodeId(MovieNode);
 #define compLT(a,b) ( strcmp(a->movie->id,b->movie->id) < 0 )
@@ -52,10 +29,10 @@ redBlack(MovieNodePointer)
 #define compEQ(a,b) ( a.n1 == b.n1 && a.n2 == b.n2 || a.n1 == b.n2 && a.n2 == b.n1 )
 redBlack(Pair)
 
-
 static SetMovieNode NODES;
 static SetPair PAIRS;
 
+SetMovieNode *getNODES() { return &NODES; }
 
 void MovieNodeDelete( SetMovieNode *S, NodeMovieNode *node ) {
     MovieNode movNd = nodeDataMovieNode(node);
@@ -64,11 +41,11 @@ void MovieNodeDelete( SetMovieNode *S, NodeMovieNode *node ) {
     deleteNodeMovieNode(S, node);
 }
 
-MovieNode NodeByMovie( SetMovieNode *S, Movie movie )
+MovieNode NodeByMovie( Movie movie )
 {
     MovieNode node = malloc( sizeof(struct _MovieNode) );
     node->movie = movie;
-    NodeMovieNode *res = findNodeMovieNode( S, node );
+    NodeMovieNode *res = findNodeMovieNode( &NODES, node );
     if (res) {
         free(node);
         movie_free(movie);
@@ -76,7 +53,7 @@ MovieNode NodeByMovie( SetMovieNode *S, Movie movie )
         return nodeDataMovieNode(res);
 //        return NULL;
     };
-    insertNodeMovieNode( S, node );
+    insertNodeMovieNode( &NODES, node );
     node->isLinked = 0;
     node->links = SetMakeMovieNodePointer();
     return node;
@@ -90,7 +67,7 @@ MovieNodePointer NodeByPointer( SetMovieNodePointer *S, MovieNodePointer pointer
     return nodeDataMovieNodePointer(res);
 }
 
-NodePair PairByNodes( MovieNode n1, MovieNode n2 )
+NodePair *PairByNodes( MovieNode n1, MovieNode n2 )
 {
     Pair pair;
     pair.n1 = n1;
@@ -98,11 +75,11 @@ NodePair PairByNodes( MovieNode n1, MovieNode n2 )
     
     NodePair *res = findNodePair( &PAIRS, pair );
     if (res) {
-        return *res;
+        return res;
     }
     pair.strenth = 0;
     res = insertNodePair( &PAIRS, pair );
-    return *res;
+    return res;
 }
 
 struct RouteStack {
@@ -135,7 +112,7 @@ void PrintCounter(struct PathCounter *counter)
 {
     int len = 0;
     while (counter) {
-        printf("COUNTER[%d] : %d\n", len, counter->count);
+//        printf("COUNTER[%d] : %d\n", len, counter->count);
         counter = counter->next;
         len++;
     }
@@ -184,21 +161,21 @@ void RouteStrackExpand(struct RouteStack *route, struct PathCounter *counter, Mo
     }
 }
 
-float Force(NodePair pair)
+float Force(NodePair *pair)
 {
     struct RouteStack *route = malloc( sizeof(struct RouteStack) );
     route->previous = NULL;
-    route->node = nodeDataPair(&pair).n1;
+    route->node = nodeDataPair(pair).n1;
     route->lenght = 0;
     
-    printf("BEGIN : %s\n", route->node->movie->title);
-    printf("END : %s\n", nodeDataPair(&pair).n2->movie->title);
+//    printf("BEGIN : %s\n", route->node->movie->title);
+//    printf("END : %s\n", nodeDataPair(&pair).n2->movie->title);
     
     struct PathCounter *counter = malloc(sizeof(struct PathCounter));
     counter->count = 0;
     counter->next = NULL;
     
-    RouteStrackExpand( route, counter, nodeDataPair(&pair).n2 );
+    RouteStrackExpand( route, counter, nodeDataPair(pair).n2 );
     
     float F = 0;
     int L = 1;
@@ -226,7 +203,7 @@ void buildTree(MovieNode node, int depth)
     
     while (elem) {
         Movie same = elem->movie;
-        MovieNode sameNode = NodeByMovie(&NODES,same);
+        MovieNode sameNode = NodeByMovie(same);
         
         NodeByPointer( &(node->links), sameNode );
         NodeByPointer( &(sameNode->links), node );
@@ -245,7 +222,7 @@ void buildTree(MovieNode node, int depth)
 //    }
 }
 
-void tomatoes()
+Movie tomatoes(const char *const query)
 {
     puts(__PRETTY_FUNCTION__);
     
@@ -258,11 +235,11 @@ void tomatoes()
     NODES = SetMakeMovieNode();
     PAIRS = SetMakePair();
     
-    Movie mov = movie_make( NULL, strdup("American+Gangster") );
+    Movie mov = movie_make( NULL, strdup(query) );
     movie_reqId(mov);
-    MovieNode node = NodeByMovie(&NODES,mov);
+    MovieNode node = NodeByMovie(mov);
     
-    buildTree(node, 2);
+    buildTree(node, 3);
     
 //    print(NODES);
     
@@ -270,12 +247,13 @@ void tomatoes()
     while(iter) {
         MovieNode nd = nodeDataMovieNode( iter );
         printf("[%s] - %s\n", nd->movie->id, nd->movie->title);
+//        printf("\t %s\n", mov->detailed);
         
-        NodeMovieNodePointer *lnk = firstNodeMovieNodePointer(&(nd->links));
-        while (lnk) {
-            printf("\t[%s] - %s\n", nodeDataMovieNodePointer(lnk)->movie->id, nodeDataMovieNodePointer(lnk)->movie->title);
-            lnk = nextNodeMovieNodePointer(lnk);
-        }
+//        NodeMovieNodePointer *lnk = firstNodeMovieNodePointer(&(nd->links));
+//        while (lnk) {
+//            printf("\t[%s] - %s\n", nodeDataMovieNodePointer(lnk)->movie->id, nodeDataMovieNodePointer(lnk)->movie->title);
+//            lnk = nextNodeMovieNodePointer(lnk);
+//        }
         
         
         
@@ -283,9 +261,13 @@ void tomatoes()
 //    nd->movie->id
     }
     
-    NodeMovieNodePointer *lnk = firstNodeMovieNodePointer ( &(node->links) );
-    NodePair pair = PairByNodes( node, nodeDataMovieNodePointer(lnk) );
-    printf( "FORCE : %f\n", Force(pair) );
+//    NodeMovieNodePointer *lnk = firstNodeMovieNodePointer ( &(node->links) );
+//    while (lnk) {
+//        NodePair *pair = PairByNodes( node, nodeDataMovieNodePointer(lnk) );
+//        printf( "FORCE [%s; %s] : %f\n", nodeDataPair(pair).n1->movie->title, nodeDataPair(pair).n2->movie->title, Force(pair) );
+//        lnk = nextNodeMovieNodePointer(lnk);
+//    }
+    return mov;
 }
 
 

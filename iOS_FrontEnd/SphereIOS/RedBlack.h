@@ -26,13 +26,17 @@ extern "C"
 /* Red-Black tree description */
 typedef enum { BLACK, RED } nodeColor;
 
-#define redBlackType(T)\
-typedef struct Node##T *Set##T;
+#define redBlackType(T) \
+typedef struct Node##T *Set##T; \
+typedef struct Node_##T Node##T; \
+T nodeData##T( Node##T *node ); \
+Node##T *insertNode##T( Set##T *R, T data ); \
+Node##T *firstNode##T( Set##T *R ); \
+Node##T *nextNode##T( Node##T *N );
 
 #define redBlack(T)\
 void hi##T(){puts(#T);}\
 \
-typedef struct Node_##T Node##T;\
 struct Node_##T {\
     struct Node_##T *left;         /* left child */\
     struct Node_##T *right;        /* right child */\

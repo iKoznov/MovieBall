@@ -14,8 +14,36 @@ extern "C"
 {
 #endif
 
-//#include <iostream>
-void tomatoes();
+#include "movie.h"
+    
+    
+#include "RedBlack.h"
+    
+typedef struct _MovieNode *MovieNode;
+redBlackType(MovieNode)
+
+typedef MovieNode MovieNodePointer;
+redBlackType(MovieNodePointer)
+
+typedef struct _Pair Pair;
+redBlackType(Pair)
+
+struct _MovieNode {
+    Movie movie;
+    SetMovieNodePointer links;
+    unsigned char isLinked;
+};
+
+struct _Pair {
+    MovieNode n1, n2;
+    float strenth;
+};
+    
+Movie tomatoes( const char *const query );
+MovieNode NodeByMovie( Movie movie );
+NodePair *PairByNodes( MovieNode n1, MovieNode n2 );
+float Force(NodePair *pair);
+SetMovieNode *getNODES();
     
 #ifdef __cplusplus
 }

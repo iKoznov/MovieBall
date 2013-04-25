@@ -166,7 +166,7 @@ typedef union {
     };
 } Vertex;
 
-void _printMatrixf (GLfloat *m) {
+void _printMatrixf (const GLfloat *const m) {
     printf("---------------------------\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n", m[0], m[4], m[8], m[12], m[1], m[5], m[9], m[13], m[2], m[6], m[10], m[14], m[3], m[7], m[11], m[15]);
 }
 
@@ -179,7 +179,7 @@ void icosahedron_initialize(GLuint n)
 	GLint i, j;
     Vertex *p;
     
-    R = 1.8f;
+    R = 1.0f;
     _n = n;
     _N = 2 + 10 * _n*_n;
     a = 4.0f * R / sqrtf(10.0f + 2.0f*sqrtf(5.0f));
@@ -441,7 +441,9 @@ void render()
     glEnable(GL_DEPTH_TEST);
     
     GLfloat h = 4.0f * _height / _width;
-    glUniformMatrix4fv( _projectionUniform, 1, 0, GLKMatrix4MakeFrustum( -1, 1, -h/4, h/4, 2, 10 ).m );
+    glUniformMatrix4fv( _projectionUniform, 1, 0, GLKMatrix4MakeOrtho( -1, 1, -h/4, h/4, 2, 10 ).m );
+//    glUniformMatrix4fv( _projectionUniform, 1, 0, GLKMatrix4Identity.m );
+//    _printMatrixf( GLKMatrix4Identity.m );
     
     GLKMatrix4 modelView = GLKMatrix4MakeTranslation( 0, 0, -4 );
     modelView = GLKMatrix4RotateX(modelView, _lat);

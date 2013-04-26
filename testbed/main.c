@@ -23,7 +23,7 @@ static GLfloat _b = 0;
 int main(int argc, char **argv)
 {
 	puts("<<< SPHERE PROJECT >>>");
-    model();
+//    model();
     
     //char *locale = setlocale(LC_ALL, "Russian");
     //printf("LOCALE : %s\n", locale);

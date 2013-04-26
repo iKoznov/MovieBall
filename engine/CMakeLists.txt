@@ -22,12 +22,12 @@ set(SOURCE_ENGINE
 #include_directories( ${OPENGL_INCLUDE_DIR} )
 
 
-#IF(APPLE)
-#   INCLUDE_DIRECTORIES ( /System/Library/Frameworks )
-#   FIND_LIBRARY(OpenGL_LIBRARY OpenGL )
-#   MARK_AS_ADVANCED (OpenGL_LIBRARY)
-#   SET(EXTRA_LIBS ${OpenGL_LIBRARY})
-#ENDIF (APPLE)
+IF(APPLE)
+  INCLUDE_DIRECTORIES ( /System/Library/Frameworks )
+  FIND_LIBRARY(OpenGL_LIBRARY OpenGL )
+  MARK_AS_ADVANCED (OpenGL_LIBRARY)
+  SET(EXTRA_LIBS ${OpenGL_LIBRARY})
+ENDIF (APPLE)
 
 
 #include_directories(/usr/X11R6/include/)
@@ -51,4 +51,4 @@ set(SOURCE_ENGINE
 
 add_library( engine STATIC ${SOURCE_ENGINE} )
 
-#target_link_libraries( sphere_testbed ${EXTRA_LIBS} )
+target_link_libraries( sphere_testbed ${EXTRA_LIBS} )

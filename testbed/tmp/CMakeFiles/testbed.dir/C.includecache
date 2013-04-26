@@ -30,10 +30,6 @@ OpenGL/gl.h
 
 /Users/user/Developer/sphere/testbed/TargetConditionals.h
 
-/Users/user/Developer/sphere/testbed/engine.c
-engine.h
-/Users/user/Developer/sphere/testbed/engine.h
-
 /Users/user/Developer/sphere/testbed/engine.h
 TargetConditionals.h
 /Users/user/Developer/sphere/testbed/TargetConditionals.h
@@ -58,10 +54,6 @@ stdio.h
 string.h
 -
 
-/Users/user/Developer/sphere/testbed/icosahedron.c
-icosahedron.h
-/Users/user/Developer/sphere/testbed/icosahedron.h
-
 /Users/user/Developer/sphere/testbed/icosahedron.h
 engine.h
 /Users/user/Developer/sphere/testbed/engine.h
@@ -83,10 +75,6 @@ xyz.h
 /Users/user/Developer/sphere/testbed/xyz.h
 model.h
 /Users/user/Developer/sphere/testbed/model.h
-
-/Users/user/Developer/sphere/testbed/xyz.c
-xyz.h
-/Users/user/Developer/sphere/testbed/xyz.h
 
 /Users/user/Developer/sphere/testbed/xyz.h
 engine.h

@@ -67,7 +67,7 @@ add_definitions(-DSPHERE_TARGET_TESTBED)
 add_executable( testbed ${SOURCE_TESTBED} )
 
 #target_link_libraries( testbed ${EXTRA_LIBS} model )
-#target_link_libraries( sphere_testbed ${EXTRA_LIBS} )
+target_link_libraries( testbed ${EXTRA_LIBS} )
 
 IF(WIN32)
         add_custom_command(TARGET testbed

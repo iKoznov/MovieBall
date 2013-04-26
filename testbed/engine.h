@@ -28,9 +28,9 @@
 //    #elif TARGET_IPHONE_SIMULATOR
 //    #include <OpenGLES/ES1/gl.h>
 //    #include <OpenGLES/ES1/glext.h>
-    #if defined TARGET_OS_MAC
+//    #if defined TARGET_OS_MAC
     #include <OpenGL/gl.h>
-    #endif
+//    #endif
 #endif
 
 #include <stdlib.h>

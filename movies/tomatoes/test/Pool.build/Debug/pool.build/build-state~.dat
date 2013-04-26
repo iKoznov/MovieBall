@@ -1,0 +1,83 @@
+Tpool
+v5
+r1
+cCheck dependencies
+cCompileC Pool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.o /Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c00000000514480E000000000000000AA
+t1363443936
+s170
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp
+c00000000516C3D320000000000000888
+t1366048050
+s2184
+i"allocator.hpp"
+i"typetraits.hpp"
+i<iostream>
+i<vector>
+i<list>
+i<map>
+i<deque>
+i<stack>
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Debug/pool
+t2
+s0
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.o
+t2
+s0
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/Objects-normal/x86_64/pool.LinkFileList
+c00000000516C46F40000000000000074
+t1366050548
+s116
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/Script-03AA47D3E7BF45389BDA6F0D.sh
+c00000000516C46F400000000000000B1
+t1366050548
+s177
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/allocator.hpp
+c00000000516C44A70000000000003477
+t1366049959
+s13431
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/typetraits.hpp
+c00000000516C3D3200000000000007C0
+t1366048050
+s1984
+
+CBuild AST from /Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies13d799747e1cb741^97389a747e1cb741^---0#1#0#--18"Check dependencies36"A4CA74C1-C8AD-429A-8381-E34A1DEAFE59-
+
+CCompileC Pool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.o /Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s387743348.604103
+e387743348.927419
+r0
+xCompileC
+xPool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.o
+x/Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp:1:
+o/Users/user/Developer/sphere/movies/tomatoes/test/allocator.hpp:5:10: fatal error: 'loki/SmallObj.h' file not found
+o#include <loki/SmallObj.h>
+o         ^
+o1 error generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cppd7159b747e1cb741^d271ed747e1cb741^-266"In file included from /Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp:1:/Users/user/Developer/sphere/movies/tomatoes/test/allocator.hpp:5:10: fatal error: 'loki/SmallObj.h' file not found#include <loki/SmallObj.h>         ^1 error generated.-0#0#0#-19%DVTDocumentLocation2@83"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp0000000000000000^2080"CompileC Pool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.o AllocatorTest.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/user/Developer/sphere/movies/tomatoes/test    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions "-DCMAKE_INTDIR=\"Debug\"" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -Wno-sign-conversion -I/Users/user/Developer/sphere/movies/tomatoes/test/Debug/include -I/usr/local/include/.. -I/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/DerivedSources/x86_64 -I/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/user/Developer/sphere/movies/tomatoes/test/Debug -MMD -MT dependencies -MF /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.d --serialize-diagnostics /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.dia -c /Users/user/Developer/sphere/movies/tomatoes/test/AllocatorTest.cpp -o /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/Objects-normal/x86_64/AllocatorTest.o36"A4BEF4B5-09DA-4182-BECA-FFE2C13C6719-
+
+CLd /Users/user/Developer/sphere/movies/tomatoes/test/Debug/pool normal x86_64
+r0
+
+CPhaseScriptExecution "CMake PostBuild Rules" /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/pool.build/Script-03AA47D3E7BF45389BDA6F0D.sh
+r0
+

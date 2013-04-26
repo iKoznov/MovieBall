@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+       archiveVersion = 1;
+       classes = {
+       };
+       objectVersion = 46;
+       objects = {
+
+/* Begin PBXAggregateTarget section */
+              69A5858E5CD84B95830A7464 /* ALL_BUILD */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = 4E096E25E8A9482BAC51877A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+                     buildPhases = (
+                            6D64ED2188B24DA8952A356D /* CMake Rules */,
+                     );
+                     dependencies = (
+                            03C87C22212841C2810BA729 /* PBXTargetDependency */,
+                            95491111E401483D837F0B4E /* PBXTargetDependency */,
+                     );
+                     name = ALL_BUILD;
+                     productName = ALL_BUILD;
+              };
+              B499FD76931A4E50B38AE39B /* ZERO_CHECK */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = CEBDBB640C884B018AB6CF4B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+                     buildPhases = (
+                            54372AC5E2424127B6586AC1 /* CMake Rules */,
+                     );
+                     dependencies = (
+                     );
+                     name = ZERO_CHECK;
+                     productName = ZERO_CHECK;
+              };
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+6B4FF17DFA7B47B5AB32CD20 /* /Users/user/Developer/sphere/model/TargetConditionals.h */ = {isa = PBXBuildFile; fileRef = 06C56A25B8F54E8AB951802B /* /Users/user/Developer/sphere/model/TargetConditionals.h */; settings = { COMPILER_FLAGS = ""; }; };
+5D42C08C296A40AC9C5BB16B /* /Users/user/Developer/sphere/model/model.h */ = {isa = PBXBuildFile; fileRef = 3ABEF72653BD4A679752452D /* /Users/user/Developer/sphere/model/model.h */; settings = { COMPILER_FLAGS = ""; }; };
+3A0051ED46114367A0BB06DD /* /Users/user/Developer/sphere/model/model.c */ = {isa = PBXBuildFile; fileRef = F06BDE5C67214B9AA603C0F5 /* /Users/user/Developer/sphere/model/model.c */; settings = { COMPILER_FLAGS = ""; }; };
+3C14DD63E2A04AA2B37145D3 /* /Users/user/Developer/sphere/model/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 928B93579C4043A2AAA8E52B /* /Users/user/Developer/sphere/model/CMakeLists.txt */; settings = { COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+              DE0DD2E70BAF4F1D96E92517 /*  */ = {
+                     isa = PBXBuildStyle;
+              };
+              A90899EB54454F0DAF9434CC /* Debug */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = Debug;
+              };
+              9DD5C1290B0448AD806F4F2C /* Release */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = Release;
+              };
+              A300054145FB4477B7C4811A /* MinSizeRel */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = MinSizeRel;
+              };
+              59959A00D670460FBEA7C1EB /* RelWithDebInfo */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = RelWithDebInfo;
+              };
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+              864F34C19055466FAF395D08 /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 079C242101C34EA5B25D33D6 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = D2B077EC35704870B2916035;
+                     remoteInfo = model;
+              };
+              4C4A170D930E430D8251C20D /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 079C242101C34EA5B25D33D6 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = B499FD76931A4E50B38AE39B;
+                     remoteInfo = ZERO_CHECK;
+              };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+928B93579C4043A2AAA8E52B /* /Users/user/Developer/sphere/model/CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text"; name = "CMakeLists.txt"; path = "CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+06C56A25B8F54E8AB951802B /* /Users/user/Developer/sphere/model/TargetConditionals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.h"; name = "TargetConditionals.h"; path = "TargetConditionals.h"; sourceTree = SOURCE_ROOT; };
+3ABEF72653BD4A679752452D /* /Users/user/Developer/sphere/model/model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.h"; name = "model.h"; path = "model.h"; sourceTree = SOURCE_ROOT; };
+F06BDE5C67214B9AA603C0F5 /* /Users/user/Developer/sphere/model/model.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "model.c"; path = "model.c"; sourceTree = SOURCE_ROOT; };
+0322D46A350546FEA7D1EAC6 /* model */ = {isa = PBXFileReference; explicitFileType = "archive.ar"; path = "libmodel.a"; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+              9F8B58D2678B459394CAC9D4  = {
+                     isa = PBXGroup;
+                     children = (
+                            72A77CE5890C43299802B0C8 /* Sources */,
+                            BC104CF5B3D041EAAAE294E0 /* Resources */,
+                            908E430B7F1549DCB4A475FE /* Products */,
+                     );
+                     sourceTree = "<group>";
+              };
+              72A77CE5890C43299802B0C8 /* Sources */ = {
+                     isa = PBXGroup;
+                     children = (
+                            F8E729D4CA65445CA062D15E /* ALL_BUILD */,
+                            803E68AAE8CB46E589C18CD3 /* ZERO_CHECK */,
+                            E66E7D08700145A382207405 /* model */,
+                     );
+                     name = Sources;
+                     sourceTree = "<group>";
+              };
+              BC104CF5B3D041EAAAE294E0 /* Resources */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = Resources;
+                     sourceTree = "<group>";
+              };
+              F8E729D4CA65445CA062D15E /* ALL_BUILD */ = {
+                     isa = PBXGroup;
+                     children = (
+                            E335D90AED9C487998285883 /* CMake Rules */,
+                            928B93579C4043A2AAA8E52B /* /Users/user/Developer/sphere/model/CMakeLists.txt */,
+                     );
+                     name = ALL_BUILD;
+                     sourceTree = "<group>";
+              };
+              E335D90AED9C487998285883 /* CMake Rules */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = "CMake Rules";
+                     sourceTree = "<group>";
+              };
+              803E68AAE8CB46E589C18CD3 /* ZERO_CHECK */ = {
+                     isa = PBXGroup;
+                     children = (
+                            4A7258F51B0344559BB5D50A /* CMake Rules */,
+                            928B93579C4043A2AAA8E52B /* /Users/user/Developer/sphere/model/CMakeLists.txt */,
+                     );
+                     name = ZERO_CHECK;
+                     sourceTree = "<group>";
+              };
+              4A7258F51B0344559BB5D50A /* CMake Rules */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = "CMake Rules";
+                     sourceTree = "<group>";
+              };
+              E66E7D08700145A382207405 /* model */ = {
+                     isa = PBXGroup;
+                     children = (
+                            320234F2C83D4C96A8FF1B81 /* Header Files */,
+                            73507FC9CE7D4B62ABEE07EC /* Source Files */,
+                            928B93579C4043A2AAA8E52B /* /Users/user/Developer/sphere/model/CMakeLists.txt */,
+                     );
+                     name = model;
+                     sourceTree = "<group>";
+              };
+              320234F2C83D4C96A8FF1B81 /* Header Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            06C56A25B8F54E8AB951802B /* /Users/user/Developer/sphere/model/TargetConditionals.h */,
+                            3ABEF72653BD4A679752452D /* /Users/user/Developer/sphere/model/model.h */,
+                     );
+                     name = "Header Files";
+                     sourceTree = "<group>";
+              };
+              73507FC9CE7D4B62ABEE07EC /* Source Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            F06BDE5C67214B9AA603C0F5 /* /Users/user/Developer/sphere/model/model.c */,
+                     );
+                     name = "Source Files";
+                     sourceTree = "<group>";
+              };
+              908E430B7F1549DCB4A475FE /* Products */ = {
+                     isa = PBXGroup;
+                     children = (
+                            0322D46A350546FEA7D1EAC6 /* model */,
+                     );
+                     name = Products;
+                     sourceTree = "<group>";
+              };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+              D2B077EC35704870B2916035 /* model */ = {
+                     isa = PBXNativeTarget;
+                     buildConfigurationList = 9176699C44194B60AB9FFEB1 /* Build configuration list for PBXNativeTarget "model" */;
+                     buildPhases = (
+                            64DC362521A64BB6A5C8F15B /* Sources */,
+                            FC75DEF3EDAA4343ABD047CD /* CMake PostBuild Rules */,
+                     );
+                     buildRules = (
+                     );
+                     dependencies = (
+                            95491111E401483D837F0B4E /* PBXTargetDependency */,
+                     );
+                     name = model;
+                     productName = model;
+                     productReference = 0322D46A350546FEA7D1EAC6 /* model */;
+                     productType = "com.apple.product-type.library.static";
+              };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+              079C242101C34EA5B25D33D6 /* Project object */ = {
+                     isa = PBXProject;
+                     attributes = {
+                            BuildIndependentTargetsInParallel = YES;
+                     };
+                     buildConfigurationList = B0242322D39147D38C84811A /* Build configuration list for PBXProject  "MODEL" */;
+                     buildSettings = {
+                     };
+                     buildStyles = (
+                            A90899EB54454F0DAF9434CC /* Debug */,
+                            9DD5C1290B0448AD806F4F2C /* Release */,
+                            A300054145FB4477B7C4811A /* MinSizeRel */,
+                            59959A00D670460FBEA7C1EB /* RelWithDebInfo */,
+                     );
+                     compatibilityVersion = "Xcode 3.2";
+                     hasScannedForEncodings = 0;
+                     mainGroup = 9F8B58D2678B459394CAC9D4;
+                     projectDirPath = /Users/user/Developer/sphere/model;
+                     projectRoot = "";
+                     targets = (
+                            69A5858E5CD84B95830A7464 /* ALL_BUILD */,
+                            B499FD76931A4E50B38AE39B /* ZERO_CHECK */,
+                            D2B077EC35704870B2916035 /* model */,
+                     );
+              };
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+              D2D1D5F2F8D4438A8A586221 /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              6D64ED2188B24DA8952A356D /* CMake Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/user/Developer/sphere/iOS_FrontEnd/tmp -f /Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              123541425C414BBD85923A9D /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              54372AC5E2424127B6586AC1 /* CMake Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/user/Developer/sphere/iOS_FrontEnd/tmp -f /Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              FC75DEF3EDAA4343ABD047CD /* CMake PostBuild Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake PostBuild Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/user/Developer/sphere/iOS_FrontEnd/tmp -f /Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeScripts/model_postBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+              64DC362521A64BB6A5C8F15B /* Sources */ = {
+                     isa = PBXSourcesBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                            3A0051ED46114367A0BB06DD /* /Users/user/Developer/sphere/model/model.c */,
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+              };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+              03C87C22212841C2810BA729 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = D2B077EC35704870B2916035 /* model */;
+                     targetProxy = 864F34C19055466FAF395D08 /* PBXContainerItemProxy */;
+              };
+              95491111E401483D837F0B4E /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = B499FD76931A4E50B38AE39B /* ZERO_CHECK */;
+                     targetProxy = 4C4A170D930E430D8251C20D /* PBXContainerItemProxy */;
+              };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+              7B43D9CAFE4442D99664D839 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp/build;
+                     };
+                     name = Debug;
+              };
+              D4E5F98E668F40CB92EB6537 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp/build;
+                     };
+                     name = Release;
+              };
+              A72A26295C5743D7B58B68A2 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp/build;
+                     };
+                     name = MinSizeRel;
+              };
+              1A75B5CCB6E84E80AC0ACCA5 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            SDKROOT = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp/build;
+                     };
+                     name = RelWithDebInfo;
+              };
+              23AAAF2C23094EF9A14F373B /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              8C10BB4456FF4A9398C1345B /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              4A914EFF0D68476C896FCDDA /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              0A41DE0BA5C14B6B8A3EF2E0 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              7686F4A22389469789E452FC /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              C5928201CFC343B7BDF8384A /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              0ECC7D2005F84BB7B9CEEEB0 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              C7FA1A2E6CC7485797656D7F /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              42746601C32442489EDD51B1 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = model;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              09EDC20747BE4427824AB136 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = model;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              42F41DD638BF4C10A73F9C07 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = model;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              E3CA089CA38E473696FE52C1 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            ONLY_ACTIVE_ARCH = NO;
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = model;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = /Users/user/Developer/sphere/iOS_FrontEnd/tmp;
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+              B0242322D39147D38C84811A /* Build configuration list for PBXProject  "MODEL" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            7B43D9CAFE4442D99664D839 /* Debug */,
+                            D4E5F98E668F40CB92EB6537 /* Release */,
+                            A72A26295C5743D7B58B68A2 /* MinSizeRel */,
+                            1A75B5CCB6E84E80AC0ACCA5 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              4E096E25E8A9482BAC51877A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            23AAAF2C23094EF9A14F373B /* Debug */,
+                            8C10BB4456FF4A9398C1345B /* Release */,
+                            4A914EFF0D68476C896FCDDA /* MinSizeRel */,
+                            0A41DE0BA5C14B6B8A3EF2E0 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              CEBDBB640C884B018AB6CF4B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            7686F4A22389469789E452FC /* Debug */,
+                            C5928201CFC343B7BDF8384A /* Release */,
+                            0ECC7D2005F84BB7B9CEEEB0 /* MinSizeRel */,
+                            C7FA1A2E6CC7485797656D7F /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              9176699C44194B60AB9FFEB1 /* Build configuration list for PBXNativeTarget "model" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            42746601C32442489EDD51B1 /* Debug */,
+                            09EDC20747BE4427824AB136 /* Release */,
+                            42F41DD638BF4C10A73F9C07 /* MinSizeRel */,
+                            E3CA089CA38E473696FE52C1 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+/* End XCConfigurationList section */
+       };
+       rootObject = 079C242101C34EA5B25D33D6;
+}

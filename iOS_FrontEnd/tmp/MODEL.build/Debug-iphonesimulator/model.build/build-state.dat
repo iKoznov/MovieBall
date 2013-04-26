@@ -1,0 +1,140 @@
+Tmodel
+v5
+r1
+cCheck dependencies
+cCompileC /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.o /Users/user/Developer/sphere/model/model.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk
+c0000000051702A420000000000000110
+t1366305346
+s272
+
+N/Users/user/Developer/sphere/iOS_FrontEnd/tmp/Debug-iphonesimulator/libmodel.a
+t2
+s0
+
+N/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.LinkFileList
+c000000005177D0A10000000000000078
+t1366806689
+s120
+
+N/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.o
+t2
+s0
+
+N/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Script-FC75DEF3EDAA4343ABD047CD.sh
+c000000005177D0A100000000000000AA
+t1366806689
+s170
+
+N/Users/user/Developer/sphere/model/model.c
+c00000000516C3D320000000000000290
+t1366048050
+s656
+i"model.h"
+
+N/Users/user/Developer/sphere/model/model.h
+c00000000516C3D32000000000000055F
+t1366048050
+s1375
+
+CBuild AST from /Users/user/Developer/sphere/model/model.c
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies43008c210828b741^a7cd8c210828b741^---0#1#0#--18"Check dependencies36"35207A86-A733-4771-9E2B-4153A6BF14FE-
+
+CCompileC /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.o /Users/user/Developer/sphere/model/model.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler
+s388499489.551714
+e388499489.586578
+r0
+xCompileC
+x/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.o
+x/Users/user/Developer/sphere/model/model.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/user/Developer/sphere/model/model.c:3:
+o/Users/user/Developer/sphere/model/model.h:54:14: error: unknown type name 'GLfloat'; did you mean 'float'?
+o    struct { GLfloat v[3]; };
+o             ^~~~~~~
+o             float
+o/Users/user/Developer/sphere/model/model.h:55:14: error: unknown type name 'GLfloat'; did you mean 'float'?
+o    struct { GLfloat x, y, z; };
+o             ^~~~~~~
+o             float
+o/Users/user/Developer/sphere/model/model.h:56:14: error: unknown type name 'GLfloat'; did you mean 'float'?
+o    struct { GLfloat R, G, B; };
+o             ^~~~~~~
+o             float
+o/Users/user/Developer/sphere/model/model.h:60:14: error: unknown type name 'GLfloat'; did you mean 'float'?
+o    struct { GLfloat v[4]; };
+o             ^~~~~~~
+o             float
+o/Users/user/Developer/sphere/model/model.h:61:14: error: unknown type name 'GLfloat'; did you mean 'float'?
+o    struct { GLfloat x, y, z, k; };
+o             ^~~~~~~
+o             float
+o/Users/user/Developer/sphere/model/model.h:62:14: error: unknown type name 'GLfloat'; did you mean 'float'?
+o    struct { GLfloat R, G, B, A; };
+o             ^~~~~~~
+o             float
+o/Users/user/Developer/sphere/model/model.h:65:27: error: redefinition of parameter 'GLfloat'
+ovec3f vec3fMake( GLfloat, GLfloat, GLfloat );
+o                          ^
+o/Users/user/Developer/sphere/model/model.h:65:36: error: redefinition of parameter 'GLfloat'
+ovec3f vec3fMake( GLfloat, GLfloat, GLfloat );
+o                                   ^
+o/Users/user/Developer/sphere/model/model.h:65:18: error: a parameter list without types is only allowed in a function definition
+ovec3f vec3fMake( GLfloat, GLfloat, GLfloat );
+o                 ^
+o/Users/user/Developer/sphere/model/model.h:66:27: error: redefinition of parameter 'GLfloat'
+ovec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
+o                          ^
+o/Users/user/Developer/sphere/model/model.h:66:36: error: redefinition of parameter 'GLfloat'
+ovec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
+o                                   ^
+o/Users/user/Developer/sphere/model/model.h:66:45: error: redefinition of parameter 'GLfloat'
+ovec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
+o                                            ^
+o/Users/user/Developer/sphere/model/model.h:66:18: error: a parameter list without types is only allowed in a function definition
+ovec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );
+o                 ^
+o/Users/user/Developer/sphere/model/model.h:68:21: error: unknown type name 'GLfloat'; did you mean 'float'?
+ovoid _printMatrixf (GLfloat *m);
+o                    ^~~~~~~
+o                    float
+o/Users/user/Developer/sphere/model/model.c:6:18: error: unknown type name 'GLfloat'; did you mean 'float'?
+ovec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {
+o                 ^~~~~~~
+o                 float
+o/Users/user/Developer/sphere/model/model.c:6:29: error: unknown type name 'GLfloat'; did you mean 'float'?
+ovec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {
+o                            ^~~~~~~
+o                            float
+o/Users/user/Developer/sphere/model/model.c:6:40: error: unknown type name 'GLfloat'; did you mean 'float'?
+ovec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {
+o                                       ^~~~~~~
+o                                       float
+o/Users/user/Developer/sphere/model/model.c:6:7: error: redefinition of 'vec3fMake' as different kind of symbol
+ovec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {
+o      ^
+o/Users/user/Developer/sphere/model/model.h:65:7: note: previous definition is here
+ovec3f vec3fMake( GLfloat, GLfloat, GLfloat );
+o      ^
+o/Users/user/Developer/sphere/model/model.c:14:18: error: unknown type name 'GLfloat'; did you mean 'float'?
+ovec4f vec4fMake( GLfloat a, GLfloat b, GLfloat c, GLfloat d ) {
+o                 ^~~~~~~
+o                 float
+ofatal error: too many errors emitted, stopping now [-ferror-limit=]
+o20 errors generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Compile /Users/user/Developer/sphere/model/model.c33508d210828b741^f22796210828b741^-3952"In file included from /Users/user/Developer/sphere/model/model.c:3:/Users/user/Developer/sphere/model/model.h:54:14: error: unknown type name 'GLfloat'; did you mean 'float'?    struct { GLfloat v[3]; };             ^~~~~~~             float/Users/user/Developer/sphere/model/model.h:55:14: error: unknown type name 'GLfloat'; did you mean 'float'?    struct { GLfloat x, y, z; };             ^~~~~~~             float/Users/user/Developer/sphere/model/model.h:56:14: error: unknown type name 'GLfloat'; did you mean 'float'?    struct { GLfloat R, G, B; };             ^~~~~~~             float/Users/user/Developer/sphere/model/model.h:60:14: error: unknown type name 'GLfloat'; did you mean 'float'?    struct { GLfloat v[4]; };             ^~~~~~~             float/Users/user/Developer/sphere/model/model.h:61:14: error: unknown type name 'GLfloat'; did you mean 'float'?    struct { GLfloat x, y, z, k; };             ^~~~~~~             float/Users/user/Developer/sphere/model/model.h:62:14: error: unknown type name 'GLfloat'; did you mean 'float'?    struct { GLfloat R, G, B, A; };             ^~~~~~~             float/Users/user/Developer/sphere/model/model.h:65:27: error: redefinition of parameter 'GLfloat'vec3f vec3fMake( GLfloat, GLfloat, GLfloat );                          ^/Users/user/Developer/sphere/model/model.h:65:36: error: redefinition of parameter 'GLfloat'vec3f vec3fMake( GLfloat, GLfloat, GLfloat );                                   ^/Users/user/Developer/sphere/model/model.h:65:18: error: a parameter list without types is only allowed in a function definitionvec3f vec3fMake( GLfloat, GLfloat, GLfloat );                 ^/Users/user/Developer/sphere/model/model.h:66:27: error: redefinition of parameter 'GLfloat'vec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );                          ^/Users/user/Developer/sphere/model/model.h:66:36: error: redefinition of parameter 'GLfloat'vec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );                                   ^/Users/user/Developer/sphere/model/model.h:66:45: error: redefinition of parameter 'GLfloat'vec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );                                            ^/Users/user/Developer/sphere/model/model.h:66:18: error: a parameter list without types is only allowed in a function definitionvec4f vec4fMake( GLfloat, GLfloat, GLfloat, GLfloat );                 ^/Users/user/Developer/sphere/model/model.h:68:21: error: unknown type name 'GLfloat'; did you mean 'float'?void _printMatrixf (GLfloat *m);                    ^~~~~~~                    float/Users/user/Developer/sphere/model/model.c:6:18: error: unknown type name 'GLfloat'; did you mean 'float'?vec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {                 ^~~~~~~                 float/Users/user/Developer/sphere/model/model.c:6:29: error: unknown type name 'GLfloat'; did you mean 'float'?vec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {                            ^~~~~~~                            float/Users/user/Developer/sphere/model/model.c:6:40: error: unknown type name 'GLfloat'; did you mean 'float'?vec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {                                       ^~~~~~~                                       float/Users/user/Developer/sphere/model/model.c:6:7: error: redefinition of 'vec3fMake' as different kind of symbolvec3f vec3fMake( GLfloat a, GLfloat b, GLfloat c ) {      ^/Users/user/Developer/sphere/model/model.h:65:7: note: previous definition is herevec3f vec3fMake( GLfloat, GLfloat, GLfloat );      ^/Users/user/Developer/sphere/model/model.c:14:18: error: unknown type name 'GLfloat'; did you mean 'float'?vec4f vec4fMake( GLfloat a, GLfloat b, GLfloat c, GLfloat d ) {                 ^~~~~~~                 floatfatal error: too many errors emitted, stopping now [-ferror-limit=]20 errors generated.20(36%IDEClangDiagnosticActivityLogMessage2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^53#13#53#13#997#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^53#13#53#20#997#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^54#13#54#13#1027#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^54#13#54#20#1027#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^55#13#55#13#1060#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^55#13#55#20#1060#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^59#13#59#13#1119#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^59#13#59#20#1119#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^60#13#60#13#1149#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^60#13#60#20#1149#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^61#13#61#13#1185#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^61#13#61#20#1185#7#-2@35"Redefinition of parameter 'GLfloat'-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^64#26#64#26#1244#0#20"Clang LLVM 1.0 Error--2@35"Redefinition of parameter 'GLfloat'-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^64#35#64#35#1253#0#20"Clang LLVM 1.0 Error--2@71"A parameter list without types is only allowed in a function definition-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^64#17#64#17#1235#0#14"Semantic Issue--2@35"Redefinition of parameter 'GLfloat'-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^65#26#65#26#1290#0#20"Clang LLVM 1.0 Error--2@35"Redefinition of parameter 'GLfloat'-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^65#35#65#35#1299#0#20"Clang LLVM 1.0 Error--2@35"Redefinition of parameter 'GLfloat'-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^65#44#65#44#1308#0#20"Clang LLVM 1.0 Error--2@71"A parameter list without types is only allowed in a function definition-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^65#17#65#17#1281#0#14"Semantic Issue--2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#1(2@67"In file included from /Users/user/Developer/sphere/model/model.c:3:-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2#9#2#9#25#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^67#20#67#20#1340#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^67#20#67#27#1340#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#-2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^5#17#5#17#54#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^5#17#5#24#54#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#-2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^5#28#5#28#65#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^5#28#5#35#65#7#-2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#-2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^5#39#5#39#76#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^5#39#5#46#76#7#-2@55"Redefinition of 'vec3fMake' as different kind of symbol-388499489#18446744073709551615#0#1(2@27"Previous definition is here-388499489#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.h0000000000000000^64#6#64#6#1224#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^5#6#5#6#43#0#14"Semantic Issue--2@50"Unknown type name 'GLfloat'; did you mean 'float'?-388499489#18446744073709551615#0#-2#27"com.apple.dt.IDE.diagnostic3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^13#17#13#17#186#0#14"Semantic Issue1(3@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^13#17#13#24#186#7#-2@37"Too many errors emitted, stopping now-388499489#18446744073709551615#0#-2#27"com.apple.dt.IDE.diagnostic-20"Clang LLVM 1.0 Error--0#0#0#-19%DVTDocumentLocation4@58"file://localhost/Users/user/Developer/sphere/model/model.c0000000000000000^2538"CompileC /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.o model.c normal i386 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/user/Developer/sphere/model    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof "-DCMAKE_INTDIR=\"Debug-iphonesimulator\"" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Wno-sign-conversion -mios-simulator-version-min=6.1 -I/Users/user/Developer/sphere/iOS_FrontEnd/tmp/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/DerivedSources/i386 -I/Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/user/Developer/sphere/iOS_FrontEnd/tmp/Debug-iphonesimulator -MMD -MT dependencies -MF /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.d --serialize-diagnostics /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.dia -c /Users/user/Developer/sphere/model/model.c -o /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Objects-normal/i386/model.o36"560B2933-17BA-456E-B856-90D636C72578-
+
+CLibtool /Users/user/Developer/sphere/iOS_FrontEnd/tmp/Debug-iphonesimulator/libmodel.a normal i386
+r0
+
+CPhaseScriptExecution "CMake PostBuild Rules" /Users/user/Developer/sphere/iOS_FrontEnd/tmp/MODEL.build/Debug-iphonesimulator/model.build/Script-FC75DEF3EDAA4343ABD047CD.sh
+r0
+

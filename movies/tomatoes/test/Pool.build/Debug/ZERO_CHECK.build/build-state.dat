@@ -1,0 +1,106 @@
+TZERO_CHECK
+v5
+r1
+cCheck dependencies
+cPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-80D8FA4E46AE47A1AF2B4A12.sh
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-26A24B5B1A4A448380DFE0F5.sh
+c00000000516C46FD00000000000000BD
+t1366050557
+s189
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-42140AAD8DDD41CD9B8AB3AE.sh
+c00000000516C474900000000000000BD
+t1366050633
+s189
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-80D8FA4E46AE47A1AF2B4A12.sh
+c00000000516C4EDE00000000000000BD
+t1366052574
+s189
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-8BEE049A85074DC29E9BBBA1.sh
+c00000000516C473A00000000000000BD
+t1366050618
+s189
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-9004F00A458545D8873F3AD4.sh
+c00000000516C46F400000000000000BD
+t1366050548
+s189
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesfeb6cfd1881cb741^8314d0d1881cb741^---0#1#0#--18"Check dependencies36"20185137-C77F-49C8-A29E-BF433A9DB1A8-
+
+CPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-26A24B5B1A4A448380DFE0F5.sh
+s387743416.399161
+e387743416.472891
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-26A24B5B1A4A448380DFE0F5.sh
+oecho ""
+o
+omake -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make
+o/Applications/CMake\ 2.8-10.app/Contents/bin/cmake -H/Users/user/Developer/sphere/movies/tomatoes/test -B/Users/user/Developer/sphere/movies/tomatoes/test
+o-- Configuring done
+o-- Generating done
+o-- Build files have been written to: /Users/user/Developer/sphere/movies/tomatoes/test
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'809a66b87e1cb741^450e79b87e1cb741^-377"echo ""make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make/Applications/CMake\ 2.8-10.app/Contents/bin/cmake -H/Users/user/Developer/sphere/movies/tomatoes/test -B/Users/user/Developer/sphere/movies/tomatoes/test-- Configuring done-- Generating done-- Build files have been written to: /Users/user/Developer/sphere/movies/tomatoes/test6(21%IDEActivityLogMessage2@8"echo ""-387743416#0#8#-0#-----2@87"make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make-387743416#9#87#-0#-----2@155"/Applications/CMake\ 2.8-10.app/Contents/bin/cmake -H/Users/user/Developer/sphere/movies/tomatoes/test -B/Users/user/Developer/sphere/movies/tomatoes/test-387743416#96#155#-0#-----2@20"-- Configuring done-387743416#251#20#-0#-----2@19"-- Generating done-387743416#271#19#-0#-----2@87"-- Build files have been written to: /Users/user/Developer/sphere/movies/tomatoes/test-387743416#290#87#-0#-----0#0#0#--295"PhaseScriptExecution "CMake Rules" Pool.build/Debug/ZERO_CHECK.build/Script-26A24B5B1A4A448380DFE0F5.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-26A24B5B1A4A448380DFE0F5.sh36"F059CD24-199C-4F63-9408-B05566F4C0AD-
+
+CPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-42140AAD8DDD41CD9B8AB3AE.sh
+s387743433.994220
+e387743434.022612
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-42140AAD8DDD41CD9B8AB3AE.sh
+oecho ""
+o
+omake -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make
+omake[1]: `CMakeFiles/cmake.check_cache' is up to date.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'ffcefec97e1cb741^b4c905ca7e1cb741^-151"echo ""make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.makemake[1]: `CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-387743434#0#8#-0#-----2@87"make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make-387743434#9#87#-0#-----2@55"make[1]: `CMakeFiles/cmake.check_cache' is up to date.-387743434#96#55#-0#-----0#0#0#--295"PhaseScriptExecution "CMake Rules" Pool.build/Debug/ZERO_CHECK.build/Script-42140AAD8DDD41CD9B8AB3AE.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-42140AAD8DDD41CD9B8AB3AE.sh36"C716E5E4-95F9-4DD0-AF8A-66BEDB784930-
+
+CPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-80D8FA4E46AE47A1AF2B4A12.sh
+s387746001.813783
+e387746001.874423
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-80D8FA4E46AE47A1AF2B4A12.sh
+oecho ""
+o
+omake -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make
+omake[1]: `CMakeFiles/cmake.check_cache' is up to date.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'96b2d0d1881cb741^de1ee0d1881cb741^-151"echo ""make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.makemake[1]: `CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-387746001#0#8#-0#-----2@87"make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make-387746001#9#87#-0#-----2@55"make[1]: `CMakeFiles/cmake.check_cache' is up to date.-387746001#96#55#-0#-----0#0#0#--295"PhaseScriptExecution "CMake Rules" Pool.build/Debug/ZERO_CHECK.build/Script-80D8FA4E46AE47A1AF2B4A12.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-80D8FA4E46AE47A1AF2B4A12.sh36"D443D167-D6B6-4089-A62B-ECCDB3E8DF4B-
+
+CPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-8BEE049A85074DC29E9BBBA1.sh
+s387743430.217223
+e387743430.246609
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-8BEE049A85074DC29E9BBBA1.sh
+oecho ""
+o
+omake -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make
+omake[1]: `CMakeFiles/cmake.check_cache' is up to date.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'ebe537c67e1cb741^60213fc67e1cb741^-151"echo ""make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.makemake[1]: `CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-387743430#0#8#-0#-----2@87"make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make-387743430#9#87#-0#-----2@55"make[1]: `CMakeFiles/cmake.check_cache' is up to date.-387743430#96#55#-0#-----0#0#0#--295"PhaseScriptExecution "CMake Rules" Pool.build/Debug/ZERO_CHECK.build/Script-8BEE049A85074DC29E9BBBA1.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-8BEE049A85074DC29E9BBBA1.sh36"EBBBE181-F6AA-469F-B6FF-329E2DB9C5D5-
+
+CPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-9004F00A458545D8873F3AD4.sh
+s387743348.503061
+e387743348.585929
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-9004F00A458545D8873F3AD4.sh
+oecho ""
+o
+omake -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make
+o/Applications/CMake\ 2.8-10.app/Contents/bin/cmake -H/Users/user/Developer/sphere/movies/tomatoes/test -B/Users/user/Developer/sphere/movies/tomatoes/test
+o-- Configuring done
+o-- Generating done
+o-- Build files have been written to: /Users/user/Developer/sphere/movies/tomatoes/test
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'd31481747e1cb741^cafe95747e1cb741^-377"echo ""make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make/Applications/CMake\ 2.8-10.app/Contents/bin/cmake -H/Users/user/Developer/sphere/movies/tomatoes/test -B/Users/user/Developer/sphere/movies/tomatoes/test-- Configuring done-- Generating done-- Build files have been written to: /Users/user/Developer/sphere/movies/tomatoes/test6(21%IDEActivityLogMessage2@8"echo ""-387743348#0#8#-0#-----2@87"make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make-387743348#9#87#-0#-----2@155"/Applications/CMake\ 2.8-10.app/Contents/bin/cmake -H/Users/user/Developer/sphere/movies/tomatoes/test -B/Users/user/Developer/sphere/movies/tomatoes/test-387743348#96#155#-0#-----2@20"-- Configuring done-387743348#251#20#-0#-----2@19"-- Generating done-387743348#271#19#-0#-----2@87"-- Build files have been written to: /Users/user/Developer/sphere/movies/tomatoes/test-387743348#290#87#-0#-----0#0#0#--295"PhaseScriptExecution "CMake Rules" Pool.build/Debug/ZERO_CHECK.build/Script-9004F00A458545D8873F3AD4.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/Pool.build/Debug/ZERO_CHECK.build/Script-9004F00A458545D8873F3AD4.sh36"04A14657-BE0D-4F96-82E4-71A73188B8D6-
+

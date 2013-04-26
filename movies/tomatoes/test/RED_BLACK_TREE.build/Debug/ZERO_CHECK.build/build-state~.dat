@@ -1,0 +1,28 @@
+TZERO_CHECK
+v5
+r1
+cCheck dependencies
+cPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/ZERO_CHECK.build/Script-E0191AACC8C241AA9CECBD11.sh
+
+N/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/ZERO_CHECK.build/Script-E0191AACC8C241AA9CECBD11.sh
+c00000000516E8FBE00000000000000BD
+t1366200254
+s189
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciescde5863ec71eb741^63d5883ec71eb741^---0#1#0#--18"Check dependencies36"B074B5C2-9E35-44E5-83CE-33ECE6081B05-
+
+CPhaseScriptExecution "CMake Rules" /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/ZERO_CHECK.build/Script-E0191AACC8C241AA9CECBD11.sh
+s387893054.536106
+e387893054.568911
+r1
+xPhaseScriptExecution
+xCMake Rules
+x/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/ZERO_CHECK.build/Script-E0191AACC8C241AA9CECBD11.sh
+oecho ""
+o
+omake -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make
+omake[1]: `CMakeFiles/cmake.check_cache' is up to date.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Run custom shell script 'CMake Rules'fab5893ec71eb741^c2a3913ec71eb741^-151"echo ""make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.makemake[1]: `CMakeFiles/cmake.check_cache' is up to date.3(21%IDEActivityLogMessage2@8"echo ""-387893054#0#8#-0#-----2@87"make -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/ReRunCMake.make-387893054#9#87#-0#-----2@55"make[1]: `CMakeFiles/cmake.check_cache' is up to date.-387893054#96#55#-0#-----0#0#0#--315"PhaseScriptExecution "CMake Rules" RED_BLACK_TREE.build/Debug/ZERO_CHECK.build/Script-E0191AACC8C241AA9CECBD11.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/ZERO_CHECK.build/Script-E0191AACC8C241AA9CECBD11.sh36"11E7E43F-C363-4EAB-A802-93F6628B34EC-
+

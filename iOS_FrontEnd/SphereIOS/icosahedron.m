@@ -8,7 +8,6 @@
 
 
 #include <CoreGraphics/CoreGraphics.h>
-#import <GLKit/GLKit.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -386,6 +385,7 @@ void setupVBOs()
     _defaultTexture = setupTexture(@"american-beauty0021.png");
     
     icosahedron_indexes();
+    _rotMatrix = GLKMatrix4Identity;
 }
 
 GLuint loadPosterTexture(char *url)
@@ -468,6 +468,8 @@ void loadPosters()
     }
 }
 
+GLfloat lastX = 0;
+GLfloat lastY = 0;
 void render()
 {
     glClearColor(255.0/255.0, 255.0/255.0, 255.0/255.0, 1.0);
@@ -479,9 +481,19 @@ void render()
 //    glUniformMatrix4fv( _projectionUniform, 1, 0, GLKMatrix4Identity.m );
 //    _printMatrixf( GLKMatrix4Identity.m );
     
+    GLfloat rotX = (_lat - lastX) / 200.0f;
+    GLfloat rotY = (_lon - lastY) / 200.0f;
+    lastX = _lat;
+    lastY = _lon;
+    
+    bool isInvertible;
+    GLKVector3 xAxis = GLKMatrix4MultiplyVector3(GLKMatrix4Invert(_rotMatrix, &isInvertible), GLKVector3Make(1, 0, 0));
+    _rotMatrix = GLKMatrix4Rotate(_rotMatrix, rotX, xAxis.x, xAxis.y, xAxis.z);
+    GLKVector3 yAxis = GLKMatrix4MultiplyVector3(GLKMatrix4Invert(_rotMatrix, &isInvertible), GLKVector3Make(0, 1, 0));
+    _rotMatrix = GLKMatrix4Rotate(_rotMatrix, rotY, yAxis.x, yAxis.y, yAxis.z);
+    
     GLKMatrix4 modelView = GLKMatrix4MakeTranslation( 0, 0, -4 );
-    modelView = GLKMatrix4RotateX(modelView, _lat);
-    modelView = GLKMatrix4RotateY(modelView, _lon);
+    modelView = GLKMatrix4Multiply(modelView, _rotMatrix);
     glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.m);
     
     glViewport(0, 0, _width, _height);

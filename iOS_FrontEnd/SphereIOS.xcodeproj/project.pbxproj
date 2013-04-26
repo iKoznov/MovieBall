@@ -29,8 +29,8 @@
 		CED504461725A46C0048404D /* icosahedron.m in Sources */ = {isa = PBXBuildFile; fileRef = CED504451725A46C0048404D /* icosahedron.m */; };
 		CED5044C1725AD9E0048404D /* movie.c in Sources */ = {isa = PBXBuildFile; fileRef = CED504481725AD9E0048404D /* movie.c */; };
 		CED5044D1725AD9E0048404D /* tomatoes.c in Sources */ = {isa = PBXBuildFile; fileRef = CED5044A1725AD9E0048404D /* tomatoes.c */; };
-		CED5044F1725ADBC0048404D /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED5044E1725ADBC0048404D /* libcurl.a */; };
 		CED504521725AE220048404D /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = CED504501725AE220048404D /* cJSON.c */; };
+		CED50465172A8D880048404D /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED5044E1725ADBC0048404D /* libcurl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED5044F1725ADBC0048404D /* libcurl.a in Frameworks */,
+				CED50465172A8D880048404D /* libcurl.a in Frameworks */,
 				CED5044317259F4B0048404D /* GLKit.framework in Frameworks */,
 				468ED0E71704D5EA00763C7B /* QuartzCore.framework in Frameworks */,
 				468ED0E51704D5DA00763C7B /* OpenGLES.framework in Frameworks */,

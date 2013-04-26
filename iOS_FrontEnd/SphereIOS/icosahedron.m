@@ -166,7 +166,7 @@ typedef union {
     };
 } Vertex;
 
-void _printMatrixf (GLfloat *m) {
+void _printMatrixf (const GLfloat *const m) {
     printf("---------------------------\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n[ %.2f %.2f %.2f %.2f ]\n", m[0], m[4], m[8], m[12], m[1], m[5], m[9], m[13], m[2], m[6], m[10], m[14], m[3], m[7], m[11], m[15]);
 }
 
@@ -175,24 +175,21 @@ Vertex *_vertices;
 void icosahedron_initialize(GLuint n)
 {
 	GLfloat R, a, h, R5;
-    GLfloat hLat, sLon, lat, lon;
-	GLint i, j;
+	GLint i, j, k;
     Vertex *p;
     
-    R = 1.8f;
+    R = 1.2f;
     _n = n;
     _N = 2 + 10 * _n*_n;
     a = 4.0f * R / sqrtf(10.0f + 2.0f*sqrtf(5.0f));
     h = a * sqrtf( (5.0f - sqrtf(5.0f)) / 10.0f );
     R5 = a * sqrtf( (5.0f + sqrtf(5.0f)) / 10.0f );
-    hLat = asinf( (R-h) / R);
     
     printf("%s\n", __PRETTY_FUNCTION__);
     printf("\tR = %f\n", R);
     printf("\ta = %f\n", a);
     printf("\th = %f\n", h);
     printf("\tR5 = %f\n", R5);
-    printf("\thLat = %f\n", hLat);
     
     _vertices = p = calloc( _N, sizeof(Vertex) );
     
@@ -203,41 +200,78 @@ void icosahedron_initialize(GLuint n)
     
     for (j = 1; j < _n + 1; j++)
     {
-        lat = hLat + (_n-j) * ((GLfloat)M_PI/2.0f - hLat) / _n;
-        sLon = 0.0f;
-        for (i = 0; i < 5*(j); p++, i++)
+        GLfloat Y = R - j * h / _n;
+        for (i = 0; i < 5; i++)
         {
-            lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
-            (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
+            GLfloat x0 = (R5*j/_n) * cosf((GLfloat)i*0.4f*(GLfloat)M_PI);
+            GLfloat z0 = (R5*j/_n) * sinf((GLfloat)i*0.4f*(GLfloat)M_PI);
+            GLfloat x1 = (R5*j/_n) * cosf((GLfloat)(i+1)*0.4f*(GLfloat)M_PI);
+            GLfloat z1 = (R5*j/_n) * sinf((GLfloat)(i+1)*0.4f*(GLfloat)M_PI);
+            for (k = 0; k < j; k++)
+            {
+                (*p).x = x0 + k * (x1 - x0) / j;
+                (*p).y = Y;
+                (*p).z = z0 + k * (z1 - z0) / j;
+                p++;
+            }
         }
     }
     
     for (j = 1; j < _n; j++)
     {
-        lat = hLat * (1.0f - j*2.0f/_n);
-        sLon = (GLfloat)j/(GLfloat)_n * (GLfloat)M_PI/5.0f;
-        printf("sLon : %f\n", sLon);
-        for (i = 0; i < 5*_n; p++, i++)
+        GLfloat Y = (R-h) - j * (2*R - 2*h) / _n;
+        for (i = 0; i < 5; i++)
         {
-            GLfloat lon = sLon + i*2.0f*(GLfloat)M_PI/(5*_n);
-            (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
+            GLfloat ax0 = R5 * cosf((GLfloat)i*0.4f*(GLfloat)M_PI);
+            GLfloat az0 = R5 * sinf((GLfloat)i*0.4f*(GLfloat)M_PI);
+            GLfloat ax1 = R5 * cosf((GLfloat)(i+1)*0.4f*(GLfloat)M_PI);
+            GLfloat az1 = R5 * sinf((GLfloat)(i+1)*0.4f*(GLfloat)M_PI);
+            GLfloat bx0 = R5 * cosf((GLfloat)(i+0.5f)*0.4f*(GLfloat)M_PI);
+            GLfloat bz0 = R5 * sinf((GLfloat)(i+0.5f)*0.4f*(GLfloat)M_PI);
+            GLfloat bx1 = R5 * cosf((GLfloat)(i+1.5f)*0.4f*(GLfloat)M_PI);
+            GLfloat bz1 = R5 * sinf((GLfloat)(i+1.5f)*0.4f*(GLfloat)M_PI);
+            
+            GLfloat cx0 = ax0 + j * (bx0 - ax0) / _n;
+            GLfloat cz0 = az0 + j * (bz0 - az0) / _n;
+            GLfloat cx1 = ax1 + j * (bx0 - ax1) / _n;
+            GLfloat cz1 = az1 + j * (bz0 - az1) / _n;
+            GLfloat cx2 = ax1 + j * (bx1 - ax1) / _n;
+            GLfloat cz2 = az1 + j * (bz1 - az1) / _n;
+            
+            for (k = 0; k < (_n-j); k++)
+            {
+                (*p).x = cx0 + k * (cx1 - cx0) / (_n-j);
+                (*p).y = Y;
+                (*p).z = cz0 + k * (cz1 - cz0) / (_n-j);
+                p++;
+            }
+            
+            for (k = 0; k < j; k++)
+            {
+                (*p).x = cx1 + k * (cx2 - cx1) / j;
+                (*p).y = Y;
+                (*p).z = cz1 + k * (cz2 - cz1) / j;
+                p++;
+            }
         }
     }
     
     for (j = 1; j < _n + 1; j++)
     {
-        lat = -hLat - (_n-j) * ((GLfloat)M_PI/2.0f - hLat) / _n;
-        sLon = (GLfloat)M_PI/5.0f;
-        for (i = 0; i < 5*(j); p++, i++)
+        GLfloat Y = (h-R) - (j-1) * h / _n;
+        for (i = 0; i < 5; i++)
         {
-            lon = sLon + i*2.0f*(GLfloat)M_PI/(5*j);
-            (*p).x = R * cosf(lat) * cosf(lon);
-            (*p).y = R * sinf(lat);
-            (*p).z = R * cosf(lat) * sinf(lon);
+            GLfloat x0 = (R5*(_n-j+1)/_n) * cosf((GLfloat)(i+0.5f)*0.4f*(GLfloat)M_PI);
+            GLfloat z0 = (R5*(_n-j+1)/_n) * sinf((GLfloat)(i+0.5f)*0.4f*(GLfloat)M_PI);
+            GLfloat x1 = (R5*(_n-j+1)/_n) * cosf((GLfloat)(i+1.5f)*0.4f*(GLfloat)M_PI);
+            GLfloat z1 = (R5*(_n-j+1)/_n) * sinf((GLfloat)(i+1.5f)*0.4f*(GLfloat)M_PI);
+            for (k = 0; k < (_n-j+1); k++)
+            {
+                (*p).x = x0 + k * (x1 - x0) / (_n-j+1);
+                (*p).y = Y;
+                (*p).z = z0 + k * (z1 - z0) / (_n-j+1);
+                p++;
+            }
         }
     }
     
@@ -331,7 +365,7 @@ void icosahedron_indexes()
 //    SIDE(33,34,49,63,62,47)
     
 #pragma mark BOTTOM
-    SIDE(61,62,63,64,65)
+    SIDE(86,87,88,89,90)
     
     NEIGBOURS(0, 1,2,3,4,5)
     NEIGBOURS(1, 0)
@@ -441,7 +475,9 @@ void render()
     glEnable(GL_DEPTH_TEST);
     
     GLfloat h = 4.0f * _height / _width;
-    glUniformMatrix4fv( _projectionUniform, 1, 0, GLKMatrix4MakeFrustum( -1, 1, -h/4, h/4, 2, 10 ).m );
+    glUniformMatrix4fv( _projectionUniform, 1, 0, GLKMatrix4MakeOrtho( -1, 1, -h/4, h/4, 2, 10 ).m );
+//    glUniformMatrix4fv( _projectionUniform, 1, 0, GLKMatrix4Identity.m );
+//    _printMatrixf( GLKMatrix4Identity.m );
     
     GLKMatrix4 modelView = GLKMatrix4MakeTranslation( 0, 0, -4 );
     modelView = GLKMatrix4RotateX(modelView, _lat);

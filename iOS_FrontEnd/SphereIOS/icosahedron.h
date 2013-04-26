@@ -11,6 +11,7 @@
 
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
+#import <GLKit/GLKit.h>
 #include "tomatoes.h"
 
 void setupDepthBuffer();
@@ -46,6 +47,7 @@ GLuint _SurfaceCenterUniform;
 
 /* Scene params */
 float _currentRotation;
+GLKMatrix4 _rotMatrix;
 GLfloat _lon;
 GLfloat _lat;
 

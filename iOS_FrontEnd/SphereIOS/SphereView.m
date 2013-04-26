@@ -54,8 +54,8 @@
 }
 - (void)panHandler:(UIPanGestureRecognizer *)gesture {
     CGPoint translation = [gesture translationInView:self];
-    _lon += translation.x/200;
-    _lat += translation.y/200;
+    _lon += translation.x * self.layer.contentsScale;
+    _lat += translation.y * self.layer.contentsScale;
     [gesture setTranslation:CGPointZero inView:self];
 }
 

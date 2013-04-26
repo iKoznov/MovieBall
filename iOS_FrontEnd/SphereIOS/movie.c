@@ -79,8 +79,8 @@ cJSON *curl( char *URL )
     
     /* Emit the page if curl indicates that no errors occurred */
     if ( ret == 0 ) {
-//        printf( "%s\n", wr_buf );
-//        printf( "Recived chars : %zd\n", strlen(wr_buf) );
+        printf( "%s\n", wr_buf );
+        printf( "Recived chars : %zd\n", strlen(wr_buf) );
     }
     else return NULL;
     
@@ -310,6 +310,7 @@ void MovieListFree( MovieList list )
 
 MovieList movie_similars( Movie movie )
 {
+    printf("[%s] - %s\n", movie->id, movie->title);
     mStr _url = mStr_make( strdup("http://api.rottentomatoes.com/api/public/v1.0/movies/") );
     mStr_addStr( _url, strdup(movie->id) );
     mStr_addStr( _url, strdup("/similar.json") );

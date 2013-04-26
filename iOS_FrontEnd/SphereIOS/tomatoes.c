@@ -249,11 +249,11 @@ Movie tomatoes(const char *const query)
         printf("[%s] - %s\n", nd->movie->id, nd->movie->title);
 //        printf("\t %s\n", mov->detailed);
         
-//        NodeMovieNodePointer *lnk = firstNodeMovieNodePointer(&(nd->links));
-//        while (lnk) {
-//            printf("\t[%s] - %s\n", nodeDataMovieNodePointer(lnk)->movie->id, nodeDataMovieNodePointer(lnk)->movie->title);
-//            lnk = nextNodeMovieNodePointer(lnk);
-//        }
+        NodeMovieNodePointer *lnk = firstNodeMovieNodePointer(&(nd->links));
+        while (lnk) {
+            printf("\t[%s] - %s\n", nodeDataMovieNodePointer(lnk)->movie->id, nodeDataMovieNodePointer(lnk)->movie->title);
+            lnk = nextNodeMovieNodePointer(lnk);
+        }
         
         
         

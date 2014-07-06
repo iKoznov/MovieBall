@@ -14,7 +14,18 @@
 		461BA2ED1969037B0050412F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2EC1969037B0050412F /* main.m */; };
 		461BA2F11969037B0050412F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2F01969037B0050412F /* AppDelegate.m */; };
 		461BA2F31969037B0050412F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461BA2F21969037B0050412F /* Images.xcassets */; };
+		461BA31819690B6F0050412F /* libhello-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BA31719690B5B0050412F /* libhello-lib.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		461BA31619690B5B0050412F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 461BA30F19690B5B0050412F /* hello-lib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EF931B0AC50744F48B78E222;
+			remoteInfo = "hello-lib";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		461BA2DD1969037B0050412F /* MovieBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +40,7 @@
 		461BA2F01969037B0050412F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		461BA2F21969037B0050412F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		461BA2F91969037B0050412F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		461BA30F19690B5B0050412F /* hello-lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "hello-lib.xcodeproj"; path = "../build/hello-lib.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461BA31819690B6F0050412F /* libhello-lib.a in Frameworks */,
 				461BA2E31969037B0050412F /* CoreGraphics.framework in Frameworks */,
 				461BA2E51969037B0050412F /* UIKit.framework in Frameworks */,
 				461BA2E11969037B0050412F /* Foundation.framework in Frameworks */,
@@ -48,6 +61,7 @@
 		461BA2D41969037B0050412F = {
 			isa = PBXGroup;
 			children = (
+				461BA30F19690B5B0050412F /* hello-lib.xcodeproj */,
 				461BA2E61969037B0050412F /* MovieBall */,
 				461BA2DF1969037B0050412F /* Frameworks */,
 				461BA2DE1969037B0050412F /* Products */,
@@ -95,6 +109,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		461BA31019690B5B0050412F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				461BA31719690B5B0050412F /* libhello-lib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,12 +155,28 @@
 			mainGroup = 461BA2D41969037B0050412F;
 			productRefGroup = 461BA2DE1969037B0050412F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 461BA31019690B5B0050412F /* Products */;
+					ProjectRef = 461BA30F19690B5B0050412F /* hello-lib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				461BA2DC1969037B0050412F /* MovieBall */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		461BA31719690B5B0050412F /* libhello-lib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libhello-lib.a";
+			remoteRef = 461BA31619690B5B0050412F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		461BA2DB1969037B0050412F /* Resources */ = {
@@ -257,6 +295,7 @@
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ..;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -270,6 +309,7 @@
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ..;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

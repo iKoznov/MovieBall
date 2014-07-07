@@ -14,15 +14,15 @@
 		461BA2ED1969037B0050412F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2EC1969037B0050412F /* main.m */; };
 		461BA2F11969037B0050412F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2F01969037B0050412F /* AppDelegate.m */; };
 		461BA2F31969037B0050412F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461BA2F21969037B0050412F /* Images.xcassets */; };
-		461BA340196A45D50050412F /* libhello-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BA33F196A45CB0050412F /* libhello-lib.a */; };
+		461BF706196A6640004F51C0 /* libhello-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BF705196A662F004F51C0 /* libhello-lib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		461BA33E196A45CB0050412F /* PBXContainerItemProxy */ = {
+		461BF704196A662F004F51C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 461BA337196A45CB0050412F /* hello-lib.xcodeproj */;
+			containerPortal = 461BF6FE196A662F004F51C0 /* engine.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 88566FD16196491DACF3C9AA;
+			remoteGlobalIDString = F8DFECFEBD9447209DC871EA;
 			remoteInfo = "hello-lib";
 		};
 /* End PBXContainerItemProxy section */
@@ -40,7 +40,7 @@
 		461BA2F01969037B0050412F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		461BA2F21969037B0050412F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		461BA2F91969037B0050412F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		461BA337196A45CB0050412F /* hello-lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "hello-lib.xcodeproj"; path = "../build/hello-lib.xcodeproj"; sourceTree = "<group>"; };
+		461BF6FE196A662F004F51C0 /* engine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = engine.xcodeproj; path = "engine-tmp/engine.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461BA340196A45D50050412F /* libhello-lib.a in Frameworks */,
+				461BF706196A6640004F51C0 /* libhello-lib.a in Frameworks */,
 				461BA2E31969037B0050412F /* CoreGraphics.framework in Frameworks */,
 				461BA2E51969037B0050412F /* UIKit.framework in Frameworks */,
 				461BA2E11969037B0050412F /* Foundation.framework in Frameworks */,
@@ -61,7 +61,7 @@
 		461BA2D41969037B0050412F = {
 			isa = PBXGroup;
 			children = (
-				461BA337196A45CB0050412F /* hello-lib.xcodeproj */,
+				461BF6FE196A662F004F51C0 /* engine.xcodeproj */,
 				461BA2E61969037B0050412F /* MovieBall */,
 				461BA2DF1969037B0050412F /* Frameworks */,
 				461BA2DE1969037B0050412F /* Products */,
@@ -109,10 +109,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		461BA338196A45CB0050412F /* Products */ = {
+		461BF6FF196A662F004F51C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				461BA33F196A45CB0050412F /* libhello-lib.a */,
+				461BF705196A662F004F51C0 /* libhello-lib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 461BA3091969037B0050412F /* Build configuration list for PBXNativeTarget "MovieBall" */;
 			buildPhases = (
-				461BA3251969E4BB0050412F /* ShellScript */,
+				461BA3251969E4BB0050412F /* Generate Xcode project with Cmake */,
 				461BA2D91969037B0050412F /* Sources */,
 				461BA2DA1969037B0050412F /* Frameworks */,
 				461BA2DB1969037B0050412F /* Resources */,
@@ -158,8 +158,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 461BA338196A45CB0050412F /* Products */;
-					ProjectRef = 461BA337196A45CB0050412F /* hello-lib.xcodeproj */;
+					ProductGroup = 461BF6FF196A662F004F51C0 /* Products */;
+					ProjectRef = 461BF6FE196A662F004F51C0 /* engine.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -170,11 +170,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		461BA33F196A45CB0050412F /* libhello-lib.a */ = {
+		461BF705196A662F004F51C0 /* libhello-lib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libhello-lib.a";
-			remoteRef = 461BA33E196A45CB0050412F /* PBXContainerItemProxy */;
+			remoteRef = 461BF704196A662F004F51C0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -192,18 +192,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		461BA3251969E4BB0050412F /* ShellScript */ = {
+		461BA3251969E4BB0050412F /* Generate Xcode project with Cmake */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Generate Xcode project with Cmake";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#printenv > ~/env.txt\n#echo `pwd` $SDKROOT $PLATFORM_DIR/Developer > ~/vars.txt\n\nCURRENT_DIR=`pwd`\nMYLIB_DIR=\"$CURRENT_DIR/../build\"\nmkdir -p $MYLIB_DIR\n\ncd $MYLIB_DIR\nMACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DCMAKE_IOS_DEVELOPER_ROOT=\"$PLATFORM_DIR/Developer\" -DCMAKE_IOS_SDK_ROOT=\"$SDKROOT\" -GXcode ..\n#MACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DIOS_PLATFORM=SIMULATOR -GXcode ..\n";
+			shellScript = "#printenv > ~/env.txt\n#echo `pwd` $SDKROOT $PLATFORM_DIR/Developer > ~/vars.txt\n\nCURRENT_DIR=`pwd`\nMYLIB_DIR=\"$CURRENT_DIR/engine-tmp\"\nmkdir -p $MYLIB_DIR\n\ncd $MYLIB_DIR\nMACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DCMAKE_IOS_DEVELOPER_ROOT=\"$PLATFORM_DIR/Developer\" -DCMAKE_IOS_SDK_ROOT=\"$SDKROOT\" -GXcode ../../engine\n#MACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DIOS_PLATFORM=SIMULATOR -GXcode ..\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -312,7 +313,7 @@
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = ..;
+				USER_HEADER_SEARCH_PATHS = ../engine;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -326,7 +327,7 @@
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = ..;
+				USER_HEADER_SEARCH_PATHS = ../engine;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

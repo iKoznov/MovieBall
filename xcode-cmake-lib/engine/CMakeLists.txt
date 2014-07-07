@@ -1,6 +1,6 @@
 # Standard setup
 cmake_minimum_required (VERSION 2.8)
-project (hello-lib CXX C)
+project (engine CXX C)
 
 # Includes
 include_directories (${hello-lib_SOURCE_DIR})

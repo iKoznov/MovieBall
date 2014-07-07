@@ -14,18 +14,8 @@
 		461BA2ED1969037B0050412F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2EC1969037B0050412F /* main.m */; };
 		461BA2F11969037B0050412F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2F01969037B0050412F /* AppDelegate.m */; };
 		461BA2F31969037B0050412F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461BA2F21969037B0050412F /* Images.xcassets */; };
-		461BF706196A6640004F51C0 /* libhello-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BF705196A662F004F51C0 /* libhello-lib.a */; };
+		461BF70E196A7144004F51C0 /* libhello-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BF70D196A7144004F51C0 /* libhello-lib.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		461BF704196A662F004F51C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 461BF6FE196A662F004F51C0 /* engine.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8DFECFEBD9447209DC871EA;
-			remoteInfo = "hello-lib";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		461BA2DD1969037B0050412F /* MovieBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +30,7 @@
 		461BA2F01969037B0050412F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		461BA2F21969037B0050412F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		461BA2F91969037B0050412F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		461BF6FE196A662F004F51C0 /* engine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = engine.xcodeproj; path = "engine-tmp/engine.xcodeproj"; sourceTree = "<group>"; };
+		461BF70D196A7144004F51C0 /* libhello-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libhello-lib.a"; path = "../../../../Library/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator/libhello-lib.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461BF706196A6640004F51C0 /* libhello-lib.a in Frameworks */,
+				461BF70E196A7144004F51C0 /* libhello-lib.a in Frameworks */,
 				461BA2E31969037B0050412F /* CoreGraphics.framework in Frameworks */,
 				461BA2E51969037B0050412F /* UIKit.framework in Frameworks */,
 				461BA2E11969037B0050412F /* Foundation.framework in Frameworks */,
@@ -61,7 +51,6 @@
 		461BA2D41969037B0050412F = {
 			isa = PBXGroup;
 			children = (
-				461BF6FE196A662F004F51C0 /* engine.xcodeproj */,
 				461BA2E61969037B0050412F /* MovieBall */,
 				461BA2DF1969037B0050412F /* Frameworks */,
 				461BA2DE1969037B0050412F /* Products */,
@@ -79,6 +68,7 @@
 		461BA2DF1969037B0050412F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				461BF70D196A7144004F51C0 /* libhello-lib.a */,
 				461BA2E01969037B0050412F /* Foundation.framework */,
 				461BA2E21969037B0050412F /* CoreGraphics.framework */,
 				461BA2E41969037B0050412F /* UIKit.framework */,
@@ -107,14 +97,6 @@
 				461BA2EE1969037B0050412F /* MovieBall-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		461BF6FF196A662F004F51C0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				461BF705196A662F004F51C0 /* libhello-lib.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,28 +138,12 @@
 			mainGroup = 461BA2D41969037B0050412F;
 			productRefGroup = 461BA2DE1969037B0050412F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 461BF6FF196A662F004F51C0 /* Products */;
-					ProjectRef = 461BF6FE196A662F004F51C0 /* engine.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				461BA2DC1969037B0050412F /* MovieBall */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		461BF705196A662F004F51C0 /* libhello-lib.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libhello-lib.a";
-			remoteRef = 461BF704196A662F004F51C0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		461BA2DB1969037B0050412F /* Resources */ = {
@@ -312,6 +278,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../engine;
 				WRAPPER_EXTENSION = app;
@@ -326,6 +296,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../engine;
 				WRAPPER_EXTENSION = app;

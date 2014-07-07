@@ -19,5 +19,5 @@ set (HDR
 )
 
 # Library
-add_library (hello-lib STATIC ${HDR} ${SRC})
+add_library (engine STATIC ${HDR} ${SRC})
 source_group(\\ FILES ${HDR} ${SRC})

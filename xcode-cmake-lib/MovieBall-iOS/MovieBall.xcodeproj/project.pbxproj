@@ -14,8 +14,8 @@
 		461BA2ED1969037B0050412F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2EC1969037B0050412F /* main.m */; };
 		461BA2F11969037B0050412F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2F01969037B0050412F /* AppDelegate.mm */; };
 		461BA2F31969037B0050412F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461BA2F21969037B0050412F /* Images.xcassets */; };
-		461BF70E196A7144004F51C0 /* libhello-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BF70D196A7144004F51C0 /* libhello-lib.a */; };
 		46D63D09196AB1ED00B23E40 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D63D08196AB1ED00B23E40 /* boost.framework */; };
+		46D63D0D196B402000B23E40 /* libengine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D63D0C196B402000B23E40 /* libengine.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +31,8 @@
 		461BA2F01969037B0050412F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		461BA2F21969037B0050412F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		461BA2F91969037B0050412F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		461BF70D196A7144004F51C0 /* libhello-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libhello-lib.a"; path = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator/libhello-lib.a"; sourceTree = "<group>"; };
 		46D63D08196AB1ED00B23E40 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = "$(HOME)/Documents/boost.framework"; sourceTree = "<group>"; };
+		46D63D0C196B402000B23E40 /* libengine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libengine.a; path = "engine-tmp/Debug-iphonesimulator/libengine.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D63D0D196B402000B23E40 /* libengine.a in Frameworks */,
 				46D63D09196AB1ED00B23E40 /* boost.framework in Frameworks */,
-				461BF70E196A7144004F51C0 /* libhello-lib.a in Frameworks */,
 				461BA2E31969037B0050412F /* CoreGraphics.framework in Frameworks */,
 				461BA2E51969037B0050412F /* UIKit.framework in Frameworks */,
 				461BA2E11969037B0050412F /* Foundation.framework in Frameworks */,
@@ -71,8 +71,8 @@
 		461BA2DF1969037B0050412F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46D63D0C196B402000B23E40 /* libengine.a */,
 				46D63D08196AB1ED00B23E40 /* boost.framework */,
-				461BF70D196A7144004F51C0 /* libhello-lib.a */,
 				461BA2E01969037B0050412F /* Foundation.framework */,
 				461BA2E21969037B0050412F /* CoreGraphics.framework */,
 				461BA2E41969037B0050412F /* UIKit.framework */,
@@ -289,6 +289,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/engine-tmp/Debug-iphonesimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../engine;
@@ -311,6 +312,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/engine-tmp/Debug-iphonesimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../engine;

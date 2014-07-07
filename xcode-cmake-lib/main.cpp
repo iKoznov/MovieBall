@@ -1,10 +1,11 @@
+#include "engine/HelloIOS.h"
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-	std::cout << "Hello World!" << std::endl;
+	hello();
 	
 	// create the window
 	sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));

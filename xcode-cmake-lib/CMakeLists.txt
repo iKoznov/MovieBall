@@ -14,6 +14,8 @@ message(CMAKE_MODULE_PATH = ${CMAKE_MODULE_PATH})
 message(CMAKE_ROOT = ${CMAKE_ROOT})
 message(SFML_LIBRARIES = ${SFML_LIBRARIES})
 
+add_subdirectory(engine)
+
 # Includes
 include_directories (${PROJECT_SOURCE_DIR})
 
@@ -24,5 +26,5 @@ set (SRC
 
 # Library
 add_executable (movieball ${SRC})
-target_link_libraries(movieball ${OPENGL_gl_LIBRARY} ${SFML_LIBRARIES})
+target_link_libraries(movieball engine ${OPENGL_gl_LIBRARY} ${SFML_LIBRARIES})
 source_group(\\ FILES ${SRC})

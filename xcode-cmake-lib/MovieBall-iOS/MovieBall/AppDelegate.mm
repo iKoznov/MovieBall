@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "HelloIOS.h"
+#include <boost/asio.hpp>
+
 
 @implementation AppDelegate
 

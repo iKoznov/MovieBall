@@ -12,9 +12,10 @@
 		461BA2E51969037B0050412F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BA2E41969037B0050412F /* UIKit.framework */; };
 		461BA2EB1969037B0050412F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461BA2E91969037B0050412F /* InfoPlist.strings */; };
 		461BA2ED1969037B0050412F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2EC1969037B0050412F /* main.m */; };
-		461BA2F11969037B0050412F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2F01969037B0050412F /* AppDelegate.m */; };
+		461BA2F11969037B0050412F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 461BA2F01969037B0050412F /* AppDelegate.mm */; };
 		461BA2F31969037B0050412F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461BA2F21969037B0050412F /* Images.xcassets */; };
 		461BF70E196A7144004F51C0 /* libhello-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 461BF70D196A7144004F51C0 /* libhello-lib.a */; };
+		46D63D09196AB1ED00B23E40 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D63D08196AB1ED00B23E40 /* boost.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +28,11 @@
 		461BA2EC1969037B0050412F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		461BA2EE1969037B0050412F /* MovieBall-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MovieBall-Prefix.pch"; sourceTree = "<group>"; };
 		461BA2EF1969037B0050412F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		461BA2F01969037B0050412F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		461BA2F01969037B0050412F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		461BA2F21969037B0050412F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		461BA2F91969037B0050412F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		461BF70D196A7144004F51C0 /* libhello-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libhello-lib.a"; path = "../../../../Library/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator/libhello-lib.a"; sourceTree = "<group>"; };
+		461BF70D196A7144004F51C0 /* libhello-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libhello-lib.a"; path = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MovieBall-bksnuroiduxgribfvwxogivblano/Build/Products/Debug-iphonesimulator/libhello-lib.a"; sourceTree = "<group>"; };
+		46D63D08196AB1ED00B23E40 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = "$(HOME)/Documents/boost.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D63D09196AB1ED00B23E40 /* boost.framework in Frameworks */,
 				461BF70E196A7144004F51C0 /* libhello-lib.a in Frameworks */,
 				461BA2E31969037B0050412F /* CoreGraphics.framework in Frameworks */,
 				461BA2E51969037B0050412F /* UIKit.framework in Frameworks */,
@@ -68,6 +71,7 @@
 		461BA2DF1969037B0050412F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46D63D08196AB1ED00B23E40 /* boost.framework */,
 				461BF70D196A7144004F51C0 /* libhello-lib.a */,
 				461BA2E01969037B0050412F /* Foundation.framework */,
 				461BA2E21969037B0050412F /* CoreGraphics.framework */,
@@ -81,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				461BA2EF1969037B0050412F /* AppDelegate.h */,
-				461BA2F01969037B0050412F /* AppDelegate.m */,
+				461BA2F01969037B0050412F /* AppDelegate.mm */,
 				461BA2F21969037B0050412F /* Images.xcassets */,
 				461BA2E71969037B0050412F /* Supporting Files */,
 			);
@@ -179,7 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461BA2F11969037B0050412F /* AppDelegate.m in Sources */,
+				461BA2F11969037B0050412F /* AppDelegate.mm in Sources */,
 				461BA2ED1969037B0050412F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +279,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(HOME)/Documents",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";
@@ -293,6 +301,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(HOME)/Documents",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MovieBall/MovieBall-Prefix.pch";
 				INFOPLIST_FILE = "MovieBall/MovieBall-Info.plist";

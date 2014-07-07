@@ -204,7 +204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#printenv > ~/env.txt\n#echo `pwd` $SDKROOT $PLATFORM_DIR/Developer > ~/vars.txt\n\nCURRENT_DIR=`pwd`\nMYLIB_DIR=\"$CURRENT_DIR/engine-tmp\"\nmkdir -p $MYLIB_DIR\n\ncd $MYLIB_DIR\nMACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DCMAKE_IOS_DEVELOPER_ROOT=\"$PLATFORM_DIR/Developer\" -DCMAKE_IOS_SDK_ROOT=\"$SDKROOT\" -GXcode ../../engine\n#MACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DIOS_PLATFORM=SIMULATOR -GXcode ..\n";
+			shellScript = "#printenv > ~/env.txt\n#echo `pwd` $SDKROOT $PLATFORM_DIR/Developer > ~/vars.txt\n\nCURRENT_DIR=`pwd`\nMYLIB_DIR=\"$CURRENT_DIR/engine-tmp\"\nmkdir -p $MYLIB_DIR\n\ncd $MYLIB_DIR\nMACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DCMAKE_IOS_DEVELOPER_ROOT=\"$PLATFORM_DIR/Developer\" -DCMAKE_IOS_SDK_ROOT=\"$SDKROOT\" -GXcode ../../engine\n#MACOSX_DEPLOYMENT_TARGET=\"\" cmake -DCMAKE_TOOLCHAIN_FILE=../iOS.cmake -DIOS_PLATFORM=SIMULATOR -GXcode ..";
 		};
 /* End PBXShellScriptBuildPhase section */
 

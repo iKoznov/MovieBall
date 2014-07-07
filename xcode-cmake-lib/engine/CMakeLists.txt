@@ -2,7 +2,7 @@
 cmake_minimum_required (VERSION 2.8)
 project (engine CXX C)
 
-find_package(Boost REQUIRED)
+#find_package(Boost REQUIRED)
 
 # Includes
 include_directories (${PROJECT_SOURCE_DIR})

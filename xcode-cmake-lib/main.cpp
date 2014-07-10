@@ -2,12 +2,16 @@
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <thread>
 #include <chrono>
 
 #include <boost/thread/thread.hpp>
 #include <boost/format.hpp>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/constants.hpp>
+#include <glm/gtx/string_cast.hpp>
 
 class Game {
 	
@@ -123,9 +127,28 @@ void getSettings(const sf::Window &window)
 	std::cout << boost::format("version:%s.%s") % settings.majorVersion % settings.minorVersion << std::endl;
 }
 
+int glm1() {
+	glm::vec4 Position = glm::vec4(glm::vec3(0.0f), 1.0f);
+	glm::mat4 Model = glm::mat4(1.0f);
+	Model[3] = glm::vec4(1.0f, 1.0f, 0.0f, 1.0f);
+	glm::vec4 Transformed = Model * Position;
+	std::cout << boost::format("%s * %s = %s") % glm::to_string(Model) % glm::to_string(Position) % glm::to_string(Transformed) << std::endl;
+	return 0;
+}
+
+int glm2() {
+	glm::vec4 Position = glm::vec4(glm:: vec3(0.0f), 1.0f);
+	glm::mat4 Model = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f));
+	glm::vec4 Transformed = Model * Position;
+	return 0;
+}
+
 int main(int argc, char *argv[])
 {
 	hello();
+	
+	glm1();
+	glm2();
 	
 	sf::Clock clock;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));

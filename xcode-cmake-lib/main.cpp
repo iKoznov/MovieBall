@@ -1,8 +1,13 @@
-#include "engine/HelloIOS.h"
+#include "engine/HelloIOS.hpp"
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <thread>
+#include <chrono>
+
+#include <boost/thread/thread.hpp>
+#include <boost/format.hpp>
 
 class Game {
 	
@@ -44,7 +49,7 @@ void Game::run()
 		processEvents();
 		timeSinceLastUpdate += clock.restart();
 		
-		while (timeSinceLastUpdate > TimePerFrame) {
+		while (timeSinceLastUpdate >= TimePerFrame) {
 			timeSinceLastUpdate -= TimePerFrame;
 			processEvents();
 			update();
@@ -108,17 +113,37 @@ void Game::render()
 	mWindow.display();
 }
 
+void getSettings(const sf::Window &window)
+{
+	sf::ContextSettings settings = window.getSettings();
+	
+	std::cout << boost::format("depth bits:%s") % settings.depthBits << std::endl;
+	std::cout << boost::format("stencil bits:%s") % settings.stencilBits << std::endl;
+	std::cout << boost::format("antialiasing level:%s") % settings.antialiasingLevel << std::endl;
+	std::cout << boost::format("version:%s.%s") % settings.majorVersion % settings.minorVersion << std::endl;
+}
+
 int main(int argc, char *argv[])
 {
 	hello();
+	
+	sf::Clock clock;
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	clock.restart();
+	
+	//waits 2 seconds
+    boost::this_thread::sleep( boost::posix_time::seconds(1) );
+    boost::this_thread::sleep( boost::posix_time::milliseconds(1000) );
 	
 	Game game;
 	game.run();
 	
 	// create the window
-	sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));
+	sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32,0,0,3,1));
+	getSettings(window);
 	
 	// load resources, initialize the OpenGL states, ...
+	glClearColor(1, 1, 1, 1);
 	
 	// run the main loop
     bool running = true;
@@ -141,7 +166,7 @@ int main(int argc, char *argv[])
         }
 		
         // clear the buffers
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
 		
         // draw...
 		

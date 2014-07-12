@@ -22,6 +22,8 @@ message(Boost_LIBRARIES = ${Boost_LIBRARIES})
 message(GLM_INCLUDE_DIRS = ${GLM_INCLUDE_DIRS})
 
 add_subdirectory(engine)
+include_directories("${engine_BINARY_DIR}")
+message(engine_BINARY_DIR = ${engine_BINARY_DIR})
 
 # Includes
 include_directories (${PROJECT_SOURCE_DIR})

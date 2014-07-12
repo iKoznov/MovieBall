@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <thread>
 #include <chrono>
+#include <fstream>
 
 #include <boost/thread/thread.hpp>
 #include <boost/format.hpp>
@@ -145,10 +146,43 @@ int glm2() {
 	return 0;
 }
 
+GLuint compileShader(std::string path, const GLenum shaderType)
+{
+	std::ifstream t(path);
+	std::stringstream buffer;
+	buffer << t.rdbuf();
+	const std::string str = buffer.str();
+	
+	GLint length = str.length() + 1;
+	GLchar* source = new GLchar[length];
+	std::strcpy ( source, str.c_str() );
+    
+    GLuint shaderHandle = glCreateShader(shaderType);
+    
+    glShaderSource( shaderHandle, 1, &source, &length );
+	free(source);
+    
+    glCompileShader(shaderHandle);
+    
+    GLint compileSuccess;
+    glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
+    if (compileSuccess == GL_FALSE) {
+        GLchar messages[256];
+        glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
+        perror(messages);
+        exit(1);
+    } else {
+		std::cout << boost::format("SHADER %s compiled") % path << std::endl;
+	}
+    
+    return shaderHandle;
+}
+
 int main(int argc, char *argv[])
 {
 	hello();
 	
+#if 0
 	glm1();
 	glm2();
 	
@@ -168,6 +202,7 @@ int main(int argc, char *argv[])
 	
 	Game game;
 	game.run();
+#endif
 	
 	// create the window
 	sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32,0,0,3,1));
@@ -175,6 +210,9 @@ int main(int argc, char *argv[])
 	
 	// load resources, initialize the OpenGL states, ...
 	glClearColor(1, 1, 1, 1);
+	
+	compileShader(MB_SHADERS"SimpleFragment.glsl", GL_FRAGMENT_SHADER);
+	compileShader(MB_SHADERS"SimpleVertex.glsl", GL_VERTEX_SHADER);
 	
 	// run the main loop
     bool running = true;

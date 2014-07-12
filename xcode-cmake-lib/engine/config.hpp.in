@@ -1,9 +1,7 @@
 #pragma once
 
-#include <string>
-
 // the configured options and settings
 const int MB_VERSION_MAJOR = @PROJECT_VERSION_MAJOR@;
 const int MB_VERSION_MINOR = @PROJECT_VERSION_MINOR@;
 
-const std::string MB_SHADERS = "@SHADERS@";
+#define MB_SHADERS "@SHADERS@"

@@ -4,6 +4,8 @@
 extern "C" {
 #endif
 
+#include "MBConfig.hpp"
+
 void hello();
 
 #ifdef __cplusplus

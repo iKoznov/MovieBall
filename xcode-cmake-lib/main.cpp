@@ -53,14 +53,16 @@ void Game::run()
 		processEvents();
 		timeSinceLastUpdate += clock.restart();
 		
+		auto idleTime = TimePerFrame - timeSinceLastUpdate;
+		if (idleTime > sf::Time::Zero)
+			std::this_thread::sleep_for(std::chrono::milliseconds(idleTime.asMilliseconds()));
+		
 		while (timeSinceLastUpdate >= TimePerFrame) {
 			timeSinceLastUpdate -= TimePerFrame;
 			processEvents();
 			update();
 		}
 		
-		processEvents();
-		update();
 		render();
 	}
 }
@@ -107,7 +109,7 @@ void Game::update()
 	if ( mIsMovingRight )
 		movement.x += 1.f;
 	
-	mPlayer.move ( 100.f * movement * TimePerFrame.asSeconds() );
+	mPlayer.move ( 1000.f * movement * TimePerFrame.asSeconds() );
 }
 
 void Game::render()
@@ -150,13 +152,19 @@ int main(int argc, char *argv[])
 	glm1();
 	glm2();
 	
-	sf::Clock clock;
-	std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	clock.restart();
+	{
+		sf::Clock clock1;
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		std::cout << "std::sleep " << clock1.restart().asMilliseconds() << std::endl;
+	}
 	
-	//waits 2 seconds
-    boost::this_thread::sleep( boost::posix_time::seconds(1) );
-    boost::this_thread::sleep( boost::posix_time::milliseconds(1000) );
+	{
+		//waits 2 seconds
+		sf::Clock clock2;
+		boost::this_thread::sleep( boost::posix_time::seconds(1) );
+		boost::this_thread::sleep( boost::posix_time::milliseconds(1000) );
+		std::cout << "boost::sleep " << clock2.restart().asMilliseconds() << std::endl;
+	}
 	
 	Game game;
 	game.run();

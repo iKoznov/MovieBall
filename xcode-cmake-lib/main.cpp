@@ -1,7 +1,5 @@
 #include "engine/HelloIOS.hpp"
-#include <SFML/Window.hpp>
-#include <SFML/OpenGL.hpp>
-#include <SFML/Graphics.hpp>
+#include "MovieBallSFML.hpp"
 #include <thread>
 #include <chrono>
 #include <fstream>
@@ -13,112 +11,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/gtx/string_cast.hpp>
-
-class Game {
-	
-public:
-	Game();
-	void run();
-	
-private:
-	void processEvents();
-	void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
-	void update();
-	void render();
-	
-private:;
-	const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
-	sf::RenderWindow mWindow;
-	sf::CircleShape mPlayer;
-	bool mIsMovingUp, mIsMovingDown, mIsMovingLeft, mIsMovingRight;
-	
-};
-
-Game::Game()
-: mWindow ( sf::VideoMode ( 640, 480 ), "SFML Application" )
-, mPlayer()
-, mIsMovingUp(false), mIsMovingDown(false), mIsMovingLeft(false), mIsMovingRight(false)
-{
-	mPlayer.setRadius ( 40.f );
-	mPlayer.setPosition ( 100.f, 100.f );
-	mPlayer.setFillColor ( sf::Color::Cyan );
-}
-
-void Game::run()
-{
-	sf::Clock clock;
-	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-	
-	while ( mWindow.isOpen() )
-	{
-		processEvents();
-		timeSinceLastUpdate += clock.restart();
-		
-		auto idleTime = TimePerFrame - timeSinceLastUpdate;
-		if (idleTime > sf::Time::Zero)
-			std::this_thread::sleep_for(std::chrono::milliseconds(idleTime.asMilliseconds()));
-		
-		while (timeSinceLastUpdate >= TimePerFrame) {
-			timeSinceLastUpdate -= TimePerFrame;
-			processEvents();
-			update();
-		}
-		
-		render();
-	}
-}
-
-void Game::processEvents()
-{
-	sf::Event event;
-	while ( mWindow.pollEvent ( event ) ) {
-		switch ( event.type ) {
-			case sf::Event::KeyPressed:
-				handlePlayerInput ( event.key.code, true );
-				break;
-			case sf::Event::KeyReleased:
-				handlePlayerInput ( event.key.code, false );
-				break;
-			case sf::Event::Closed:
-				mWindow.close();
-				break;
-		}
-	}
-}
-
-void Game::handlePlayerInput ( sf::Keyboard::Key key, bool isPressed )
-{
-	if ( key == sf::Keyboard::W )
-		mIsMovingUp = isPressed;
-	else if ( key == sf::Keyboard::S )
-		mIsMovingDown = isPressed;
-	else if ( key == sf::Keyboard::A )
-		mIsMovingLeft = isPressed;
-	else if ( key == sf::Keyboard::D )
-		mIsMovingRight = isPressed;
-}
-
-void Game::update()
-{
-	sf::Vector2f movement ( 0.f, 0.f );
-	if ( mIsMovingUp )
-		movement.y -= 1.f;
-	if ( mIsMovingDown )
-		movement.y += 1.f;
-	if ( mIsMovingLeft )
-		movement.x -= 1.f;
-	if ( mIsMovingRight )
-		movement.x += 1.f;
-	
-	mPlayer.move ( 1000.f * movement * TimePerFrame.asSeconds() );
-}
-
-void Game::render()
-{
-	mWindow.clear();
-	mWindow.draw ( mPlayer );
-	mWindow.display();
-}
 
 void getSettings(const sf::Window &window)
 {
@@ -146,6 +38,28 @@ int glm2() {
 	return 0;
 }
 
+void shaderLog(unsigned int shader)
+{
+	int infologLen   = 0;
+	int charsWritten = 0;
+	char *infoLog;
+	
+	glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infologLen);
+	
+	if(infologLen > 1)
+	{
+		infoLog = new char[infologLen];
+		if(infoLog == NULL)
+		{
+			std::cerr<<"ERROR: Could not allocate InfoLog buffer\n";
+			exit(1);
+		}
+		glGetShaderInfoLog(shader, infologLen, &charsWritten, infoLog);
+		std::cerr << "SHADER: " << infoLog << "\n\n";
+		delete[] infoLog;
+	}
+}
+
 GLuint compileShader(std::string path, const GLenum shaderType)
 {
 	std::ifstream t(path);
@@ -166,12 +80,8 @@ GLuint compileShader(std::string path, const GLenum shaderType)
     
     GLint compileSuccess;
     glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
-    if (compileSuccess == GL_FALSE) {
-        GLchar messages[256];
-        glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
-        perror(messages);
-        exit(1);
-    } else {
+	shaderLog(shaderHandle);
+    if (compileSuccess == GL_TRUE) {
 		std::cout << boost::format("SHADER %s compiled") % path << std::endl;
 	}
     
@@ -211,8 +121,25 @@ int main(int argc, char *argv[])
 	// load resources, initialize the OpenGL states, ...
 	glClearColor(1, 1, 1, 1);
 	
-	compileShader(MB_SHADERS"SimpleFragment.glsl", GL_FRAGMENT_SHADER);
-	compileShader(MB_SHADERS"SimpleVertex.glsl", GL_VERTEX_SHADER);
+	GLuint vertexShader = compileShader(MB_SHADERS"SimpleVertex.glsl", GL_VERTEX_SHADER);
+	GLuint fragmentShader = compileShader(MB_SHADERS"SimpleFragment.glsl", GL_FRAGMENT_SHADER);
+	
+	GLuint programHandle = glCreateProgram();
+    glAttachShader(programHandle, vertexShader);
+    glAttachShader(programHandle, fragmentShader);
+    glLinkProgram(programHandle);
+	
+	GLint linkSuccess;
+	glGetProgramiv(programHandle, GL_LINK_STATUS, &linkSuccess);
+    if (linkSuccess == GL_FALSE) {
+        GLchar messages[256];
+        glGetProgramInfoLog(programHandle, sizeof(messages), 0, &messages[0]);
+        perror(messages);
+    } else {
+		std::cout << "SHADER programm linked" << std::endl;
+	}
+	
+	glUseProgram(programHandle);
 	
 	// run the main loop
     bool running = true;
@@ -238,6 +165,11 @@ int main(int argc, char *argv[])
         glClear(GL_COLOR_BUFFER_BIT);
 		
         // draw...
+		glBegin(GL_TRIANGLES);
+		glVertex3f(0, 0, 0);
+		glVertex3f(1, 1, 0);
+		glVertex3f(1, 0, 0);
+		glEnd();
 		
         // end the current frame (internally swaps the front and back buffers)
         window.display();

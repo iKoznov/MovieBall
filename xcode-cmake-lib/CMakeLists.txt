@@ -31,6 +31,8 @@ include_directories (${PROJECT_SOURCE_DIR})
 # Source files
 set (SRC
 	main.cpp
+	MovieBallSFML.cpp
+	MovieBallSFML.hpp
 )
 
 # Library

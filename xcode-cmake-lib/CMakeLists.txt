@@ -2,7 +2,7 @@
 cmake_minimum_required (VERSION 2.8)
 project (MovieBall)
 
-include (CTest)
+include( CTest )
 
 find_package(Boost COMPONENTS system thread REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})

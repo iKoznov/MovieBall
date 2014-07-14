@@ -3,6 +3,9 @@
 #include <thread>
 #include <chrono>
 #include <fstream>
+#include <stdexcept>
+#include <deque>
+#include <memory>
 
 #include <boost/thread/thread.hpp>
 #include <boost/format.hpp>
@@ -60,6 +63,46 @@ void shaderLog(unsigned int shader)
 	}
 }
 
+class Res
+{
+public:
+	Res() {
+		arr = new int[10];
+	}
+	
+	~Res() {
+		delete [] arr;
+		std::cout << "delete Res" << std::endl;
+	}
+private:
+	int* arr;
+};
+
+class Shader
+{
+public:
+	Shader(std::string srcPath, GLenum shaderType)
+	{
+		res = std::shared_ptr<Res>(new Res);
+		
+		std::ifstream t(srcPath);
+		std::stringstream buffer;
+		buffer << t.rdbuf();
+		const std::string str = buffer.str();
+		
+		GLint length = str.length() + 1;
+		source = new GLchar[length];
+		std::strcpy ( source, str.c_str() );
+	}
+	
+	~Shader(){
+		delete [] source;
+	}
+private:
+	GLchar* source;
+	std::shared_ptr<Res> res;
+};
+
 GLuint compileShader(std::string path, const GLenum shaderType)
 {
 	std::ifstream t(path);
@@ -75,6 +118,8 @@ GLuint compileShader(std::string path, const GLenum shaderType)
     
     glShaderSource( shaderHandle, 1, &source, &length );
 	free(source);
+	
+	strerror(errno);
     
     glCompileShader(shaderHandle);
     
@@ -91,6 +136,22 @@ GLuint compileShader(std::string path, const GLenum shaderType)
 int main(int argc, char *argv[])
 {
 	hello();
+	
+	auto ShaderPath = MB_SHADERS"SimpleVertex.glsl";
+	try {
+		Shader(ShaderPath, GL_VERTEX_SHADER);
+	} catch(std::exception& e) {
+		std::cerr << boost::format("Error while compiling shader %s: %s") % ShaderPath % e.what() << std::endl;
+	}
+	/*
+	double data[] = {7,2,13,123,1};
+	std::deque<double> d;
+	
+	std::deque<double>::iterator current = d.begin();
+	for( size_t i = 0; i < 5; ++i ) {
+		d.insert(current++, data[i] + 41);
+	}
+	*/	
 	
 #if 0
 	glm1();

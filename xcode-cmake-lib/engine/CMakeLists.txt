@@ -33,3 +33,6 @@ set (HDR
 # Library
 add_library (engine STATIC ${HDR} ${SRC})
 source_group(\\ FILES ${HDR} ${SRC})
+
+enable_testing()
+add_subdirectory(test)

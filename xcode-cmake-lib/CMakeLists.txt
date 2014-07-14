@@ -2,6 +2,8 @@
 cmake_minimum_required (VERSION 2.8)
 project (MovieBall)
 
+include (CTest)
+
 find_package(Boost COMPONENTS system thread REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -21,6 +23,7 @@ message(SFML_LIBRARIES = ${SFML_LIBRARIES})
 message(Boost_LIBRARIES = ${Boost_LIBRARIES})
 message(GLM_INCLUDE_DIRS = ${GLM_INCLUDE_DIRS})
 
+enable_testing()
 add_subdirectory(engine)
 include_directories("${engine_BINARY_DIR}")
 message(engine_BINARY_DIR = ${engine_BINARY_DIR})

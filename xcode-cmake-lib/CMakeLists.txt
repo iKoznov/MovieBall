@@ -23,6 +23,10 @@ message(SFML_LIBRARIES = ${SFML_LIBRARIES})
 message(Boost_LIBRARIES = ${Boost_LIBRARIES})
 message(GLM_INCLUDE_DIRS = ${GLM_INCLUDE_DIRS})
 
+if ( ${CMAKE_COMPILER_IS_GNUCXX} )
+	set( CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -std=c++11 )
+endif()
+
 enable_testing()
 add_subdirectory(engine)
 include_directories("${engine_BINARY_DIR}")

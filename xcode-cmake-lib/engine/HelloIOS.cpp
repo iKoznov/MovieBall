@@ -1,5 +1,5 @@
 #include "MBConfig.hpp"
-#include "helloIOS.hpp"
+#include "HelloIOS.hpp"
 #include <stdio.h>
 
 void hello()

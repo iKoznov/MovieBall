@@ -1,5 +1,9 @@
 #pragma once
 
+#if GLEW_FOUND
+#include <GL/glew.h>
+#endif
+
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>

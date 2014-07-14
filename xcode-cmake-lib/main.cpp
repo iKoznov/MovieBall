@@ -116,7 +116,7 @@ GLuint compileShader(std::string path, const GLenum shaderType)
     
     GLuint shaderHandle = glCreateShader(shaderType);
     
-    glShaderSource( shaderHandle, 1, &source, &length );
+    glShaderSource( shaderHandle, 1, (const char **)&source, &length );
 	free(source);
 	
 	strerror(errno);

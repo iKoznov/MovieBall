@@ -1,4 +1,13 @@
+# Ubuntu
+#
+*~
+
+# Mac OS
 .DS_Store
+
+# kDevelop
+*.kdev4
+.kdev4
 
 # Xcode
 #

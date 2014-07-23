@@ -1,4 +1,0 @@
-/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/ALL_BUILD.dir
-/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/ZERO_CHECK.dir
-/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/tree.dir
-/Users/user/Developer/sphere/movies/tomatoes/test/CMakeFiles/treeEx.dir

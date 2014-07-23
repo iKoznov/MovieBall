@@ -1,3 +1,0 @@
-/Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeFiles/ALL_BUILD.dir
-/Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeFiles/ZERO_CHECK.dir
-/Users/user/Developer/sphere/iOS_FrontEnd/tmp/CMakeFiles/model.dir

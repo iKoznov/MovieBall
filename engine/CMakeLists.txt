@@ -1,54 +1,38 @@
-cmake_minimum_required(VERSION 2.8)
+# Standard setup
+cmake_minimum_required (VERSION 2.8)
+project (engine CXX C)
 
-project(ENGINE)
-#add_subdirectory(src)
+# The version number.
+set (PROJECT_VERSION_MAJOR 1)
+set (PROJECT_VERSION_MINOR 0)
+file (RELATIVE_PATH SHADERS "${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/shaders" )
+set( SHADERS "${SHADERS}/" )
 
-#find_package(OpenGL)
-#find_package(GLUT)
+# configure a header file to pass some of the CMake settings
+# to the source code
+configure_file (
+	"${PROJECT_SOURCE_DIR}/config.hpp.in"
+	"${PROJECT_BINARY_DIR}/MBConfig.hpp"
+)
 
-#SET( CMAKE_C_COMPILER "c99wrap.exe ""cl""" )
-#SET( CMAKE_CXX_COMPILER cl )
+#find_package(Boost REQUIRED)
+#TODO: download, build and install boost framework for iOS to ~/Documents automatically
 
-set(SOURCE_ENGINE
-    TargetConditionals.h
-    engine.h engine.c
-    xyz.h xyz.c
-    icosahedron.h icosahedron.c
-    )
+include_directories("${PROJECT_BINARY_DIR}")
 
-#message( STATUS "==>> ${OPENGL_INCLUDE_DIR}" )
-#message( STATUS "${GLUT_LIBRARY}" )
+# Source files
+set (SRC
+	HelloIOS.cpp
+)
 
-#include_directories( ${OPENGL_INCLUDE_DIR} )
+# Headers
+set (HDR
+	${PROJECT_BINARY_DIR}/MBConfig.hpp HelloIOS.hpp
+)
 
+# Library
+add_library (engine STATIC ${HDR} ${SRC})
+source_group(\\ FILES ${HDR} ${SRC})
 
-IF(APPLE)
-  INCLUDE_DIRECTORIES ( /System/Library/Frameworks )
-  FIND_LIBRARY(OpenGL_LIBRARY OpenGL )
-  MARK_AS_ADVANCED (OpenGL_LIBRARY)
-  SET(EXTRA_LIBS ${OpenGL_LIBRARY})
-ENDIF (APPLE)
-
-
-#include_directories(/usr/X11R6/include/)
-#link_directories(/usr/X11R6/lib)
-#SET(EXTRA_LIBS GL X11 GLU glut)
-#target_link_libraries(main ${EXTRA_LIBS})
-
-
-#get_cmake_property(SOURCE MACROS)
-#foreach (_var ${SOURCE})
-#    message(STATUS "==========================>> ${SOURCE}")
-#endforeach()
-
-#add_custom_command(
-#  OUTPUT icosahedron.cpp
-#  COMMAND c99conv.exe icosahedron.c icosahedron.c
-#  MAIN_DEPENDENCY icosahedron.c
-#  COMMENT "Preprocessing myfile.sql.in"
-#  VERBATIM
-#)
-
-add_library( engine STATIC ${SOURCE_ENGINE} )
-
-target_link_libraries( sphere_testbed ${EXTRA_LIBS} )
+enable_testing()
+add_subdirectory(test)

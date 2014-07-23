@@ -1,110 +1,0 @@
-Ttree
-v5
-r1
-cCheck dependencies
-cCompileC RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.o /Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/user/Developer/sphere/movies/tomatoes/test/Debug/tree normal x86_64
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
-c00000000514480E000000000000000AA
-t1363443936
-s170
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/stdio.h
-c00000000507EBBD60000000000004523
-t1350482902
-s17699
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/stdlib.h
-c00000000507EBBD60000000000003089
-t1350482902
-s12425
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/time.h
-c00000000507EBBD6000000000000178E
-t1350482902
-s6030
-
-N/Users/user/Developer/sphere/movies/tomatoes/test/Debug/tree
-t1366200254
-s14848
-
-N/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.o
-t1366200254
-s10692
-
-N/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/tree.LinkFileList
-c00000000516E8FBE0000000000000079
-t1366200254
-s121
-
-N/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Script-467BD45006CF4CAA8ED08A83.sh
-c00000000516E8FBE00000000000000B1
-t1366200254
-s177
-
-N/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c
-c00000000516E91F90000000000001DDC
-t1366200825
-s7644
-i<stdlib.h>
-i<stdio.h>
-i<time.h>
-
-CBuild AST from /Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c
-r0
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesee400189e01eb741^c5700189e01eb741^---0#1#0#--18"Check dependencies36"78E337FA-8449-4A0A-AE5F-8459F9B1153B-
-
-CCompileC RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.o /Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
-s387899529.007138
-e387899529.066122
-r1
-xCompileC
-xRED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.o
-x/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c
-xnormal
-xx86_64
-xc
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c:202:26: warning: implicit declaration of function 'is_leaf' is invalid in C99 [-Wimplicit-function-declaration]
-o    struct node *child = is_leaf(n->right) ? n->left : n->right;
-o                         ^
-o/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c:204:5: warning: implicit declaration of function 'replace_node' is invalid in C99 [-Wimplicit-function-declaration]
-o    replace_node(n, child);
-o    ^
-o2 warnings generated.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c9fe90189e01eb741^412b1889e01eb741^-498"/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c:202:26: warning: implicit declaration of function 'is_leaf' is invalid in C99 [-Wimplicit-function-declaration]    struct node *child = is_leaf(n->right) ? n->left : n->right;                         ^/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c:204:5: warning: implicit declaration of function 'replace_node' is invalid in C99 [-Wimplicit-function-declaration]    replace_node(n, child);    ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@60"Implicit declaration of function 'is_leaf' is invalid in C99-387899529#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@76"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c0000000000000000^201#25#201#25#4418#0#14"Semantic Issue--2@65"Implicit declaration of function 'replace_node' is invalid in C99-387899529#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@76"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c0000000000000000^203#4#203#4#4467#0#14"Semantic Issue--0#0#0#-19%DVTDocumentLocation4@76"file://localhost/Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c0000000000000000^2258"CompileC RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.o RedBlack.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/user/Developer/sphere/movies/tomatoes/test    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof "-DCMAKE_INTDIR=\"Debug\"" -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.8 -g -Wno-sign-conversion -I/Users/user/Developer/sphere/movies/tomatoes/test/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/DerivedSources/x86_64 -I/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/DerivedSources -Wmost -Wno-four-char-constants -Wno-unknown-pragmas -F/Users/user/Developer/sphere/movies/tomatoes/test/Debug -MMD -MT dependencies -MF /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.d --serialize-diagnostics /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.dia -c /Users/user/Developer/sphere/movies/tomatoes/test/RedBlack.c -o /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/RedBlack.o36"D800A225-7D2A-41DA-8A1B-049B927CAB17-
-
-CLd /Users/user/Developer/sphere/movies/tomatoes/test/Debug/tree normal x86_64
-s387899529.072933
-e387899529.103562
-r0
-xLd
-x/Users/user/Developer/sphere/movies/tomatoes/test/Debug/tree
-xnormal
-xx86_64
-oUndefined symbols for architecture x86_64:
-o  "_is_leaf", referenced from:
-o      _delete_one_child in RedBlack.o
-o  "_replace_node", referenced from:
-o      _delete_one_child in RedBlack.o
-old: symbol(s) not found for architecture x86_64
-oclang: error: linker command failed with exit code 1 (use -v to see invocation)
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Link /Users/user/Developer/sphere/movies/tomatoes/test/Debug/tree79ca1289e01eb741^ad841a89e01eb741^-314"Undefined symbols for architecture x86_64:  "_is_leaf", referenced from:      _delete_one_child in RedBlack.o  "_replace_node", referenced from:      _delete_one_child in RedBlack.old: symbol(s) not found for architecture x86_64clang: error: linker command failed with exit code 1 (use -v to see invocation)6(21%IDEActivityLogMessage2@28""_is_leaf", referenced from:-387899529#43#31#-2#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#30"Apple Mach-O Linker (ld) Error--2@31"_delete_one_child in RedBlack.o-387899529#74#38#-0#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@33""_replace_node", referenced from:-387899529#112#36#-2#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#30"Apple Mach-O Linker (ld) Error--2@31"_delete_one_child in RedBlack.o-387899529#148#38#-0#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@43"Symbol(s) not found for architecture x86_64-387899529#186#48#-0#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@65"Linker command failed with exit code 1 (use -v to see invocation)-387899529#234#80#-2#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#30"Apple Mach-O Linker (ld) Error--0#0#0#--746"Ld Debug/tree normal x86_64    cd /Users/user/Developer/sphere/movies/tomatoes/test    setenv MACOSX_DEPLOYMENT_TARGET 10.8    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/user/Developer/sphere/movies/tomatoes/test/Debug -F/Users/user/Developer/sphere/movies/tomatoes/test/Debug -filelist /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Objects-normal/x86_64/tree.LinkFileList -mmacosx-version-min=10.8 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -o /Users/user/Developer/sphere/movies/tomatoes/test/Debug/tree36"461FB3A8-93CD-43F9-B169-5DAF1C63BC0F-
-
-CPhaseScriptExecution "CMake PostBuild Rules" /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Script-467BD45006CF4CAA8ED08A83.sh
-s387893067.521588
-e387893067.544187
-r1
-xPhaseScriptExecution
-xCMake PostBuild Rules
-x/Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Script-467BD45006CF4CAA8ED08A83.sh
-oecho "Depend check for xcode"
-oDepend check for xcode
-ocd /Users/user/Developer/sphere/movies/tomatoes/test && make -C /Users/user/Developer/sphere/movies/tomatoes/test -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/XCODE_DEPEND_HELPER.make PostBuild.tree.Debug
-omake[1]: Nothing to be done for `PostBuild.tree.Debug'.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Run custom shell script 'CMake PostBuild Rules'91d5854bc71eb741^834f8b4bc71eb741^-335"echo "Depend check for xcode"Depend check for xcodecd /Users/user/Developer/sphere/movies/tomatoes/test && make -C /Users/user/Developer/sphere/movies/tomatoes/test -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/XCODE_DEPEND_HELPER.make PostBuild.tree.Debugmake[1]: Nothing to be done for `PostBuild.tree.Debug'.4(21%IDEActivityLogMessage2@30"echo "Depend check for xcode"-387893067#0#30#-0#-----2@23"Depend check for xcode-387893067#30#23#-0#-----2@226"cd /Users/user/Developer/sphere/movies/tomatoes/test && make -C /Users/user/Developer/sphere/movies/tomatoes/test -f /Users/user/Developer/sphere/movies/tomatoes/test/CMakeScripts/XCODE_DEPEND_HELPER.make PostBuild.tree.Debug-387893067#53#226#-0#-----2@56"make[1]: Nothing to be done for `PostBuild.tree.Debug'.-387893067#279#56#-0#-----0#0#0#--313"PhaseScriptExecution "CMake PostBuild Rules" RED_BLACK_TREE.build/Debug/tree.build/Script-467BD45006CF4CAA8ED08A83.sh    cd /Users/user/Developer/sphere/movies/tomatoes/test    /bin/sh -c /Users/user/Developer/sphere/movies/tomatoes/test/RED_BLACK_TREE.build/Debug/tree.build/Script-467BD45006CF4CAA8ED08A83.sh36"B7C28038-C58E-49F0-8787-5CAEEBD25BD2-
-

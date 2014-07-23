@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdash>
+  <system>
+    <platform>Linux</platform>
+    <version>Ubuntu</version>
+    <bits>64</bits>
+    <basedirectory>~/Dashboards/cdashclient_workspace/</basedirectory>
+  </system>
+  <compiler>
+    <name>gcc</name>
+    <version>4.8.2</version>
+    <generator>Unix Makefiles</generator>
+  </compiler>
+  <cmake>
+    <version>2.8</version>
+    <path>/usr/bin/cmake</path>
+  </cmake>
+  <program>
+    <name>git</name>
+    <version>1.9.1</version>
+    <path>/usr/bin/git</path>
+  </program>
+</cdash>

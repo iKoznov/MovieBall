@@ -8,6 +8,7 @@ BOOST_AUTO_TEST_SUITE(CalculatorTests)
 
 BOOST_AUTO_TEST_CASE(PlusTest)
 {
+BOOST_TEST_MESSAGE("abcabc");
     BOOST_CHECK_EQUAL(1 + 2, 3);
 	int *b = new int;
 }

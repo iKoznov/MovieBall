@@ -135,6 +135,7 @@ GLuint compileShader(std::string path, const GLenum shaderType)
 
 int main(int argc, char *argv[])
 {
+	std::cout << "MovieBall" << std::endl;
 	hello();
 	
 	auto ShaderPath = MB_SHADERS"SimpleVertex.glsl";
